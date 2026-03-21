@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МИОТ | Международный Институт Остеопатических Технологий</title>
+    <meta name="description" content="Обучаем специалистов телесных практик работать на уровне причин, а не симптомов.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Animations -->
+    <div class="bg-graphics" id="bg-graphics">
+        <div class="shape shape-line shape-1"></div>
+        <div class="shape shape-circle shape-2"></div>
+        <div class="shape shape-line shape-3"></div>
+        <div class="shape shape-circle shape-4"></div>
+        <div class="shape shape-line shape-5"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header slide-down">
+        <div class="container header-inner">
+            <div class="logo" style="display: flex; align-items: center; gap: 15px;">
+                <a href="index.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+                    <img src="Брендбук + лого /лого.png" alt="МИОТ Логотип" class="logo-img">
+                    <div class="logo-text">
+                        МЕЖДУНАРОДНЫЙ<br>
+                        ИНСТИТУТ<br>
+                        ОСТЕОПАТИЧЕСКИХ<br>
+                        ТЕХНОЛОГИЙ
+                    </div>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="programs.html">Программы обучения</a>
+                <a href="about.html#about">Об эксперте</a>
+                <a href="free-materials.html">Бесплатные материалы</a>
+                <a href="results.html">Результаты</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="blog.html">Блог</a>
+                <a href="https://t.me/TatyBondar" class="btn btn-primary btn-sm">Записаться на обучение</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Блок 1: Hero -->
+        <section class="hero bg-secondary">
+            <div class="container hero-inner">
+                <div class="hero-content fade-in-up">
+                    <h1 class="compact-offer">Программы обучения</h1>
+                    <p class="hero-subtitle">Системное клиническое мышление + прикладная мануальная практика. Выберите
+                        свой путь в профессии.</p>
+                    <div class="hero-actions">
+                        <a href="#selection-form" class="btn btn-primary btn-glow">Подобрать обучение</a>
+                        <a href="#programs" class="btn btn-secondary">Смотреть список</a>
+                    </div>
+                </div>
+                <div class="hero-media fade-in-up delay-1">
+                    <div class="hero-gallery">
+                        <img class="hero-img img-main" style="width: 100%; height: 100%; object-fit: cover;"
+                            src="Фото для сайта/oleg_teaching_close_up.png" alt="Обучение остеопатии">
+                        <div class="hero-backdrop"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Блок 3: Программы -->
+        <section class="programs bg-secondary" id="programs">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <span class="badge">Наши продукты</span>
+                    <h2>Программы обучения</h2>
+                </div>
+
+                <div class="programs-filters fade-in-up">
+                    <button class="filter-btn active" data-filter="specialist">Для специалистов</button>
+                    <button class="filter-btn" data-filter="self">Для себя</button>
+                    <button class="filter-btn" data-filter="all" style="display:none;">Все</button>
+                </div>
+
+                <div class="programs-slider-wrapper">
+                    <div class="programs-grid-layout" id="programsSlider">
+                        <!-- Программа 1 -->
+                        <div class="program-card fade-in-up" data-category="specialist">
+                            <div class="program-img-wrapper">
+                                <img src="коробки продуктов/функциональная анатомия.png" alt="Функциональная анатомия"
+                                    class="program-img">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОЧНО/ОНЛАЙН</span>
+                                    <span>БАЗОВЫЙ/ПРОДВИНУТЫЙ</span>
+                                    <span>2-4 МЕСЯЦА</span>
+                                </div>
+                                <h3>Функциональная анатомия</h3>
+                                <p class="subtitle">Язык тела, которым говорит боль.</p>
+                                <p>Понимайте тело, а не просто называете мышцы. Откажитесь от заучивания.</p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Тем, кто хочет глубинное понимание для выявления
+                                        причин,
+                                        а не для экзамена.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Понимание устройства тела на глубинном уровне во
+                                        взаимосвязи. Личное проживание.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://t.me/TatyBondar" class="btn btn-primary">Записаться на курс</a>
+                                    <a href="https://t.me/TatyBondar" class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Программа 2 -->
+                        <div class="program-card fade-in-up delay-1" data-category="specialist">
+                            <div class="program-img-wrapper">
+                                <img src="коробки продуктов/специалист остекоррекции за 6 мес.png"
+                                    alt="Специалист остеокоррекции" class="program-img">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОЧНО/ОНЛАЙН</span>
+                                    <span>БАЗОВЫЙ/ПРОДВИНУТЫЙ</span>
+                                    <span class="highlight-tag">6-12 МЕСЯЦЕВ</span>
+                                </div>
+                                <h3>Специалист остеокоррекции</h3>
+                                <p class="subtitle">Системный метод для решения любых проблем.</p>
+                                <p>Освойте целостную систему работы с телом. Работайте с причиной, а не симптомами.</p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Экспертам, которые хотят обладать компетентностью для
+                                        решения сложных задач.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Уверенность с любым пациентом. Диплом для повышения
+                                        доходов и легальной работы.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://t.me/TatyBondar" class="btn btn-primary">Записаться на курс</a>
+                                    <a href="https://t.me/TatyBondar" class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Программа 3 -->
+                        <div class="program-card fade-in-up delay-2" data-category="specialist">
+                            <div class="program-img-wrapper">
+                                <img src="коробки продуктов/специалист остеоэстетики 3 дня.png"
+                                    alt="Специалист ОстеоЭстетики" class="program-img">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОЧНО/ОНЛАЙН</span>
+                                    <span>ПРЕМИУМ</span>
+                                    <span>3 ДНЯ</span>
+                                </div>
+                                <h3>Специалист ОстеоЭстетики</h3>
+                                <p class="subtitle">Красота рождается из здоровья.</p>
+                                <p>Эстетика через остеопатию. Применимость ручных методик для премиального результата.
+                                </p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Практикам, желающим добавить эффект эстетическим
+                                        процедурам под высокий чек.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Взгляд на причины возрастных изменений. Навыки,
+                                        дающие
+                                        гарантированный результат.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://t.me/TatyBondar" class="btn btn-primary">Записаться на курс</a>
+                                    <a href="https://t.me/TatyBondar" class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Программа 4: Сам себе остеопат -->
+                        <div class="program-card fade-in-up delay-3" data-category="self">
+                            <div class="program-img-wrapper">
+                                <img src="коробки продуктов/сам себе остеопат.png" alt="Сам себе остеопат"
+                                    class="program-img"
+                                    onerror="this.style.display='none';this.parentElement.style.background='#e8edf5';this.parentElement.innerHTML+='<div style=\'font-size:3rem;opacity:0.15;font-weight:800;font-family:var(--font-primary);display:flex;align-items:center;justify-content:center;height:100%;\'>МИОТ</div>'">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОНЛАЙН</span>
+                                    <span>ДЛЯ СЕБЯ</span>
+                                    <span class="highlight-tag">8 МОДУЛЕЙ</span>
+                                </div>
+                                <h3>Сам себе остеопат</h3>
+                                <p class="subtitle">Научись управлять своим телом изнутри.</p>
+                                <p>Программа самокоррекции в формате «повторяй за мной»: диафрагмы тела, дыхание, ЖКТ,
+                                    мышечные цепи — без врачей.</p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Для тех, кто хочет самостоятельно диагностировать и
+                                        устранять напряжения в теле.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Навык остеопатической самокоррекции: осанка, боли,
+                                        общее самочувствие.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://online.agape-course.ru/teach/control/stream/view/id/677817237"
+                                        target="_blank" class="btn btn-primary">Записаться на курс</a>
+                                    <a href="https://online.agape-course.ru/teach/control/stream/view/id/677817237"
+                                        target="_blank" class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Программа 5: ОстеоРодитель -->
+                        <div class="program-card fade-in-up delay-4" data-category="self">
+                            <div class="program-img-wrapper">
+                                <img src="коробки продуктов/курс для родителей.png" alt="ОстеоРодитель"
+                                    class="program-img"
+                                    onerror="this.style.display='none';this.parentElement.style.background='#e8edf5';this.parentElement.innerHTML+='<div style=\'font-size:3rem;opacity:0.15;font-weight:800;font-family:var(--font-primary);display:flex;align-items:center;justify-content:center;height:100%;\'>МИОТ</div>'">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОНЛАЙН</span>
+                                    <span>ДЛЯ СЕБЯ</span>
+                                    <span class="highlight-tag">4 НЕДЕЛИ</span>
+                                </div>
+                                <h3>ОстеоРодитель</h3>
+                                <p class="subtitle">Помоги своему ребёнку без таблеток.</p>
+                                <p>Адаптированные остеопатические техники для работы с детьми от 0 до 7 лет. 15 уроков
+                                    по 20 минут.</p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Для родителей, желающих поддерживать здоровье ребёнка
+                                        мягкими безопасными методами.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Умение корректировать дисфункции у малыша — осанка,
+                                        сон, пищеварение.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://agape-course.com/forparents2" target="_blank"
+                                        class="btn btn-primary">Записаться на курс</a>
+                                    <a href="https://agape-course.com/forparents2" target="_blank"
+                                        class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Программа 6: ОстеоЭстетика для себя -->
+                        <div class="program-card fade-in-up delay-5" data-category="self">
+                            <div class="program-img-wrapper">
+                                <img src="коробки продуктов/остеоэстетика(1).png" alt="ОстеоЭстетика для себя"
+                                    class="program-img"
+                                    onerror="this.style.display='none';this.parentElement.style.background='#e8edf5';this.parentElement.innerHTML+='<div style=\'font-size:3rem;opacity:0.15;font-weight:800;font-family:var(--font-primary);display:flex;align-items:center;justify-content:center;height:100%;\'>МИОТ</div>'">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОНЛАЙН</span>
+                                    <span>ДЛЯ СЕБЯ</span>
+                                    <span class="highlight-tag">21 ДЕНЬ</span>
+                                </div>
+                                <h3>ОстеоЭстетика для себя</h3>
+                                <p class="subtitle">Выглядеть моложе — без филлеров и операций.</p>
+                                <p>Утренние тренировки по 25 минут: убираем морщины, отёки, носогубные складки через
+                                    работу с телом и лицом.</p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Для тех, кто хочет замедлить возрастные изменения и
+                                        улучшить внешний вид естественным путём.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Свежий вид, чёткий овал лица, улучшение цвета кожи —
+                                        видимо за 21 день.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://agape-course.com/estetika" target="_blank"
+                                        class="btn btn-primary">Записаться на курс</a>
+                                    <a href="https://agape-course.com/estetika" target="_blank"
+                                        class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-lg fade-in-up">
+                    <a href="https://t.me/TatyBondar" class="btn btn-primary">Получить консультацию по выбору обучения</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 4: Расписание -->
+        <section class="events">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2>Ближайшие мероприятия</h2>
+                </div>
+
+                <div class="events-grid">
+                    <div class="events-photo fade-in-up delay-1">
+                        <img src="Фото для сайта/audience_oleg.png" alt="Аудитория на мероприятии Олега Агапэ"
+                            class="expert-photo">
+                    </div>
+
+                    <div class="events-list">
+                        <div class="event-row fade-in-up delay-2">
+                            <div class="event-date">
+                                <span class="day">30-1</span>
+                                <span class="month">ЯНВ/ФЕВ</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Специалист ОстеоЭстетики</h4>
+                                <p>Эстетика через остеопатию. Применимость ручных методик для премиального результата.
+                                    (Очно/Онлайн)</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="https://t.me/TatyBondar" class="btn btn-secondary btn-sm">Записаться</a>
+                            </div>
+                        </div>
+
+                        <div class="event-row fade-in-up delay-3">
+                            <div class="event-date">
+                                <span class="day">2</span>
+                                <span class="month">ФЕВРАЛЯ</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Мастерская по стоматологии</h4>
+                                <p>Работа с ВНЧС и прикусом устраняет причину напряжений и дисбаланса. (Очно/Онлайн)</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="https://t.me/TatyBondar" class="btn btn-secondary btn-sm">Записаться</a>
+                            </div>
+                        </div>
+
+                        <div class="event-row fade-in-up delay-4">
+                            <div class="event-date">
+                                <span class="day">27</span>
+                                <span class="month">ФЕВРАЛЯ</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Специалист остеокоррекции</h4>
+                                <p>Освойте целостную систему работы с телом. (Очно/Онлайн)</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="https://t.me/TatyBondar" class="btn btn-secondary btn-sm">Записаться</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Блок 7.5: Форма подбора программы -->
+        <section class="program-selection bg-light-alt" id="selection-form">
+            <div class="container text-center">
+                <div class="action-box fade-in-up">
+                    <h2 style="color: var(--color-text-primary); margin-bottom: 2rem;">Не знаете с чего начать?</h2>
+                    <div class="community-actions">
+                        <a href="https://t.me/TatyBondar" class="btn btn-secondary">Я новичок - подобрать базовую программу</a>
+                        <a href="https://t.me/TatyBondar" class="btn btn-primary">Я уже практикую - подобрать продвинутый уровень</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Блок 9: FAQ -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <span class="badge">Вопросы</span>
+                    <h2>Частые вопросы об обучении</h2>
+                </div>
+
+                <div class="faq-list fade-in-up delay-1">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Обязательно ли иметь медицинское образование, чтобы учиться у вас?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Нет, это не обязательно. Наши программы адаптированы так, чтобы даже новички могли
+                                освоить профессию с нуля. После курса «Специалист остеокоррекции» вы получаете диплом о
+                                переподготовке с ОКВЭДом на оздоровительную деятельность.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>С какого продукта мне лучше начать свой путь?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Все зависит от вашей точки А:<br>
+                                — Если вам не хватает базы для понимания тела — ваш выбор <strong>«Функциональная
+                                    анатомия»</strong>.<br>
+                                — Если хотите получить полную систему и профессию за 6 месяцев — <strong>«Специалист
+                                    остеокоррекции»</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Как быстро я смогу окупить стоимость обучения?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ученики начинают зарабатывать уже в процессе обучения. Новички выходят на доход от 150
+                                000 ₽. Опытные специалисты повышают чек от 400 000 ₽ до 1 000 000 ₽. Включен модуль по
+                                маркетингу для привлечения клиентов.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Можно ли научиться мануальным техникам онлайн?</h4>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да. Обучение включает качественные видео-демонстрации на моделях. Олег Агапэ и кураторы
+                                проверяют «постановку рук» по видео. Для максимального погружения есть очный формат в
+                                Москве и СПб.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-lg fade-in-up delay-2">
+                    <a href="#programs" class="btn btn-primary">Посмотреть все программы</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark" id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1.5rem;">
+                        <img src="Брендбук + лого /лого.png" alt="МИОТ Логотип"
+                            style="width: 50px; height: 50px; object-fit: contain;">
+                        <div class="logo-text" style="color: white; font-size: 0.8rem; line-height: 1.2;">
+                            МЕЖДУНАРОДНЫЙ<br>
+                            ИНСТИТУТ<br>
+                            ОСТЕОПАТИЧЕСКИХ<br>
+                            ТЕХНОЛОГИЙ
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Обучение</h4>
+                    <ul>
+                        <li><a href="programs.html">Функциональная анатомия</a></li>
+                        <li><a href="programs.html">Специалист остеокоррекции</a></li>
+                        <li><a href="programs.html">Специалист ОстеоЭстетики</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Институт</h4>
+                    <ul>
+                        <li><a href="about.html">Об Олеге Агапэ</a></li>
+                        <li><a href="results.html">Кейсы студентов</a></li>
+                        <li><a href="about.html#media">СМИ о нас</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contacts">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><a href="mailto:info@miot.ru">info@miot.ru</a></li>
+                        <li>г. Москва, ул. Примерная 1</li>
+                        <li><a href="https://t.me/TatyBondar" target="_blank" class="btn btn-secondary btn-glow btn-sm mt-sm">Задать вопрос</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 МИОТ. Все права защищены.</p>
+                <div class="footer-legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Договор оферты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Video Widget -->
+    <div class="floating-video-widget fade-in-up" id="floatingVideoWidget">
+        <button class="close-video-btn" id="closeFloatingVideo">&times;</button>
+        <div class="video-container">
+            <video id="promoVideo" controls playsinline poster="Фото для сайта/Олег1544.jpg">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="video-caption">Преимущества обучения</div>
+    </div>
+
+    <!-- Lead Capture Modal -->
+    <div class="modal-overlay" id="leadModal">
+        <div class="modal-content">
+            <button class="close-modal-btn" id="closeLeadModal">&times;</button>
+            <h3 style="color: var(--color-text-primary); margin-bottom: 1rem;">Оставить заявку на обучение</h3>
+            <p style="margin-bottom: 1.5rem;">Заполните форму, и наш менеджер свяжется с вами для подбора программы.</p>
+            <form id="leadForm">
+                <input type="text" placeholder="Ваше имя" required class="form-input"
+                    style="width: 100%; padding: 0.8rem 1rem; margin-bottom: 1rem; border: 1px solid var(--color-bg-secondary); border-radius: var(--radius-sm); font-family: var(--font-secondary);">
+                <input type="tel" placeholder="Ваш телефон" required class="form-input"
+                    style="width: 100%; padding: 0.8rem 1rem; margin-bottom: 1.5rem; border: 1px solid var(--color-bg-secondary); border-radius: var(--radius-sm); font-family: var(--font-secondary);">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
