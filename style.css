@@ -2504,6 +2504,7 @@ section {
         font-size: 1rem;
     }
 }
+
 /* ==========================================================================
    Video Review Cards
    ========================================================================== */
@@ -2513,6 +2514,9 @@ section {
     flex-direction: column;
     gap: 3rem;
     margin-top: 3rem;
+    padding: 2rem;
+    background-color: #FAF8F4;
+    border-radius: 40px;
     text-align: left;
 }
 
@@ -2520,18 +2524,18 @@ section {
     display: flex;
     align-items: center;
     gap: 3rem;
-    background: var(--color-bg-primary);
+    background: #ffffff;
     padding: 3rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    border-radius: 30px;
+    border: 1px solid var(--color-highlight);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
 .video-case-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-highlight);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
 }
 
 .video-case-card:nth-child(even) {
@@ -2544,22 +2548,25 @@ section {
 
 .video-case-content h4 {
     color: #5d5dff;
-    font-size: 2.2rem;
+    font-size: 2.22rem;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     font-weight: 800;
+    font-family: var(--font-primary);
+    letter-spacing: 0.5px;
 }
 
 .video-case-content p {
-    font-size: 1.15rem;
+    font-size: 1.18rem;
     line-height: 1.6;
     color: var(--color-text-primary);
     margin: 0;
+    font-family: var(--font-secondary);
 }
 
 .video-case-media {
-    flex: 1.2;
-    border-radius: var(--radius-md);
+    flex: 1.25;
+    border-radius: 18px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background: #000;
@@ -2570,19 +2577,27 @@ section {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    display: block;
 }
 
 @media (max-width: 992px) {
-    .video-case-card, .video-case-card:nth-child(even) {
+    .video-reviews-container {
+        padding: 1.5rem;
+        border-radius: 30px;
+    }
+
+    .video-case-card,
+    .video-case-card:nth-child(even) {
         flex-direction: column;
-        padding: 2rem;
+        padding: 2.5rem 1.5rem;
         gap: 2rem;
+        border-radius: 24px;
     }
-    
+
     .video-case-content {
-        text-align: center;
+        text-align: left;
     }
-    
+
     .video-case-content h4 {
         font-size: 1.8rem;
     }
