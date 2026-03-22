@@ -2547,7 +2547,7 @@ section {
 }
 
 .video-case-content h4 {
-    color: #5d5dff;
+    color: var(--color-text-primary);
     font-size: 2.22rem;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
