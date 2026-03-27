@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сам себе остеопат 2.0 | МИОТ</title>
+    <meta name="description" content="Станьте для себя лучшим специалистом за месяц. Онлайн-курс остеопатической самокоррекции от Олега Агапэ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .course-hero { padding: 160px 0 100px; background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%); position: relative; overflow: hidden; }
+        .course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .course-badge { display: inline-block; padding: 6px 16px; background: rgba(212, 175, 55, 0.1); color: var(--color-accent); border-radius: 100px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+        .course-title { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 24px; color: var(--color-text-primary); }
+        .course-description { font-size: 1.25rem; color: var(--color-text-secondary); margin-bottom: 40px; line-height: 1.6; }
+        .course-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .stat-item h3 { font-size: 2rem; color: var(--color-accent); margin-bottom: 5px; }
+        .stat-item p { font-size: 0.9rem; color: var(--color-text-tertiary); }
+        .section-padding { padding: 100px 0; }
+        .benefit-card { background: var(--color-bg-secondary); padding: 40px; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.05); transition: var(--transition-base); }
+        .benefit-card:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.2); }
+        .benefit-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .program-module { background: var(--color-bg-secondary); border-radius: var(--radius-md); margin-bottom: 15px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.03); }
+        .module-header { padding: 20px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition-base); }
+        .module-content { padding: 0 30px 25px; color: var(--color-text-secondary); display: none; }
+        .module-active .module-content { display: block; }
+        .module-active .module-header { border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .price-card { background: var(--color-bg-secondary); padding: 50px; border-radius: var(--radius-xl); border: 1px solid rgba(212, 175, 55, 0.2); text-align: center; }
+        @media (max-width: 992px) { .course-grid { grid-template-columns: 1fr; gap: 40px; } .course-hero { padding: 120px 0 60px; } }
+    </style>
+</head>
+
+<body>
+    <div class="bg-graphics"><div class="shape shape-line shape-1"></div><div class="shape shape-circle shape-2"></div></div>
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+                    <img src="branding/logo.png" alt="МИОТ Логотип" class="logo-img">
+                    <div class="logo-text">МЕЖДУНАРОДНЫЙ<br>ИНСТИТУТ<br>ОСТЕОПАТИЧЕСКИХ<br>ТЕХНОЛОГИЙ</div>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="programs.html">Программы обучения</a>
+                <a href="about.html#about">Об эксперте</a>
+                <a href="results.html">Результаты</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="https://t.me/TatyBondar" class="btn btn-primary btn-sm">Записаться</a>
+            </nav>
+            <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="course-hero">
+            <div class="container">
+                <div class="course-grid">
+                    <div class="fade-in-up">
+                        <span class="course-badge">Курс для всех</span>
+                        <h1 class="course-title">Сам себе остеопат 2.0</h1>
+                        <p class="course-description">Станьте для себя лучшим специалистом за месяц и выйдите на новый уровень качества жизни без врачей и лишних трат.</p>
+                        <div class="hero-actions">
+                            <a href="#tariffs" class="btn btn-primary btn-glow">Присоединиться</a>
+                            <a href="#program" class="btn btn-secondary">Что в курсе?</a>
+                        </div>
+                        <div class="course-stats">
+                            <div class="stat-item"><h3>1 мес.</h3><p>интенсива</p></div>
+                            <div class="stat-item"><h3>ОНЛАЙН</h3><p>удобно</p></div>
+                            <div class="stat-item"><h3>8</h3><p>модулей</p></div>
+                        </div>
+                    </div>
+                    <div class="hero-media fade-in-up delay-1">
+                        <div class="hero-gallery">
+                            <img src="products/sam_sebe_osteopat.png" alt="Сам себе остеопат" class="hero-img img-main" style="width: 100%; border-radius: var(--radius-lg);">
+                            <div class="hero-backdrop"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <span class="badge">Результаты курса</span>
+                    <h2>Что вы получите через месяц</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="benefit-card fade-in-up">
+                        <span class="benefit-icon">🔋</span>
+                        <h4>Увеличение энергии</h4>
+                        <p>Освободите тело от зажимов, которые «съедают» ваши ресурсы. Почувствуйте легкость и бодрость.</p>
+                    </div>
+                    <div class="benefit-card fade-in-up delay-1">
+                        <span class="benefit-icon">😌</span>
+                        <h4>Снижение стресса</h4>
+                        <p>Навыки самокоррекции помогут быстро приходить в равновесие и улучшить качество сна.</p>
+                    </div>
+                    <div class="benefit-card fade-in-up delay-2">
+                        <span class="benefit-icon">🦴</span>
+                        <h4>Здоровая осанка</h4>
+                        <p>Простые и эффективные техники для выравнивания тела и избавления от привычных болей.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-secondary section-padding" id="program">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <span class="badge">Учебный план</span>
+                    <h2>Программа самокоррекции</h2>
+                </div>
+                <div class="max-600 fade-in-up" style="max-width: 800px; margin: 0 auto;">
+                    <div class="program-module">
+                        <div class="module-header"><h4>Модуль 1: Дыхание и диафрагмы</h4><span>+</span></div>
+                        <div class="module-content"><p>Работа с грудобрюшной диафрагмой, освобождение дыхания, влияние на всю систему тела.</p></div>
+                    </div>
+                    <div class="program-module">
+                        <div class="module-header"><h4>Модуль 2: Здоровье ЖКТ</h4><span>+</span></div>
+                        <div class="module-content"><p>Мягкие техники для улучшения пищеварения и работы внутренних органов своими руками.</p></div>
+                    </div>
+                    <div class="program-module">
+                        <div class="module-header"><h4>Модуль 3: Мышечные цепи и осанка</h4><span>+</span></div>
+                        <div class="module-content"><p>Выравнивание тела через работу с ключевыми мышечными поездами и зонами напряжения.</p></div>
+                    </div>
+                    <div class="program-module">
+                        <div class="module-header"><h4>Модуль 4: Лицо и череп</h4><span>+</span></div>
+                        <div class="module-content"><p>Техники омоложения и снятия напряжения с мышц лица и жевательной мускулатуры.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding" id="tariffs">
+            <div class="container text-center">
+                <div style="margin-top: 50px;">
+                    <a href="https://t.me/TatyBondar" class="btn btn-primary btn-glow btn-lg">Узнать подробнее о тарифах</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><div class="footer-grid">
+            <div class="footer-info"><div class="logo"><img src="branding/logo.png" alt="МИОТ" class="logo-img"><div class="logo-text">МЕЖДУНАРОДНЫЙ<br>ИНСТИТУТ<br>ОСТЕОПАТИЧЕСКИХ<br>ТЕХНОЛОГИЙ</div></div></div>
+            <div class="footer-contacts"><h4>Связь</h4><ul><li><a href="https://t.me/TatyBondar">Telegram</a></li></ul></div>
+        </div></div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.module-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const module = header.parentElement;
+                module.classList.toggle('module-active');
+                header.querySelector('span').textContent = module.classList.contains('module-active') ? '−' : '+';
+            });
+        });
+    </script>
+</body>
+</html>

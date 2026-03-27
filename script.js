@@ -182,6 +182,36 @@ if (programCards.length > 0 && filterBtns.length > 0) {
             }
         });
     });
+
+    // --- Slider Scroll Hint (Peek Animation) ---
+    const slider = document.getElementById('programsSlider');
+    if (slider) {
+        const scrollHintObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (slider.scrollWidth > slider.clientWidth) {
+                        setTimeout(() => {
+                            // Отключаем на время привязку (snap), чтобы анимация была плавной
+                            slider.style.scrollSnapType = 'none';
+                            
+                            slider.scrollTo({ left: 120, behavior: 'smooth' });
+                            
+                            setTimeout(() => {
+                                slider.scrollTo({ left: 0, behavior: 'smooth' });
+                                
+                                // Возвращаем snap после завершения
+                                setTimeout(() => {
+                                    slider.style.scrollSnapType = '';
+                                }, 600);
+                            }, 800);
+                        }, 1200);
+                    }
+                    scrollHintObserver.unobserve(slider);
+                }
+            });
+        }, { threshold: 0.1 });
+        scrollHintObserver.observe(slider);
+    }
 }
 
 // Floating Video Widget & Modal Logic
@@ -326,3 +356,158 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// --- Календарь мероприятий ---
+const calendarEvents = [
+    { start: '2026-03-27', end: '2026-03-29', title: '6 поток Висцеральные Остеопатические Технологии', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Висцеральные' },
+    { start: '2026-04-24', end: '2026-04-26', title: '6 поток Биомеханические Остеопатические Технологии', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Биомеханика' },
+    { start: '2026-05-22', end: '2026-05-24', title: '6 поток Краниосакральные технологии', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Краниа' },
+    { start: '2026-07-11', end: '2026-07-12', title: 'Экзамен 6 поток', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Экзамен' },
+    { start: '2026-10-10', end: '2026-10-11', title: 'Конференция «Секреты фасции»', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Конфа' },
+    { start: '2026-10-30', end: '2026-11-01', title: 'Диссекция «Жир и фасции — скрытая механика боли и старения»', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Диссекция' }
+];
+
+function initCalendar() {
+    const calendarDays = document.getElementById('calendarDays');
+    const currentMonthYear = document.getElementById('currentMonthYear');
+    const prevMonthBtn = document.getElementById('prevMonth');
+    const nextMonthBtn = document.getElementById('nextMonth');
+    const eventDetails = document.getElementById('eventDetails');
+
+    if (!calendarDays) return;
+
+    let currentDate = new Date(2026, 2, 1); // Март 2026 (индекс 2)
+
+    const monthNames = [
+        "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+        "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+    ];
+
+    function renderCalendar() {
+        calendarDays.innerHTML = '';
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+
+        if (currentMonthYear) {
+            currentMonthYear.innerText = `${monthNames[month]} ${year}`;
+        }
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        // Корректировка для Пн (0) - Вс (6)
+        let startingDay = firstDay === 0 ? 6 : firstDay - 1;
+
+        for (let i = 0; i < startingDay; i++) {
+            const emptyDay = document.createElement('div');
+            emptyDay.classList.add('calendar-day', 'empty');
+            calendarDays.appendChild(emptyDay);
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+            const dayElement = document.createElement('div');
+            dayElement.classList.add('calendar-day');
+            
+            const dayNumber = document.createElement('span');
+            dayNumber.classList.add('day-number');
+            dayNumber.innerText = i;
+            dayElement.appendChild(dayNumber);
+
+            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+            const dayEvents = calendarEvents.filter(e => {
+                const start = e.start;
+                const end = e.end || e.start;
+                return dateStr >= start && dateStr <= end;
+            });
+
+            if (dayEvents.length > 0) {
+                dayElement.classList.add('has-event');
+                
+                // Добавляем полное описание (только для первого события если их несколько)
+                const eventLabel = document.createElement('span');
+                eventLabel.classList.add('event-label');
+                eventLabel.innerText = dayEvents[0].title;
+                dayElement.appendChild(eventLabel);
+
+                dayElement.addEventListener('click', () => showEventDetails(dayEvents, dayElement));
+            }
+
+            // Добавляем класс today если совпадает (для сегодняшней даты, если она в этом месяце)
+            const today = new Date();
+            if (year === today.getFullYear() && month === today.getMonth() && i === today.getDate()) {
+                dayElement.classList.add('today');
+            }
+
+            calendarDays.appendChild(dayElement);
+        }
+    }
+
+    function showEventDetails(events, element) {
+        // Убираем выделение со всех дней
+        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+        element.classList.add('selected');
+
+        eventDetails.innerHTML = '';
+        events.forEach(event => {
+            const card = document.createElement('div');
+            card.classList.add('event-details-card');
+            card.innerHTML = `
+                <h4>${event.title}</h4>
+                <p><strong>Программа:</strong> ${event.program}</p>
+                <p><strong>Даты:</strong> ${formatDateRange(event.start, event.end)}</p>
+                <div class="card-actions">
+                    <a href="${event.target}" class="btn btn-primary btn-sm scroll-to-product">Узнать подробнее / Забронировать</a>
+                </div>
+            `;
+            
+            // Плавный скролл при клике на ссылку в карточке
+            card.querySelector('.scroll-to-product').addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetEl = document.querySelector(event.target);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    targetEl.classList.add('highlight-flash');
+                    setTimeout(() => targetEl.classList.remove('highlight-flash'), 2000);
+                }
+            });
+            
+            eventDetails.appendChild(card);
+        });
+    }
+
+    function formatDateRange(start, end) {
+        if (!end || start === end) {
+            const d = new Date(start);
+            return `${d.getDate()} ${monthNames[d.getMonth()]}`;
+        }
+        const s = new Date(start);
+        const e = new Date(end);
+        if (s.getMonth() === e.getMonth()) {
+            return `${s.getDate()} - ${e.getDate()} ${monthNames[s.getMonth()]}`;
+        }
+        return `${s.getDate()} ${monthNames[s.getMonth()]} - ${e.getDate()} ${monthNames[e.getMonth()]}`;
+    }
+
+    if (prevMonthBtn) {
+        prevMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+            eventDetails.innerHTML = '<p class="no-events">Выберите дату с отметкой, чтобы увидеть детали</p>';
+        });
+    }
+
+    if (nextMonthBtn) {
+        nextMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+            eventDetails.innerHTML = '<p class="no-events">Выберите дату с отметкой, чтобы увидеть детали</p>';
+        });
+    }
+
+    renderCalendar();
+}
+
+// Запуск инициализации если мы на странице программ
+if (document.getElementById('calendar')) {
+    initCalendar();
+}

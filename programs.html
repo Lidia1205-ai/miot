@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>МИОТ | Международный Институт Остеопатических Технологий</title>
-    <meta name="description" content="Обучаем специалистов телесных практик работать на уровне причин, а не симптомов.">
+    <meta name="description" content="Устранение причин боли и системная остеокоррекция. Обучение для массажистов и остеопатов до уровня Мастера.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -63,7 +63,8 @@
                         свой путь в профессии.</p>
                     <div class="hero-actions">
                         <a href="#selection-form" class="btn btn-primary btn-glow">Подобрать обучение</a>
-                        <a href="#programs" class="btn btn-secondary">Смотреть список</a>
+                        <a href="#programs" class="btn btn-secondary">Программы для спецов</a>
+                        <a href="#programs" class="btn btn-outline" onclick="document.querySelector('[data-filter=\'self\']').click();">Мне для себя</a>
                     </div>
                 </div>
                 <div class="hero-media fade-in-up delay-1">
@@ -94,43 +95,8 @@
 
                 <div class="programs-slider-wrapper">
                     <div class="programs-grid-layout" id="programsSlider">
-                        <!-- Программа 1 -->
-                        <div class="program-card fade-in-up" data-category="specialist">
-                            <div class="program-img-wrapper">
-                                <img src="products/funktsionalnaya_anatomiya.png" alt="Функциональная анатомия"
-                                    class="program-img">
-                            </div>
-                            <div class="program-content">
-                                <div class="program-tags">
-                                    <span>ОЧНО/ОНЛАЙН</span>
-                                    <span>БАЗОВЫЙ/ПРОДВИНУТЫЙ</span>
-                                    <span>2-4 МЕСЯЦА</span>
-                                </div>
-                                <h3>Функциональная анатомия</h3>
-                                <p class="subtitle">Язык тела, которым говорит боль.</p>
-                                <p>Понимайте тело, а не просто называете мышцы. Откажитесь от заучивания.</p>
-
-                                <div class="program-details">
-                                    <div class="detail-item">
-                                        <strong>Для кого:</strong> Тем, кто хочет глубинное понимание для выявления
-                                        причин,
-                                        а не для экзамена.
-                                    </div>
-                                    <div class="detail-item">
-                                        <strong>Результат:</strong> Понимание устройства тела на глубинном уровне во
-                                        взаимосвязи. Личное проживание.
-                                    </div>
-                                </div>
-
-                                <div class="program-actions">
-                                    <a href="https://t.me/TatyBondar" class="btn btn-primary">Записаться на курс</a>
-                                    <a href="https://t.me/TatyBondar" class="btn btn-secondary">Подробнее</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Программа 2 -->
-                        <div class="program-card fade-in-up delay-1" data-category="specialist">
+                        <!-- Программа 1: Специалист остеокоррекции -->
+                        <div class="program-card fade-in-up" data-category="specialist" id="osteocorrection">
                             <div class="program-img-wrapper">
                                 <img src="products/spetsialist_ostekorrektsii_za_6_mes.png"
                                     alt="Специалист остеокоррекции" class="program-img">
@@ -138,12 +104,21 @@
                             <div class="program-content">
                                 <div class="program-tags">
                                     <span>ОЧНО/ОНЛАЙН</span>
-                                    <span>БАЗОВЫЙ/ПРОДВИНУТЫЙ</span>
                                     <span class="highlight-tag">6-12 МЕСЯЦЕВ</span>
+                                </div>
+                                <div class="diploma-badge">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                                    <span>Диплом Государственного Образца</span>
                                 </div>
                                 <h3>Специалист остеокоррекции</h3>
                                 <p class="subtitle">Системный метод для решения любых проблем.</p>
-                                <p>Освойте целостную систему работы с телом. Работайте с причиной, а не симптомами.</p>
+
+                                <div class="program-modules-list">
+                                    <p>Модуль 1: БАЗОВЫЕ ОСТЕОПАТИЧЕСКИЕ ТЕХНОЛОГИИ</p>
+                                    <p>Модуль 2: ВИСЦЕРАЛЬНЫЕ ТЕХНОЛОГИИ</p>
+                                    <p>Модуль 3: БИОМЕХАНИЧЕСКИЕ ТЕХНОЛОГИИ</p>
+                                    <p>Модуль 4: КРАНИО-САКРАЛЬНЫЕ ТЕХНОЛОГИИ</p>
+                                </div>
 
                                 <div class="program-details">
                                     <div class="detail-item">
@@ -158,20 +133,52 @@
 
                                 <div class="program-actions">
                                     <a href="https://t.me/TatyBondar" class="btn btn-primary">Записаться на курс</a>
-                                    <a href="https://t.me/TatyBondar" class="btn btn-secondary">Подробнее</a>
+                                    <a href="osteocorrection.html" class="btn btn-secondary">Подробнее</a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Программа 3 -->
-                        <div class="program-card fade-in-up delay-2" data-category="specialist">
+                        <!-- Программа 2: Функциональная анатомия -->
+                        <div class="program-card fade-in-up delay-1" data-category="specialist" id="anatomy">
+                            <div class="program-img-wrapper">
+                                <img src="products/funktsionalnaya_anatomiya.png" alt="Функциональная анатомия"
+                                    class="program-img">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОНЛАЙН</span>
+                                    <span>БАЗОВЫЙ/ПРОДВИНУТЫЙ</span>
+                                    <span>2-4 МЕСЯЦА</span>
+                                </div>
+                                <h3>Функциональная анатомия</h3>
+                                <p class="subtitle">Освойте системный подход к изучению анатомии через практику.</p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Для тех, кто хочет глубинное понимание устройства тела для выявления причин.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Понимание устройства тела на глубинном уровне во
+                                        взаимосвязи. Личное проживание.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://t.me/TatyBondar" class="btn btn-primary">Записаться на курс</a>
+                                    <a href="anatomy.html" class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Программа 3: Специалист ОстеоЭстетики -->
+                        <div class="program-card fade-in-up delay-2" data-category="specialist" id="osteoestetics">
                             <div class="program-img-wrapper">
                                 <img src="products/spetsialist_osteoestetiki_3_dnya.png"
                                     alt="Специалист ОстеоЭстетики" class="program-img">
                             </div>
                             <div class="program-content">
                                 <div class="program-tags">
-                                    <span>ОЧНО/ОНЛАЙН</span>
+                                    <span>ЗАПИСЬ</span>
                                     <span>ПРЕМИУМ</span>
                                     <span>3 ДНЯ</span>
                                 </div>
@@ -194,7 +201,7 @@
 
                                 <div class="program-actions">
                                     <a href="https://t.me/TatyBondar" class="btn btn-primary">Записаться на курс</a>
-                                    <a href="https://t.me/TatyBondar" class="btn btn-secondary">Подробнее</a>
+                                    <a href="osteoestetics.html" class="btn btn-secondary">Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -231,8 +238,7 @@
                                 <div class="program-actions">
                                     <a href="https://online.agape-course.ru/teach/control/stream/view/id/677817237"
                                         target="_blank" class="btn btn-primary">Записаться на курс</a>
-                                    <a href="https://online.agape-course.ru/teach/control/stream/view/id/677817237"
-                                        target="_blank" class="btn btn-secondary">Подробнее</a>
+                                    <a href="self-osteopath.html" class="btn btn-secondary">Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -269,8 +275,7 @@
                                 <div class="program-actions">
                                     <a href="https://agape-course.com/forparents2" target="_blank"
                                         class="btn btn-primary">Записаться на курс</a>
-                                    <a href="https://agape-course.com/forparents2" target="_blank"
-                                        class="btn btn-secondary">Подробнее</a>
+                                    <a href="parents.html" class="btn btn-secondary">Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -307,8 +312,39 @@
                                 <div class="program-actions">
                                     <a href="https://agape-course.com/estetika" target="_blank"
                                         class="btn btn-primary">Записаться на курс</a>
-                                    <a href="https://agape-course.com/estetika" target="_blank"
-                                        class="btn btn-secondary">Подробнее</a>
+                                    <a href="estetika.html" class="btn btn-secondary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="program-card fade-in-up delay-6" data-category="self">
+                            <div class="program-img-wrapper">
+                                <img src="products/psikhosomatika.png" alt="Психосоматика"
+                                    class="program-img"
+                                    onerror="this.style.display='none';this.parentElement.style.background='#e8edf5';this.parentElement.innerHTML+='<div style=\'font-size:3rem;opacity:0.15;font-weight:800;font-family:var(--font-primary);display:flex;align-items:center;justify-content:center;height:100%;\'>МИОТ</div>'">
+                            </div>
+                            <div class="program-content">
+                                <div class="program-tags">
+                                    <span>ОНЛАЙН</span>
+                                    <span>ДЛЯ СЕБЯ</span>
+                                    <span class="highlight-tag">СЕМИНАР</span>
+                                </div>
+                                <h3>Психосоматика</h3>
+                                <p class="subtitle">Освободите тело от эмоциональных блоков.</p>
+                                <p>Научитесь распознавать, где в теле зафиксированы психоэмоциональные блоки, и устранять их причину через тело.</p>
+
+                                <div class="program-details">
+                                    <div class="detail-item">
+                                        <strong>Для кого:</strong> Для тех, кто хочет объединить телесную и эмоциональную работу в целостный подход.
+                                    </div>
+                                    <div class="detail-item">
+                                        <strong>Результат:</strong> Умение находить истинную причину симптома и устранять её мягко и профессионально.
+                                    </div>
+                                </div>
+
+                                <div class="program-actions">
+                                    <a href="https://agape-course.com/psycho" target="_blank" class="btn btn-primary">Записаться на курс</a>
+                                    <a href="psychosomatic.html" class="btn btn-secondary">Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -321,7 +357,36 @@
             </div>
         </section>
 
-        <!-- Блок 4: Расписание -->
+        <!-- Блок 3.5: Календарь -->
+        <section class="calendar-section bg-secondary" id="calendar">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <span class="badge">Расписание</span>
+                    <h2>График мероприятий</h2>
+                </div>
+                <div class="calendar-widget fade-in-up">
+                    <div class="calendar-header">
+                        <button class="calendar-nav-btn prev" id="prevMonth">&larr;</button>
+                        <h3 id="currentMonthYear">Март 2026</h3>
+                        <button class="calendar-nav-btn next" id="nextMonth">&rarr;</button>
+                    </div>
+                    <div class="calendar-body">
+                        <div class="calendar-weekdays">
+                            <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays">
+                            <!-- Дни будут добавлены JS -->
+                        </div>
+                    </div>
+                    <div class="calendar-footer" id="calendarFooter">
+                        <div class="event-details" id="eventDetails">
+                            <p class="no-events">Выберите дату с отметкой, чтобы увидеть детали</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="events">
             <div class="container">
                 <div class="section-header fade-in-up">
