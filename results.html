@@ -279,6 +279,11 @@
                             ТЕХНОЛОГИЙ
                         </div>
                     </div>
+                    <div class="footer-legal-info" style="color: rgba(255,255,255,0.5); font-size: 0.75rem; line-height: 1.6; margin-top: 1rem;">
+                        ИП Петров Олег Вячеславович<br>
+                        ИНН 330510600108<br>
+                        ОГРН 322332800019880
+                    </div>
                 </div>
 
                 <div class="footer-nav">
@@ -302,10 +307,25 @@
                 <div class="footer-contacts">
                     <h4>Контакты</h4>
                     <ul>
-                        <li><a href="mailto:info@miot.ru">info@miot.ru</a></li>
-                        <li>г. Москва, ул. Примерная 1</li>
-                        <li><a href="https://t.me/TatyBondar" target="_blank"
-                                class="btn btn-secondary btn-glow btn-sm mt-sm">Задать вопрос</a></li>
+                        <li><a href="mailto:info@agape-course.ru">info@agape-course.ru</a></li>
+                        <li>101000, Россия, Московская область, г. Москва, ул. Мясницкая 24/7</li>
+                        <li><a href="tel:+79164487900" style="color: inherit; text-decoration: none;">+7 (916) 448-79-00</a></li>
+                        <li>
+                            <div class="messenger-grid">
+                                <a href="https://t.me/TatyBondar" target="_blank" class="messenger-item">
+                                    <img src="https://static.tildacdn.com/tild6461-3037-4235-a634-323962653434/3d-icon-social-media.png" alt="Telegram">
+                                    <span>Telegram</span>
+                                </a>
+                                <a href="https://vk.ru/id134100568" target="_blank" class="messenger-item">
+                                    <img src="https://static.tildacdn.com/tild6139-3835-4561-a135-616364363831/3d-icon-social-media.png" alt="ВКонтакте">
+                                    <span>ВКонтакте</span>
+                                </a>
+                                <a href="https://max.ru/u/f9LHodD0cOIDqa2IQgLfQV3CSNZPigp9Et2IvcvixcT07rknMmHq3d2XWBI" target="_blank" class="messenger-item">
+                                    <img src="https://static.tildacdn.com/tild6138-3335-4432-a332-653163376361/noroot.png" alt="Max">
+                                    <span>Max</span>
+                                </a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -313,12 +333,50 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 МИОТ. Все права защищены.</p>
                 <div class="footer-legal">
-                    <a href="#">Политика конфиденциальности</a>
-                    <a href="#">Договор оферты</a>
+                    <a href="https://agape-course.com/policy" target="_blank">Политика конфиденциальности</a>
+                    <a href="https://agape-course.com/offer" target="_blank">Договор оферты</a>
+                    <a href="https://agape-course.com/soglasie" target="_blank">Согласие на обработку данных</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Lead Capture Modal -->
+    <div class="modal-overlay" id="leadModal">
+        <div class="modal-content">
+            <button class="close-modal-btn" id="closeLeadModal">&times;</button>
+            <h3 style="color: var(--color-text-primary); margin-bottom: 1rem;">Оставить заявку на обучение</h3>
+            <p style="margin-bottom: 1.5rem;">Заполните форму, и наш менеджер свяжется с вами для подбора программы.</p>
+            <form id="leadForm">
+                <input type="text" placeholder="Ваше имя" required class="form-input"
+                    style="width: 100%; padding: 0.8rem 1rem; margin-bottom: 1rem; border: 1px solid var(--color-bg-secondary); border-radius: var(--radius-sm); font-family: var(--font-secondary);">
+                <input type="tel" placeholder="Ваш телефон" required class="form-input"
+                    style="width: 100%; padding: 0.8rem 1rem; margin-bottom: 1.5rem; border: 1px solid var(--color-bg-secondary); border-radius: var(--radius-sm); font-family: var(--font-secondary);">
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+                <p style="font-size: 0.7rem; color: var(--color-text-tertiary); margin-top: 1rem; text-align: center; line-height: 1.4;">
+                    Нажимая на кнопку, вы даете согласие на <a href="https://agape-course.com/soglasie" target="_blank" style="color: inherit; text-decoration: underline;">обработку персональных данных</a> 
+                    и соглашаетесь с <a href="https://agape-course.com/policy" target="_blank" style="color: inherit; text-decoration: underline;">политикой конфиденциальности</a>.
+                </p>
+                <div class="messenger-block">
+                    <span class="messenger-text-sm">Или напишите нам в мессенджеры:</span>
+                    <div class="messenger-grid">
+                        <a href="https://t.me/TatyBondar" target="_blank" class="messenger-item">
+                            <img src="https://static.tildacdn.com/tild6461-3037-4235-a634-323962653434/3d-icon-social-media.png" alt="Telegram">
+                            <span>Telegram</span>
+                        </a>
+                        <a href="https://vk.ru/id134100568" target="_blank" class="messenger-item">
+                            <img src="https://static.tildacdn.com/tild6139-3835-4561-a135-616364363831/3d-icon-social-media.png" alt="ВКонтакте">
+                            <span>ВКонтакте</span>
+                        </a>
+                        <a href="https://max.ru/u/f9LHodD0cOIDqa2IQgLfQV3CSNZPigp9Et2IvcvixcT07rknMmHq3d2XWBI" target="_blank" class="messenger-item">
+                            <img src="https://static.tildacdn.com/tild6138-3335-4432-a332-653163376361/noroot.png" alt="Max">
+                            <span>Max</span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

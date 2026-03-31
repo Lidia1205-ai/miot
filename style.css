@@ -2977,3 +2977,91 @@ section {
 }
 
 /* End of file */
+
+/* Messenger Contact Block */
+.messenger-block {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.messenger-text-sm {
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.messenger-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.messenger-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.messenger-item:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.messenger-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.messenger-item span {
+    font-size: 0.7rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Specific Adjustments for Footer */
+.footer-contacts .messenger-grid {
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.footer-contacts .messenger-item img {
+    width: 44px;
+    height: 44px;
+}
+
+/* Contacts Page Specific */
+.contacts-messengers {
+    padding: 3rem 0;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.contacts-messengers .messenger-item img {
+    width: 80px;
+    height: 80px;
+}
+
+.contacts-messengers .messenger-item span {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .messenger-grid {
+        gap: 20px;
+    }
+    
+    .footer-contacts .messenger-grid {
+        justify-content: center;
+    }
+}
+

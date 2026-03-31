@@ -216,6 +216,7 @@ if (programCards.length > 0 && filterBtns.length > 0) {
 
 // Floating Video Widget & Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
+    /* Floating Video Widget & Modal Logic - DISABLED
     const videoWidget = document.getElementById('floatingVideoWidget');
     const closeVideoBtn = document.getElementById('closeFloatingVideo');
     const promoVideo = document.getElementById('promoVideo');
@@ -291,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             closeWidget();
         });
     }
-
+    */
     // Certificates Slider Logic
     const certSlider = document.getElementById('certificatesSlider');
     const certPrev = document.getElementById('certPrev');
