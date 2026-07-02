@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Психосоматика — запись вебинара · Олег Агапэ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --warm:        #2E5F9E;
+      --warm-soft:   #DDE8F5;
+      --warm-line:   rgba(46,95,158,0.22);
+      --accent:      #C07230;
+      --accent-soft: #FAEEDE;
+      --ink:         #141C2A;
+      --ink-soft:    #3A4758;
+      --ink-mute:    #7A8FA8;
+      --bg:          #F0F3F9;
+      --card:        #fff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+    /* ══ HERO ══ */
+    .hero { padding: 64px 0 48px; text-align: center; }
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); background: var(--warm-soft);
+      border-radius: 20px; padding: 5px 16px; margin-bottom: 18px;
+    }
+    .hero__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(26px, 4.5vw, 48px);
+      font-weight: 800; color: var(--ink);
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 12px;
+    }
+    .hero__title em { font-style: normal; color: var(--warm); }
+    .hero__sub {
+      font-size: clamp(15px, 1.7vw, 17px); color: var(--ink-soft);
+      line-height: 1.6; max-width: 560px; margin: 0 auto;
+    }
+
+    /* ══ ВИДЕО ══ */
+    .video-section { padding: 0 0 48px; }
+    .video-card {
+      background: var(--card);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.10);
+      padding: 28px 32px 32px;
+    }
+    @media (max-width: 600px) { .video-card { padding: 20px 16px 24px; } }
+
+    /* ══ ГЛАВНЫЙ ОФФЕР ══ */
+    .main-offer { padding: 0 0 72px; }
+    .main-offer__inner {
+      background: var(--card);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.10);
+    }
+    .main-offer__top {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
+      padding: 44px 52px 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .main-offer__top::before {
+      content: '✦';
+      position: absolute;
+      right: 40px; bottom: -10px;
+      font-size: 120px;
+      color: rgba(255,255,255,0.06);
+      line-height: 1; pointer-events: none;
+    }
+    .main-offer__badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 16px;
+    }
+    .main-offer__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(20px, 3vw, 34px);
+      font-weight: 800; color: #fff;
+      line-height: 1.2; letter-spacing: -0.02em;
+      margin-bottom: 8px; max-width: 620px;
+    }
+    .main-offer__title em { font-style: normal; color: #F5D49A; }
+    .main-offer__tagline {
+      font-size: clamp(14px, 1.5vw, 16px);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.55; max-width: 560px;
+    }
+    @media (max-width: 600px) { .main-offer__top { padding: 32px 24px 28px; } }
+
+    .main-offer__body { padding: 36px 52px 44px; }
+    @media (max-width: 600px) { .main-offer__body { padding: 28px 24px 32px; } }
+
+    .section-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 16px;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 640px) { .topics-grid { grid-template-columns: 1fr; } }
+    .topic-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .topic-item__icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--warm-soft);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .topic-item__text {
+      font-size: 14px; color: var(--ink-soft);
+      line-height: 1.45; font-weight: 500;
+    }
+    .topic-item__text strong { color: var(--ink); font-weight: 600; }
+
+    .insight {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      font-size: 15px; color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+    .insight strong { color: var(--accent); }
+
+    /* ══ ТАРИФЫ ══ */
+    .pricing-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 700; color: var(--ink);
+      letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 860px) { .plans { grid-template-columns: 1fr; max-width: 420px; } }
+
+    .plan {
+      background: var(--bg);
+      border: 2px solid var(--warm-line);
+      border-radius: 16px;
+      padding: 24px 20px;
+      display: flex; flex-direction: column; gap: 14px;
+      position: relative;
+    }
+    .plan--featured {
+      background: var(--card);
+      border-color: var(--accent);
+      box-shadow: 0 6px 28px -8px rgba(192,114,48,0.25);
+    }
+    .plan__best {
+      position: absolute;
+      top: -13px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 20px; padding: 4px 14px;
+      white-space: nowrap;
+    }
+    .plan__label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--warm);
+    }
+    .plan__name {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(14px, 1.5vw, 17px);
+      font-weight: 700; color: var(--ink);
+      letter-spacing: -0.01em; line-height: 1.2;
+    }
+    .plan__price {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(28px, 3.5vw, 38px);
+      font-weight: 800; color: var(--ink);
+      letter-spacing: -0.03em; line-height: 1;
+    }
+    .plan__price span { font-size: 0.52em; color: var(--ink-mute); }
+    .plan__price-old {
+      font-size: 14px; color: var(--ink-mute);
+      text-decoration: line-through;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500; margin-top: 2px;
+    }
+    .plan__list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+      font-size: 13px; color: var(--ink-soft); line-height: 1.4;
+      flex: 1;
+    }
+    .plan__list li { display: flex; gap: 8px; align-items: flex-start; }
+    .plan__list li::before {
+      content: '✓';
+      color: var(--warm);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border: none; border-radius: 10px;
+      padding: 14px 20px; cursor: pointer;
+      text-decoration: none; width: 100%;
+      transition: background .18s, transform .15s, box-shadow .18s;
+      box-shadow: 0 8px 22px -6px rgba(192,114,48,0.45);
+    }
+    .btn-primary:hover {
+      background: #a85e20; transform: translateY(-1px);
+      box-shadow: 0 12px 28px -8px rgba(192,114,48,0.55);
+    }
+    .btn-bundle {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--warm); color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border: none; border-radius: 10px;
+      padding: 14px 20px; cursor: pointer;
+      text-decoration: none; width: 100%;
+      transition: background .18s, transform .15s, box-shadow .18s;
+      box-shadow: 0 8px 22px -6px rgba(46,95,158,0.38);
+    }
+    .btn-bundle:hover {
+      background: #1e4a84; transform: translateY(-1px);
+      box-shadow: 0 12px 28px -8px rgba(46,95,158,0.48);
+    }
+
+    /* ══ ОТЗЫВЫ ══ */
+    .reviews { padding: 0 0 72px; position: relative; }
+    .reviews__eyebrow {
+      display: block; text-align: center;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 10px;
+    }
+    .reviews__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(20px, 2.6vw, 30px);
+      font-weight: 700; color: var(--ink);
+      text-align: center; letter-spacing: -0.02em; margin-bottom: 8px;
+    }
+    .reviews__sub {
+      text-align: center; color: var(--ink-mute);
+      font-size: 14px; margin-bottom: 36px;
+    }
+    .reviews__slider { position: relative; }
+    .reviews__overflow { overflow: hidden; border-radius: 8px; padding: 4px; margin: -4px; }
+    .reviews__track {
+      display: flex;
+      transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .reviews__slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 700px) { .reviews__slide { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+    @media (max-width: 480px) { .reviews__slide { grid-template-columns: 1fr; } }
+    .review-img {
+      border-radius: 22px; overflow: hidden;
+      box-shadow: 0 4px 18px rgba(20,28,42,0.10);
+      cursor: zoom-in;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .review-img:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(20,28,42,0.18); }
+    .review-img img { width: 100%; height: auto; display: block; }
+    .reviews__nav {
+      display: flex; justify-content: center;
+      align-items: center; gap: 20px; margin-top: 20px;
+    }
+    .reviews__arrow {
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 1.5px solid var(--warm-line);
+      background: var(--card); color: var(--warm);
+      cursor: pointer; font-size: 17px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .reviews__arrow:hover:not(:disabled) { background: var(--warm-soft); border-color: var(--warm); }
+    .reviews__arrow:disabled { opacity: 0.28; cursor: default; }
+    .reviews__dots { display: flex; gap: 7px; align-items: center; }
+    .reviews__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--warm-line); border: none; padding: 0;
+      cursor: pointer; transition: background .2s, transform .2s;
+    }
+    .reviews__dot.is-active { background: var(--warm); transform: scale(1.3); }
+
+    /* ══ ЛАЙТБОКС ══ */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.88);
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; object-fit: contain; }
+    .lightbox__close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; color: #fff;
+      font-size: 32px; cursor: pointer; line-height: 1;
+    }
+
+    /* ══ FOOTER ══ */
+    .page-foot {
+      padding: 24px 0 36px; text-align: center;
+      color: var(--ink-mute); font-size: 12px;
+      border-top: 1px solid var(--warm-line);
+    }
+    .page-foot a { color: var(--ink-mute); text-decoration: none; }
+    .page-foot a:hover { color: var(--warm); }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__eyebrow">Запись вебинара · Олег Агапэ</div>
+    <h1 class="hero__title">Психо-<em>соматика</em></h1>
+    <p class="hero__sub">Как тело говорит то, что замалчивает психика — и как это читать: для себя и в работе с клиентами</p>
+  </div>
+</section>
+
+<!-- ══ ВИДЕО ══ -->
+<section class="video-section">
+  <div class="wrap">
+    <div class="video-card">
+      <script id="88513e14488fedb5091024a129b52f3bf5fc3083" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625683" onload="typeof startWidget88513e14488fedb5091024a129b52f3bf5fc3083==='function'&&startWidget88513e14488fedb5091024a129b52f3bf5fc3083()"></script>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ГЛАВНЫЙ ОФФЕР ══ -->
+<section class="main-offer">
+  <div class="wrap">
+    <div class="main-offer__inner">
+
+      <div class="main-offer__top">
+        <div class="main-offer__badge">✦ Запись вебинара · Психосоматика</div>
+        <h2 class="main-offer__title">Психосоматика:<br><em>тело как карта</em></h2>
+        <p class="main-offer__tagline">
+          Разбираем связь симптомов и психологических процессов — механику, диагностику и работу с телесными сообщениями
+        </p>
+      </div>
+
+      <div class="main-offer__body">
+        <div class="section-label">Что разобрали на вебинаре</div>
+        <div class="topics-grid">
+          <div class="topic-item">
+            <div class="topic-item__icon">🧠</div>
+            <div class="topic-item__text">
+              <strong>Механизм психосоматики</strong> — как психологический конфликт становится телесным симптомом
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🫀</div>
+            <div class="topic-item__text">
+              <strong>Классические психосоматозы</strong> — семь болезней Александера и современная интерпретация
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🔍</div>
+            <div class="topic-item__text">
+              <strong>Диагностика по телу</strong> — как читать симптом как сообщение, зоны и их символическое значение
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">💬</div>
+            <div class="topic-item__text">
+              <strong>Работа с клиентом</strong> — техники телесного осознавания и формулировки, которые помогают услышать себя
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🩺</div>
+            <div class="topic-item__text">
+              <strong>Граница компетенций</strong> — когда психосоматика точка входа, а когда направлять к врачу
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🌿</div>
+            <div class="topic-item__text">
+              <strong>Практики интеграции</strong> — дыхание, заземление, работа с образом симптома
+            </div>
+          </div>
+        </div>
+
+        <div class="insight">
+          Тело не болеет просто так. За каждым хроническим симптомом стоит <strong>незавершённый психологический процесс</strong>. Научиться читать этот язык — значит получить доступ к тому, что психика не может выразить словами.
+        </div>
+
+        <!-- ТАРИФЫ -->
+        <div class="pricing-title">Выберите свой тариф</div>
+        <div class="plans">
+
+          <!-- ТАРИФ 1: ДЛЯ СЕБЯ -->
+          <div class="plan">
+            <div class="plan__label">Тариф 01</div>
+            <div class="plan__name">Для себя</div>
+            <div class="plan__price">ЦЕНА <span>₽</span></div>
+            <ul class="plan__list">
+              <li>Полная запись вебинара</li>
+              <li>Конспект и ключевые тезисы</li>
+              <li>Практики для личного применения</li>
+              <li>Доступ бессрочно</li>
+            </ul>
+            <button class="btn-primary" onclick="gcOpen('gcModalSelf')">Купить</button>
+          </div>
+
+          <!-- ТАРИФ 2: СПЕЦИАЛИСТ ОЧНО -->
+          <div class="plan plan--featured">
+            <div class="plan__best">Популярный</div>
+            <div class="plan__label">Тариф 02</div>
+            <div class="plan__name">Специалист очно</div>
+            <div class="plan__price">ЦЕНА <span>₽</span></div>
+            <ul class="plan__list">
+              <li>Всё из тарифа «Для себя»</li>
+              <li>Блок для специалиста: как говорить с клиентом о психосоматике на очной сессии</li>
+              <li>Готовые формулировки и вопросы для анамнеза</li>
+              <li>Разбор 3 клинических случаев</li>
+              <li>Чек-лист: когда направлять к смежному специалисту</li>
+              <li>Доступ бессрочно</li>
+            </ul>
+            <button class="btn-bundle" onclick="gcOpen('gcModalOffline')">Купить</button>
+          </div>
+
+          <!-- ТАРИФ 3: СПЕЦИАЛИСТ ОНЛАЙН -->
+          <div class="plan">
+            <div class="plan__label">Тариф 03</div>
+            <div class="plan__name">Специалист онлайн</div>
+            <div class="plan__price">ЦЕНА <span>₽</span></div>
+            <ul class="plan__list">
+              <li>Всё из тарифа «Специалист очно»</li>
+              <li>Адаптация для онлайн-работы: техники через экран</li>
+              <li>Протокол онлайн-сессии с телесным фокусом</li>
+              <li>Шаблон домашних практик для клиентов</li>
+              <li>Разбор вопросов в закрытом чате (30 дней)</li>
+              <li>Доступ бессрочно</li>
+            </ul>
+            <button class="btn-primary" onclick="gcOpen('gcModalOnline')">Купить</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ ОТЗЫВЫ ══ -->
+<section class="reviews">
+  <div class="wrap">
+    <span class="reviews__eyebrow">Что говорят</span>
+    <h2 class="reviews__title">Отзывы участников</h2>
+    <p class="reviews__sub">После прошлых вебинаров и эфиров</p>
+    <div class="reviews__slider">
+      <div class="reviews__overflow">
+        <div class="reviews__track" id="reviewsTrack">
+
+          <!-- Слайд 1 — добавьте скриншоты отзывов -->
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6900.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6901.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6902.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="reviews__nav">
+        <button class="reviews__arrow" id="rPrev">&#8592;</button>
+        <div class="reviews__dots" id="rDots"></div>
+        <button class="reviews__arrow" id="rNext">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ЛАЙТБОКС ══ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lbClose">&#10005;</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<!-- ══ ЗАБОТА ══ -->
+<section style="padding: 0 0 64px; text-align: center;">
+  <div class="wrap">
+    <p style="font-size: 15px; color: var(--ink-mute); margin-bottom: 16px;">Остались вопросы по оплате или доступу?</p>
+    <button onclick="gcOpen('gcModalSupport')"
+       style="display: inline-flex; align-items: center; gap: 10px;
+              background: var(--card); color: var(--warm);
+              font-family: 'Unbounded', sans-serif; font-size: 13px;
+              font-weight: 700; letter-spacing: 0.02em;
+              border: 2px solid var(--warm-line); border-radius: 12px;
+              padding: 14px 28px; cursor: pointer;
+              transition: border-color .18s, box-shadow .18s, transform .15s;
+              box-shadow: 0 2px 12px rgba(46,95,158,0.08);"
+       onmouseover="this.style.borderColor='var(--warm)';this.style.transform='translateY(-1px)'"
+       onmouseout="this.style.borderColor='var(--warm-line)';this.style.transform='translateY(0)'">
+      💬 Задать вопрос службе заботы
+    </button>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-foot">
+  <div class="wrap">
+    <p>© 2026 Олег Агапэ · <a href="https://dr-agape.ru">dr-agape.ru</a></p>
+  </div>
+</footer>
+
+<script>
+  // ══ КАРУСЕЛЬ ОТЗЫВОВ ══
+  (function() {
+    var track = document.getElementById('reviewsTrack');
+    var slides = track.querySelectorAll('.reviews__slide');
+    var prev = document.getElementById('rPrev');
+    var next = document.getElementById('rNext');
+    var dotsWrap = document.getElementById('rDots');
+    var cur = 0;
+
+    var dots = Array.from(slides).map(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'reviews__dot';
+      d.addEventListener('click', function() { goTo(i); });
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    function goTo(idx) {
+      cur = Math.max(0, Math.min(idx, slides.length - 1));
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('is-active', i === cur); });
+      prev.disabled = cur === 0;
+      next.disabled = cur === slides.length - 1;
+    }
+
+    prev.addEventListener('click', function() { goTo(cur - 1); });
+    next.addEventListener('click', function() { goTo(cur + 1); });
+
+    var tx = 0;
+    track.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      if (Math.abs(tx - e.changedTouches[0].clientX) > 40)
+        goTo(cur + (tx - e.changedTouches[0].clientX > 0 ? 1 : -1));
+    });
+
+    goTo(0);
+  })();
+
+  // ══ ЛАЙТБОКС ══
+  (function() {
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lbImg');
+    document.querySelectorAll('.review-img img').forEach(function(img) {
+      img.addEventListener('click', function() { lbImg.src = img.src; lb.classList.add('is-open'); });
+    });
+    document.getElementById('lbClose').addEventListener('click', function() { lb.classList.remove('is-open'); });
+    lb.addEventListener('click', function(e) { if (e.target === lb) lb.classList.remove('is-open'); });
+  })();
+</script>
+
+<!-- ══ Модалки GetCourse ══ -->
+<style>
+  .gc-modal { display:none; position:fixed; inset:0; z-index:9000; align-items:center; justify-content:center; }
+  .gc-modal.is-open { display:flex; }
+  .gc-modal__overlay { position:absolute; inset:0; background:rgba(10,20,40,0.70); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); }
+  .gc-modal__box { position:relative; z-index:1; background:var(--card); border-radius:20px; padding:40px 24px 24px; width:100%; max-width:560px; max-height:90vh; overflow-y:auto; margin:16px; box-shadow:0 32px 64px -16px rgba(10,30,80,0.40); }
+  @media (max-width:600px){ .gc-modal__box { padding:36px 14px 20px; } }
+  .gc-modal__close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; line-height:1; cursor:pointer; color:var(--ink-mute); padding:4px 8px; border-radius:8px; transition:color .15s, background .15s; }
+  .gc-modal__close:hover { color:var(--ink); background:var(--bg); }
+  .gc-modal__title { font-family:'Unbounded',sans-serif; font-size:15px; font-weight:700; color:var(--ink); margin:0 0 16px; line-height:1.3; }
+  .gc-modal__body { min-height:80px; }
+</style>
+
+<!-- Тариф: Для себя -->
+<div id="gcModalSelf" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" data-gc-close></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Психосоматика · Для себя</div>
+    <div class="gc-modal__body">
+      <!-- ВСТАВИТЬ виджет GetCourse для тарифа «Для себя» -->
+    </div>
+  </div>
+</div>
+
+<!-- Тариф: Специалист очно -->
+<div id="gcModalOffline" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" data-gc-close></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Психосоматика · Специалист очно</div>
+    <div class="gc-modal__body">
+      <!-- ВСТАВИТЬ виджет GetCourse для тарифа «Специалист очно» -->
+    </div>
+  </div>
+</div>
+
+<!-- Тариф: Специалист онлайн -->
+<div id="gcModalOnline" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" data-gc-close></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Психосоматика · Специалист онлайн</div>
+    <div class="gc-modal__body">
+      <!-- ВСТАВИТЬ виджет GetCourse для тарифа «Специалист онлайн» -->
+    </div>
+  </div>
+</div>
+
+<!-- Служба заботы -->
+<div id="gcModalSupport" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" data-gc-close></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Вопрос службе заботы</div>
+    <div class="gc-modal__body">
+      <!-- ВСТАВИТЬ виджет GetCourse для поддержки -->
+    </div>
+  </div>
+</div>
+
+<script>
+  function gcOpen(modalId) {
+    var m = document.getElementById(modalId);
+    if (!m) return;
+    m.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function gcCloseAll() {
+    document.querySelectorAll('.gc-modal.is-open').forEach(function(m){ m.classList.remove('is-open'); });
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-gc-close]').forEach(function(el){
+    el.addEventListener('click', gcCloseAll);
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') gcCloseAll(); });
+</script>
+
+</body>
+</html>
