@@ -360,12 +360,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- Календарь мероприятий ---
 const calendarEvents = [
-    { start: '2026-03-27', end: '2026-03-29', title: '6 поток Висцеральные Остеопатические Технологии', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Висцеральные' },
-    { start: '2026-04-24', end: '2026-04-26', title: '6 поток Биомеханические Остеопатические Технологии', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Биомеханика' },
-    { start: '2026-05-22', end: '2026-05-24', title: '6 поток Краниосакральные технологии', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Краниа' },
-    { start: '2026-07-11', end: '2026-07-12', title: 'Экзамен 6 поток', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Экзамен' },
-    { start: '2026-10-10', end: '2026-10-11', title: 'Конференция «Секреты фасции»', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Конфа' },
-    { start: '2026-10-30', end: '2026-11-01', title: 'Диссекция «Жир и фасции — скрытая механика боли и старения»', target: '#osteocorrection', program: 'Специалист Остеокоррекции', shortTitle: 'Диссекция' }
+    { start: '2026-03-27', end: '2026-03-29', title: '6 поток Висцеральные Остеопатические Технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Висцеральные' },
+    { start: '2026-04-24', end: '2026-04-26', title: '6 поток Биомеханические Остеопатические Технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Биомеханика' },
+    { start: '2026-05-22', end: '2026-05-24', title: '6 поток Краниосакральные технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Краниа' },
+    { start: '2026-07-11', end: '2026-07-12', title: 'Экзамен 6 поток', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Экзамен', promo: false },
+    { start: '2026-10-10', end: '2026-10-11', title: 'Конференция «Секреты фасции»', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Конфа' },
+    { start: '2025-10-30', end: '2025-11-01', title: 'Диссекция «Жир и фасции — скрытая механика боли и старения»', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Диссекция' },
+    // Семинар по психосоматике
+    { start: '2026-07-24', end: '2026-07-26', title: 'Семинар по психосоматике', target: 'психосоматика/psycho-preview.html', program: 'Психосоматика', shortTitle: 'Психосоматика' },
+    // 7 поток «Специалист Остеокоррекции»
+    { start: '2026-09-04', end: '2026-09-06', title: '7 поток Базовые Остеопатические Технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Базовые ОТ' },
+    { start: '2026-10-02', end: '2026-10-04', title: '7 поток Висцеральные Остеопатические Технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Висцеральные ОТ' },
+    { start: '2026-10-30', end: '2026-11-01', title: '7 поток Биомеханические Остеопатические Технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Биомеханические ОТ' },
+    { start: '2026-12-04', end: '2026-12-06', title: '7 поток Краниосакральные Остеопатические Технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Краниосакральные ОТ' },
+    // Биодинамика
+    { start: '2026-09-11', end: '2026-09-13', title: 'Биодинамика опорно-двигательной системы', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика ОДС' },
+    { start: '2026-10-16', end: '2026-10-18', title: 'Биодинамика висцеральной системы', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика висцеральной системы' },
+    { start: '2026-11-13', end: '2026-11-15', title: 'Биодинамика систем регуляции', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика систем регуляции' },
+    { start: '2026-12-11', end: '2026-12-13', title: 'Биодинамика полевых процессов', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика полевых процессов' }
 ];
 
 function initCalendar() {
@@ -377,7 +389,9 @@ function initCalendar() {
 
     if (!calendarDays) return;
 
-    let currentDate = new Date(2026, 2, 1); // Март 2026 (индекс 2)
+    // Открываем календарь на текущем месяце (на момент захода на сайт)
+    let currentDate = new Date();
+    currentDate.setDate(1);
 
     const monthNames = [
         "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
@@ -461,8 +475,11 @@ function initCalendar() {
                 </div>
             `;
             
-            // Плавный скролл при клике на ссылку в карточке
+            // Плавный скролл для якорей на этой странице; обычный переход для ссылок на другие страницы
             card.querySelector('.scroll-to-product').addEventListener('click', (e) => {
+                if (!event.target.startsWith('#')) {
+                    return; // внешняя/другая страница — переходим по ссылке
+                }
                 e.preventDefault();
                 const targetEl = document.querySelector(event.target);
                 if (targetEl) {
@@ -512,3 +529,98 @@ function initCalendar() {
 if (document.getElementById('calendar')) {
     initCalendar();
 }
+
+// --- Блок «Ближайшие мероприятия» (автозаполнение из calendarEvents) ---
+function renderUpcomingEvents() {
+    const list = document.getElementById('upcomingEventsList');
+    if (!list) return;
+
+    const monthGen = ["января", "февраля", "марта", "апреля", "мая", "июня",
+        "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+    const monthShort = ["ЯНВ", "ФЕВ", "МАР", "АПР", "МАЙ", "ИЮН",
+        "ИЮЛ", "АВГ", "СЕН", "ОКТ", "НОЯ", "ДЕК"];
+    const LIMIT = 3;
+
+    // Сегодняшняя дата в формате YYYY-MM-DD (для сравнения со строковыми датами событий)
+    const now = new Date();
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+    const upcoming = calendarEvents
+        .filter(e => e.promo !== false)            // исключаем служебные события (например, экзамен)
+        .filter(e => (e.end || e.start) >= todayStr) // ещё не прошедшие
+        .sort((a, b) => a.start.localeCompare(b.start))
+        .slice(0, LIMIT);
+
+    function badge(start, end) {
+        const s = start.split('-'), e = (end || start).split('-');
+        const sD = +s[2], sM = +s[1] - 1, eD = +e[2], eM = +e[1] - 1;
+        if (start === (end || start)) return { day: `${sD}`, month: monthGen[sM].toUpperCase() };
+        if (sM === eM) return { day: `${sD}-${eD}`, month: monthGen[sM].toUpperCase() };
+        return { day: `${sD}-${eD}`, month: `${monthShort[sM]}/${monthShort[eM]}` };
+    }
+
+    // Краткие теги (формат / для кого). Можно задать в событии (format, audience),
+    // иначе подставляются значения по типу программы.
+    function metaTags(ev) {
+        const defaults = {
+            'Биодинамика': { format: 'Очно / Онлайн', audience: 'Для остеопатов и практиков' },
+            'Психосоматика': { format: 'Онлайн', audience: 'Для специалистов и для себя' }
+        };
+        const def = defaults[ev.program] || { format: 'Очно / Онлайн', audience: 'Для специалистов' };
+        return [ev.format || def.format, ev.audience || def.audience].filter(Boolean);
+    }
+
+    if (upcoming.length === 0) {
+        list.innerHTML = '<p class="no-events">Ближайшие мероприятия скоро появятся.</p>';
+        return;
+    }
+
+    list.innerHTML = upcoming.map((ev, i) => {
+        const b = badge(ev.start, ev.end);
+        return `
+            <div class="event-row fade-in-up delay-${i + 2}">
+                <div class="event-date">
+                    <span class="day${b.day.includes('-') ? ' day--range' : ''}">${b.day}</span>
+                    <span class="month">${b.month}</span>
+                </div>
+                <div class="event-info">
+                    <h4>${ev.program}</h4>
+                    <p>${ev.title}</p>
+                    <div class="event-tags">
+                        ${metaTags(ev).map(t => `<span>${t}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="event-action">
+                    <a href="${ev.target}" class="btn btn-secondary btn-sm">Записаться</a>
+                </div>
+            </div>`;
+    }).join('');
+}
+
+renderUpcomingEvents();
+
+// --- Модалки «Узнать стоимость» (виджеты GetCourse) ---
+window.gcOpen = function (id) {
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+};
+(function () {
+    function closeModal(m) {
+        m.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('click', function (e) {
+        const t = e.target;
+        if (t.hasAttribute('data-gc-close') || t.classList.contains('gc-modal__overlay')) {
+            const m = t.closest('.gc-modal');
+            if (m) closeModal(m);
+        }
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.gc-modal.is-open').forEach(closeModal);
+        }
+    });
+})();

@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мета-анатомия — записи эфиров · Олег Агапэ</title>
+  <meta name="description" content="Записи 4 эфиров по Мета-анатомии — купите 4-й эфир или все вместе со скидкой">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --warm:        #2E5F9E;
+      --warm-soft:   #DDE8F5;
+      --warm-line:   rgba(46,95,158,0.22);
+      --accent:      #C07230;
+      --accent-soft: #FAEEDE;
+      --ink:         #141C2A;
+      --ink-soft:    #3A4758;
+      --ink-mute:    #7A8FA8;
+      --bg:          #F0F3F9;
+      --card:        #fff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+    /* ══ HERO ══ */
+    .hero {
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); background: var(--warm-soft);
+      border-radius: 20px; padding: 5px 16px; margin-bottom: 18px;
+    }
+    .hero__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(26px, 4.5vw, 48px);
+      font-weight: 800; color: var(--ink);
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 12px;
+    }
+    .hero__title em { font-style: normal; color: var(--warm); }
+    .hero__sub {
+      font-size: clamp(15px, 1.7vw, 17px); color: var(--ink-soft);
+      line-height: 1.6; max-width: 560px; margin: 0 auto;
+    }
+
+    /* ══ ЭФИР 4 — ГЛАВНЫЙ ОФФЕР ══ */
+    .main-offer {
+      padding: 0 0 72px;
+    }
+    .main-offer__inner {
+      background: var(--card);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.10);
+    }
+    .main-offer__top {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
+      padding: 44px 52px 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .main-offer__top::before {
+      content: '4';
+      position: absolute;
+      right: 32px; bottom: -20px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 160px; font-weight: 800;
+      color: rgba(255,255,255,0.07);
+      line-height: 1; pointer-events: none;
+    }
+    .main-offer__badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px; padding: 5px 14px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); margin-bottom: 16px;
+    }
+    .main-offer__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(20px, 3vw, 34px);
+      font-weight: 800; color: #fff;
+      line-height: 1.2; letter-spacing: -0.02em;
+      margin-bottom: 8px; max-width: 580px;
+    }
+    .main-offer__title em { font-style: normal; color: #F5D49A; }
+    .main-offer__tagline {
+      font-size: clamp(14px, 1.5vw, 16px);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.55; max-width: 540px;
+    }
+    @media (max-width: 600px) {
+      .main-offer__top { padding: 32px 24px 28px; }
+    }
+
+    .main-offer__body {
+      padding: 36px 52px 40px;
+    }
+    @media (max-width: 600px) {
+      .main-offer__body { padding: 28px 24px 32px; }
+    }
+
+    .main-offer__section-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 16px;
+    }
+    .main-offer__topics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 640px) {
+      .main-offer__topics { grid-template-columns: 1fr; }
+    }
+    .topic-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .topic-item__icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--warm-soft);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .topic-item__text {
+      font-size: 14px; color: var(--ink-soft);
+      line-height: 1.45; font-weight: 500;
+    }
+    .topic-item__text strong { color: var(--ink); font-weight: 600; }
+
+    .main-offer__insight {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      font-size: 15px; color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 32px;
+    }
+    .main-offer__insight strong { color: var(--accent); }
+
+    .main-offer__cta-row {
+      display: flex; align-items: center;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .main-offer__price {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .main-offer__price-val {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 26px; font-weight: 800;
+      color: var(--ink); letter-spacing: -0.02em;
+    }
+    .main-offer__price-hint {
+      font-size: 12px; color: var(--ink-mute);
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(13px, 1.4vw, 14px);
+      font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; border: none;
+      border-radius: 12px; padding: 16px 32px;
+      cursor: pointer; text-decoration: none;
+      transition: background .18s, transform .15s, box-shadow .18s;
+      box-shadow: 0 8px 22px -6px rgba(192,114,48,0.45);
+    }
+    .btn-primary:hover {
+      background: #a85e20; transform: translateY(-1px);
+      box-shadow: 0 12px 28px -8px rgba(192,114,48,0.55);
+    }
+    .main-offer__note {
+      font-size: 12px; color: var(--ink-mute); margin-top: 10px;
+    }
+
+    /* ══ БАНДЛ ══ */
+    .bundle { padding: 0 0 72px; }
+    .bundle__inner {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 44px 52px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      display: flex; align-items: center;
+      gap: 40px;
+    }
+    @media (max-width: 760px) {
+      .bundle__inner { flex-direction: column; padding: 32px 24px; gap: 28px; }
+    }
+    .bundle__left { flex: 1; min-width: 0; }
+    .bundle__badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-soft);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 14px;
+    }
+    .bundle__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 700; color: var(--ink);
+      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px;
+    }
+    .bundle__desc {
+      font-size: 15px; color: var(--ink-soft);
+      line-height: 1.55; margin-bottom: 16px;
+    }
+    .bundle__tags {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .bundle__tag {
+      background: var(--warm-soft);
+      color: var(--warm);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 12px; font-weight: 600;
+    }
+    .bundle__right {
+      flex-shrink: 0;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+      text-align: center;
+    }
+    .bundle__pricing {
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .bundle__old {
+      font-size: 15px; color: var(--ink-mute);
+      text-decoration: line-through;
+      font-family: 'Unbounded', sans-serif;
+    }
+    .bundle__new {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(30px, 3.5vw, 40px);
+      font-weight: 800; color: var(--ink);
+      letter-spacing: -0.03em;
+    }
+    .bundle__save {
+      background: #E8F5E9; color: #2E7D32;
+      border-radius: 20px; padding: 4px 14px;
+      font-size: 12px; font-weight: 700;
+    }
+    .btn-bundle {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--warm); color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border: none; border-radius: 12px;
+      padding: 15px 28px; cursor: pointer;
+      text-decoration: none; white-space: nowrap;
+      transition: background .18s, transform .15s, box-shadow .18s;
+      box-shadow: 0 8px 22px -6px rgba(46,95,158,0.38);
+    }
+    .btn-bundle:hover {
+      background: #1e4a84; transform: translateY(-1px);
+      box-shadow: 0 12px 28px -8px rgba(46,95,158,0.48);
+    }
+    .bundle__hint { font-size: 11px; color: var(--ink-mute); }
+
+    /* ══ ОСТАЛЬНЫЕ ЭФИРЫ ══ */
+    .others { padding: 0 0 80px; }
+    .others__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 700; color: var(--ink);
+      text-align: center; letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .others__sub {
+      text-align: center; color: var(--ink-mute);
+      font-size: 14px; margin-bottom: 32px;
+    }
+    .others__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 760px) {
+      .others__grid { grid-template-columns: 1fr; }
+    }
+    .lcard {
+      background: var(--card); border-radius: 16px;
+      padding: 24px 24px 20px;
+      display: flex; flex-direction: column; gap: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      position: relative; overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .lcard:hover {
+      box-shadow: 0 6px 24px rgba(46,95,158,0.12);
+      transform: translateY(-2px);
+    }
+    .lcard__num {
+      position: absolute; top: 16px; right: 18px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 42px; font-weight: 800;
+      color: rgba(46,95,158,0.07); line-height: 1;
+      pointer-events: none;
+    }
+    .lcard__tag {
+      display: inline-flex; align-items: center;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--warm); background: var(--warm-soft);
+      border-radius: 20px; padding: 3px 10px; width: fit-content;
+    }
+    .lcard__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(13px, 1.5vw, 15px);
+      font-weight: 700; color: var(--ink);
+      line-height: 1.25; letter-spacing: -0.01em;
+    }
+    .lcard__title em { font-style: normal; color: var(--warm); }
+    .lcard__focus {
+      font-size: 13px; color: var(--ink-soft);
+      line-height: 1.5; background: var(--bg);
+      border-radius: 8px; padding: 10px 12px;
+      border-left: 2px solid var(--warm-line);
+    }
+    .lcard__bottom {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 10px;
+      margin-top: auto;
+    }
+    .lcard__price-val {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 17px; font-weight: 700; color: var(--ink);
+    }
+    .lcard__price-hint { font-size: 11px; color: var(--ink-mute); }
+    .lcard__btn {
+      display: inline-flex; align-items: center;
+      background: var(--accent); color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border: none; border-radius: 8px;
+      padding: 10px 16px; cursor: pointer;
+      text-decoration: none; white-space: nowrap;
+      transition: background .18s, transform .15s;
+      box-shadow: 0 4px 12px -3px rgba(192,114,48,0.38);
+    }
+    .lcard__btn:hover { background: #a85e20; transform: translateY(-1px); }
+
+    /* ══ ТАРИФЫ ══ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    @media (max-width: 600px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+    .plan {
+      background: var(--bg);
+      border: 2px solid var(--warm-line);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .plan--featured {
+      background: var(--card);
+      border-color: var(--accent);
+      box-shadow: 0 6px 28px -8px rgba(192,114,48,0.25);
+      position: relative;
+    }
+    .plan__best {
+      position: absolute;
+      top: -13px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 20px; padding: 4px 14px;
+      white-space: nowrap;
+    }
+    .plan__name {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 14px; font-weight: 700;
+      color: var(--ink-soft); letter-spacing: -0.01em;
+    }
+    .plan__price {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(32px, 4vw, 42px);
+      font-weight: 800; color: var(--ink);
+      letter-spacing: -0.03em; line-height: 1;
+    }
+    .plan__price span { font-size: 0.5em; color: var(--ink-mute); }
+    .plan__list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+      font-size: 14px; color: var(--ink-soft); line-height: 1.4;
+    }
+    .plan__list li { display: flex; gap: 8px; }
+
+    /* ══ КАРУСЕЛЬ ОТЗЫВОВ ══ */
+    .reviews {
+      padding: 0 0 72px;
+      position: relative;
+    }
+    .reviews::before {
+      content: '';
+      position: absolute;
+      inset: -20px 0;
+      background: linear-gradient(180deg, transparent, rgba(46,95,158,0.04) 50%, transparent);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .reviews__eyebrow {
+      display: block;
+      text-align: center;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 10px;
+    }
+    .reviews__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(20px, 2.6vw, 30px);
+      font-weight: 700; color: var(--ink);
+      text-align: center; letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .reviews__sub {
+      text-align: center; color: var(--ink-mute);
+      font-size: 14px; margin-bottom: 36px;
+    }
+    .reviews__slider { position: relative; }
+    .reviews__overflow {
+      overflow: hidden;
+      border-radius: 8px;
+      padding: 4px;
+      margin: -4px;
+    }
+    .reviews__track {
+      display: flex;
+      transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .reviews__slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .reviews__slide { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    }
+    @media (max-width: 480px) {
+      .reviews__slide { grid-template-columns: 1fr; }
+    }
+    .review-img {
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(20,28,42,0.10);
+      cursor: zoom-in;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .review-img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(20,28,42,0.18);
+    }
+    .review-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .reviews__nav {
+      display: flex; justify-content: center;
+      align-items: center; gap: 20px;
+      margin-top: 20px;
+    }
+    .reviews__arrow {
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 1.5px solid var(--warm-line);
+      background: var(--card); color: var(--warm);
+      cursor: pointer; font-size: 17px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .reviews__arrow:hover:not(:disabled) {
+      background: var(--warm-soft); border-color: var(--warm);
+    }
+    .reviews__arrow:disabled { opacity: 0.28; cursor: default; }
+    .reviews__dots { display: flex; gap: 7px; align-items: center; }
+    .reviews__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--warm-line); border: none; padding: 0;
+      cursor: pointer; transition: background .2s, transform .2s;
+    }
+    .reviews__dot.is-active { background: var(--warm); transform: scale(1.3); }
+
+    /* ══ ЛАЙТБОКС ══ */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.88);
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: 90vh;
+      border-radius: 12px; object-fit: contain;
+    }
+    .lightbox__close {
+      position: absolute; top: 20px; right: 24px;
+      background: none; border: none; color: #fff;
+      font-size: 32px; cursor: pointer; line-height: 1;
+    }
+
+    /* ══ FOOTER ══ */
+    .page-foot {
+      padding: 24px 0 36px; text-align: center;
+      color: var(--ink-mute); font-size: 12px;
+      border-top: 1px solid var(--warm-line);
+    }
+    .page-foot a { color: var(--ink-mute); text-decoration: none; }
+    .page-foot a:hover { color: var(--warm); }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__eyebrow">Серия эфиров · Олег Агапэ</div>
+    <h1 class="hero__title">Мета-<em>анатомия</em></h1>
+    <p class="hero__sub">4 эфира о том, как читать своё тело как карту: где зажат страх, где спрятана усталость и где лежит ресурс</p>
+  </div>
+</section>
+
+<!-- ══ ГЛАВНЫЙ ОФФЕР — ЭФИР 4 ══ -->
+<section class="main-offer">
+  <div class="wrap">
+    <div class="main-offer__inner">
+
+      <div class="main-offer__top">
+        <div class="main-offer__badge">✦ Завершающий эфир серии · Эфир 4</div>
+        <h2 class="main-offer__title">Мета-анатомия:<br><em>Внешний контур</em></h2>
+        <p class="main-offer__tagline">
+          Зона, где ваша внутренняя биология наконец встречается с реальностью и превращается в личный вектор реализации. Финальный эфир серии — интеграция всего
+        </p>
+      </div>
+
+      <div class="main-offer__body">
+        <div class="main-offer__section-label">Что разобрали на эфире</div>
+        <div class="main-offer__topics">
+          <div class="topic-item">
+            <div class="topic-item__icon">🌌</div>
+            <div class="topic-item__text">
+              <strong>Внешнее давление сверху</strong> — откуда берётся ощущение миссии и предназначения, и почему ум не может это декодировать без зрелости
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🌱</div>
+            <div class="topic-item__text">
+              <strong>Связь с землёй и родом</strong> — как родовая система питает вашу реализацию и что блокирует этот поток
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🔄</div>
+            <div class="topic-item__text">
+              <strong>Горизонтальный контур</strong> — как взаимодействие с людьми, социумом и эгрегорами запускает или тормозит вашу задачность
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">⚡</div>
+            <div class="topic-item__text">
+              <strong>Система внутренних давлений</strong> — как «подружить» голову, сердце и таз, чтобы тело перестало буксовать
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🕐</div>
+            <div class="topic-item__text">
+              <strong>Временная шкала и энергия</strong> — где теряется сила из-за фантомных фиксаций на прошлом и будущем, и как вернуть её в настоящее
+            </div>
+          </div>
+          <div class="topic-item">
+            <div class="topic-item__icon">🧘</div>
+            <div class="topic-item__text">
+              <strong>Практика интеграции</strong> — завершающая медитация, которая собирает все 4 центра в единую систему
+            </div>
+          </div>
+        </div>
+
+        <div class="main-offer__insight">
+          Когда три центра — таз, сердце и ум — рассогласованы, человек живёт <strong>одним центром</strong>: либо думает о реальности, либо ощущает, либо чувствует. Только интеграция всех трёх даёт настоящую адаптацию и силу. Этот эфир — про то, как это сделать.
+        </div>
+
+        <!-- ТАРИФЫ -->
+        <div class="pricing-grid">
+
+          <!-- ТАРИФ 1 -->
+          <div class="plan">
+            <div class="plan__name">Только 4-й эфир</div>
+            <div class="plan__price">1 499 <span>₽</span></div>
+            <ul class="plan__list">
+              <li>✓ Запись эфира «Внешний контур»</li>
+              <li>✓ Доступ на 2 недели</li>
+              <li>✓ Открывается сразу после оплаты</li>
+            </ul>
+            <button class="btn-primary" onclick="gcOpen('gcModalSingle')">Купить 4-й эфир</button>
+          </div>
+
+          <!-- ТАРИФ 2 -->
+          <div class="plan plan--featured">
+            <div class="plan__best">🎁 Выгоднее</div>
+            <div class="plan__name">Все 4 эфира</div>
+            <div class="plan__price">3 999 <span>₽</span></div>
+            <ul class="plan__list">
+              <li>✓ Записи всех 4 эфиров серии</li>
+              <li>✓ Таз · Сердечный центр · Ментальный центр · Внешний контур</li>
+              <li>✓ Доступ на 3 недели</li>
+              <li>✓ Открывается сразу после оплаты</li>
+            </ul>
+            <button class="btn-bundle" onclick="gcOpen('gcModalBundle')">Купить все 4 эфира</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ ОТЗЫВЫ ══ -->
+<section class="reviews">
+  <div class="wrap">
+    <span class="reviews__eyebrow">Что говорят</span>
+    <h2 class="reviews__title">Отзывы участников</h2>
+    <p class="reviews__sub">После прошлых эфиров серии</p>
+    <div class="reviews__slider">
+      <div class="reviews__overflow">
+        <div class="reviews__track" id="reviewsTrack">
+
+          <!-- Слайд 1 -->
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6900.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6901.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6902.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <!-- Слайд 2 -->
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6903.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6904.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6905.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <!-- Слайд 3 -->
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6906.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6908.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6909.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <!-- Слайд 4 -->
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6910.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6911.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6912.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <!-- Слайд 5 -->
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6913.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="reviews__nav">
+        <button class="reviews__arrow" id="rPrev">&#8592;</button>
+        <div class="reviews__dots" id="rDots"></div>
+        <button class="reviews__arrow" id="rNext">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ЛАЙТБОКС ══ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lbClose">&#10005;</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<!-- ══ ЗАБОТА ══ -->
+<section style="padding: 0 0 64px; text-align: center;">
+  <div class="wrap">
+    <p style="font-size: 15px; color: var(--ink-mute); margin-bottom: 16px;">Остались вопросы по оплате или доступу?</p>
+    <button onclick="gcOpen('gcModalSupport')"
+       style="display: inline-flex; align-items: center; gap: 10px;
+              background: var(--card); color: var(--warm);
+              font-family: 'Unbounded', sans-serif; font-size: 13px;
+              font-weight: 700; letter-spacing: 0.02em;
+              border: 2px solid var(--warm-line); border-radius: 12px;
+              padding: 14px 28px; cursor: pointer;
+              transition: border-color .18s, box-shadow .18s, transform .15s;
+              box-shadow: 0 2px 12px rgba(46,95,158,0.08);"
+       onmouseover="this.style.borderColor='var(--warm)';this.style.transform='translateY(-1px)'"
+       onmouseout="this.style.borderColor='var(--warm-line)';this.style.transform='translateY(0)'">
+      💬 Задать вопрос службе заботы
+    </button>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-foot">
+  <div class="wrap">
+    <p>© 2026 Олег Агапэ · <a href="https://dr-agape.ru">dr-agape.ru</a></p>
+  </div>
+</footer>
+
+<script>
+  // ══ КАРУСЕЛЬ ОТЗЫВОВ ══
+  (function() {
+    var track = document.getElementById('reviewsTrack');
+    var slides = track.querySelectorAll('.reviews__slide');
+    var prev = document.getElementById('rPrev');
+    var next = document.getElementById('rNext');
+    var dotsWrap = document.getElementById('rDots');
+    var cur = 0;
+
+    var dots = Array.from(slides).map(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'reviews__dot';
+      d.addEventListener('click', function() { goTo(i); });
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    function goTo(idx) {
+      cur = Math.max(0, Math.min(idx, slides.length - 1));
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('is-active', i === cur); });
+      prev.disabled = cur === 0;
+      next.disabled = cur === slides.length - 1;
+    }
+
+    prev.addEventListener('click', function() { goTo(cur - 1); });
+    next.addEventListener('click', function() { goTo(cur + 1); });
+
+    // Swipe
+    var tx = 0;
+    track.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      if (Math.abs(tx - e.changedTouches[0].clientX) > 40)
+        goTo(cur + (tx - e.changedTouches[0].clientX > 0 ? 1 : -1));
+    });
+
+    goTo(0);
+  })();
+
+  // ══ ЛАЙТБОКС ══
+  (function() {
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lbImg');
+    document.querySelectorAll('.review-img img').forEach(function(img) {
+      img.addEventListener('click', function() {
+        lbImg.src = img.src;
+        lb.classList.add('is-open');
+      });
+    });
+    document.getElementById('lbClose').addEventListener('click', function() {
+      lb.classList.remove('is-open');
+    });
+    lb.addEventListener('click', function(e) {
+      if (e.target === lb) lb.classList.remove('is-open');
+    });
+  })();
+</script>
+
+<!-- ══ Модалки GetCourse ══ -->
+<style>
+  .gc-modal { display:none; position:fixed; inset:0; z-index:9000; align-items:center; justify-content:center; }
+  .gc-modal.is-open { display:flex; }
+  .gc-modal__overlay { position:absolute; inset:0; background:rgba(10,20,40,0.70); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); }
+  .gc-modal__box { position:relative; z-index:1; background:var(--card); border-radius:20px; padding:40px 24px 24px; width:100%; max-width:560px; max-height:90vh; overflow-y:auto; margin:16px; box-shadow:0 32px 64px -16px rgba(10,30,80,0.40); }
+  @media (max-width:600px){ .gc-modal__box { padding:36px 14px 20px; } }
+  .gc-modal__close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; line-height:1; cursor:pointer; color:var(--ink-mute); padding:4px 8px; border-radius:8px; transition:color .15s, background .15s; }
+  .gc-modal__close:hover { color:var(--ink); background:var(--bg); }
+  .gc-modal__title { font-family:'Unbounded',sans-serif; font-size:15px; font-weight:700; color:var(--ink); margin:0 0 16px; line-height:1.3; }
+  .gc-modal__body { min-height:80px; }
+</style>
+
+<div id="gcModalSingle" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" data-gc-close></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Покупка 4-го эфира</div>
+    <div class="gc-modal__body">
+      <script id="7ad3f94ba8533d2e6dcdc795284b8527912f944f" src="https://online.agape-course.ru/pl/lite/widget/script?id=1604249" onload="typeof startWidget7ad3f94ba8533d2e6dcdc795284b8527912f944f==='function'&&startWidget7ad3f94ba8533d2e6dcdc795284b8527912f944f()"></script>
+    </div>
+  </div>
+</div>
+
+<div id="gcModalBundle" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" data-gc-close></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Покупка всех 4 эфиров</div>
+    <div class="gc-modal__body">
+      <script id="9c2736894370ca26189c57a454faaa2aa35435fc" src="https://online.agape-course.ru/pl/lite/widget/script?id=1604250" onload="typeof startWidget9c2736894370ca26189c57a454faaa2aa35435fc==='function'&&startWidget9c2736894370ca26189c57a454faaa2aa35435fc()"></script>
+    </div>
+  </div>
+</div>
+
+<div id="gcModalSupport" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" data-gc-close></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Вопрос службе заботы</div>
+    <div class="gc-modal__body">
+      <script id="be6b85ed96a6f8895860dd5068e035bc80b858f2" src="https://online.agape-course.ru/pl/lite/widget/script?id=1604251" onload="typeof startWidgetbe6b85ed96a6f8895860dd5068e035bc80b858f2==='function'&&startWidgetbe6b85ed96a6f8895860dd5068e035bc80b858f2()"></script>
+    </div>
+  </div>
+</div>
+
+<script>
+  function gcOpen(modalId) {
+    var m = document.getElementById(modalId);
+    if (!m) return;
+    m.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function gcCloseAll() {
+    document.querySelectorAll('.gc-modal.is-open').forEach(function(m){ m.classList.remove('is-open'); });
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-gc-close]').forEach(function(el){
+    el.addEventListener('click', gcCloseAll);
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') gcCloseAll(); });
+</script>
+
+</body>
+</html>

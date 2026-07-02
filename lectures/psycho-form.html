@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Психосоматика — оформление заказа</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --warm:      #2E5F9E;
+      --warm-soft: #DDE8F5;
+      --accent:    #C07230;
+      --ink:       #141C2A;
+      --ink-mute:  #7A8FA8;
+      --bg:        #F0F3F9;
+      --card:      #fff;
+    }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+    .eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); background: var(--warm-soft);
+      border-radius: 20px; padding: 5px 16px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.12);
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 560px;
+      text-align: center;
+    }
+    @media (max-width: 480px) { .card { padding: 28px 18px; } }
+    .card__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .card__title em { font-style: normal; color: var(--warm); }
+    .card__sub {
+      font-size: 14px;
+      color: var(--ink-mute);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .form-wrap {
+      text-align: left;
+    }
+    .page-foot {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-align: center;
+    }
+    .page-foot a { color: var(--ink-mute); text-decoration: none; }
+    .page-foot a:hover { color: var(--warm); }
+  </style>
+</head>
+<body>
+
+  <div class="eyebrow">Запись вебинара · Психосоматика</div>
+
+  <div class="card">
+    <div class="card__title">Психо-<em>соматика</em></div>
+    <p class="card__sub">Оформите доступ к записи вебинара</p>
+    <div class="form-wrap">
+      <script id="ffa77ef565708b15f96bfef2ddd5731178b98516" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625685" onload="typeof startWidgetffa77ef565708b15f96bfef2ddd5731178b98516==='function'&&startWidgetffa77ef565708b15f96bfef2ddd5731178b98516()"></script>
+    </div>
+  </div>
+
+  <p class="page-foot">© 2026 Олег Агапэ · <a href="https://dr-agape.ru">dr-agape.ru</a></p>
+
+</body>
+</html>
