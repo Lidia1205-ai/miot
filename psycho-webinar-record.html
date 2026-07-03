@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Запись вебинара по психосоматике</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-tint: #F2F2F2;
+    --surface: #F8F8F8;
+    --surface-tint: #EFEFEF;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-mute: #7A7A7A;
+    --border: rgba(26,26,26,0.10);
+    --warm: #C8392F;
+    --warm-soft: #FBE4DD;
+    --warm-line: rgba(200,57,47,0.25);
+    --shadow-sm: 0 6px 14px -8px rgba(26,26,26,0.25);
+    --shadow-md: 0 12px 28px -12px rgba(26,26,26,0.32);
+    --shadow-lg: 0 24px 48px -16px rgba(26,26,26,0.4);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .h-display {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .h-section {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 60px 0 48px;
+    text-align: center;
+  }
+  .hero__eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 9px 20px;
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 24px;
+    margin-bottom: 26px;
+  }
+  .hero__title {
+    font-size: clamp(32px, 5.5vw, 62px);
+    color: var(--ink);
+    margin: 0 auto 18px;
+    max-width: 920px;
+  }
+  .hero__title em { font-style: normal; color: var(--warm); }
+  .hero__sub {
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  /* === ВИДЕО === */
+  .video-wrap {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .video-toggle {
+    display: inline-flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 4px;
+    margin: 0 auto 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .video-toggle__btn {
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+  .video-toggle__btn:hover { color: var(--ink); }
+  .video-toggle__btn.is-active {
+    background: var(--ink);
+    color: var(--surface);
+  }
+  .video-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .video-player iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-player__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mute);
+    font-size: 14px;
+    background: var(--bg-tint);
+    pointer-events: none;
+  }
+
+  /* === CTA === */
+  .cta-block {
+    margin: 38px 0 26px;
+    text-align: center;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--warm);
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: clamp(15px, 1.7vw, 18px);
+    letter-spacing: -0.005em;
+    padding: 18px 44px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(.2,.6,.2,1);
+    box-shadow: 0 14px 28px -10px rgba(200,57,47,0.55);
+    text-transform: uppercase;
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 32px -10px rgba(200,57,47,0.65);
+  }
+  .cta:active { transform: translateY(0); }
+  .cta__hint {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.01em;
+  }
+
+  /* === ЧТО БУДЕТ === */
+  .what {
+    padding: 80px 0 60px;
+  }
+  .what__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 12px;
+    max-width: 860px;
+  }
+  .what__title em { font-style: normal; color: var(--warm); }
+  .what__sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: clamp(14px, 1.5vw, 17px);
+    margin: 0 auto 44px;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .topic-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .topic-card.is-warm { background: var(--warm-soft); border-color: var(--warm-line); }
+  .topic-card__icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .topic-card__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .topic-card__text {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  @media (max-width: 760px) {
+    .topics-grid { grid-template-columns: 1fr 1fr; }
+    .what { padding: 56px 0 40px; }
+  }
+  @media (max-width: 480px) {
+    .topics-grid { grid-template-columns: 1fr; }
+  }
+
+  /* === ДЛЯ КОГО === */
+  .forwhom {
+    padding: 80px 0 60px;
+    background: var(--surface);
+  }
+  .forwhom__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 860px;
+  }
+  .forwhom__title em { font-style: normal; color: var(--warm); }
+  .forwhom__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .forwhom__card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px 24px;
+  }
+  .forwhom__card-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--warm);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .forwhom__card-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(14px, 1.7vw, 17px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .forwhom__card-text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  @media (max-width: 760px) {
+    .forwhom__grid { grid-template-columns: 1fr; }
+    .forwhom { padding: 56px 0 40px; }
+  }
+
+  /* === ТАРИФЫ === */
+  .pricing {
+    padding: 90px 0 70px;
+  }
+  .pricing__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 14px;
+    max-width: 860px;
+  }
+  .pricing__title em { font-style: normal; color: var(--warm); }
+  .pricing__sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: clamp(14px, 1.5vw, 17px);
+    margin: 0 auto 48px;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1060px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .plan {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 30px 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .plan:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+  .plan.is-featured {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+  .plan.is-featured .plan__name { color: rgba(255,255,255,0.55); }
+  .plan.is-featured .plan__title { color: #fff; }
+  .plan.is-featured .plan__price { color: #fff; }
+  .plan.is-featured .plan__period { color: rgba(255,255,255,0.5); }
+  .plan.is-featured .plan__divider { border-color: rgba(255,255,255,0.12); }
+  .plan.is-featured .plan__feat { color: rgba(255,255,255,0.8); }
+  .plan.is-featured .plan__feat::before { color: rgba(200,57,47,0.85); }
+  .plan.is-featured .plan__desc { color: rgba(255,255,255,0.55); }
+  .plan.is-featured .plan__cta {
+    background: var(--warm);
+    color: #fff;
+    box-shadow: 0 10px 22px -8px rgba(200,57,47,0.6);
+  }
+  .plan__badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--warm);
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px -4px rgba(200,57,47,0.5);
+  }
+  .plan__name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--warm);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .plan__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .plan__price {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(32px, 3.5vw, 44px);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .plan__price-old {
+    display: inline-block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    margin-left: 10px;
+    letter-spacing: -0.02em;
+    vertical-align: 4px;
+  }
+  .plan.is-featured .plan__price-old { color: rgba(255,255,255,0.35); }
+  .plan__period {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 24px;
+  }
+  .plan__divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 0 22px;
+  }
+  .plan__feats {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+  .plan__feat {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    padding-left: 22px;
+    position: relative;
+  }
+  .plan__feat::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--warm);
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .plan__feat strong { color: var(--ink); font-weight: 700; }
+  .plan.is-featured .plan__feat strong { color: #fff; }
+  .plan__desc {
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .plan__cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.22s cubic-bezier(.2,.6,.2,1);
+    margin-top: auto;
+  }
+  .plan__cta:hover {
+    background: var(--warm);
+    border-color: var(--warm);
+    color: #fff;
+    box-shadow: 0 10px 22px -8px rgba(200,57,47,0.55);
+    transform: translateY(-1px);
+  }
+  @media (max-width: 860px) {
+    .plans { grid-template-columns: 1fr; max-width: 480px; }
+    .pricing { padding: 60px 0 50px; }
+  }
+
+  /* === ГАРАНТИЯ === */
+  .guarantee {
+    padding: 20px 0 70px;
+    text-align: center;
+  }
+  .guarantee__box {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 20px;
+    padding: 32px 36px;
+  }
+  .guarantee__icon { font-size: 36px; margin-bottom: 14px; }
+  .guarantee__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+  }
+  .guarantee__text {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .guarantee__text strong { color: var(--warm); font-weight: 700; }
+  @media (max-width: 760px) {
+    .guarantee__box { padding: 24px 20px; }
+    .guarantee { padding: 10px 0 50px; }
+  }
+
+  /* === FAQ === */
+  .faq {
+    padding: 70px 0 60px;
+    background: var(--surface);
+  }
+  .faq__title {
+    font-size: clamp(26px, 3.5vw, 42px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 700px;
+  }
+  .faq__list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .faq__item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .faq__q {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--ink);
+    text-align: left;
+    padding: 20px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    line-height: 1.4;
+  }
+  .faq__q-arrow {
+    flex-shrink: 0;
+    font-size: 20px;
+    color: var(--warm);
+    transition: transform 0.2s ease;
+    line-height: 1;
+  }
+  .faq__item.is-open .faq__q-arrow { transform: rotate(45deg); }
+  .faq__a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 22px;
+  }
+  .faq__item.is-open .faq__a {
+    max-height: 400px;
+    padding: 0 22px 20px;
+  }
+  .faq__a p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 760px) {
+    .faq { padding: 50px 0 40px; }
+  }
+
+  /* === НИЖНИЙ CTA === */
+  .footer-cta {
+    padding: 70px 0 80px;
+    text-align: center;
+  }
+  .footer-cta__caption {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(22px, 2.4vw, 30px);
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    transform: rotate(-1deg);
+    display: inline-block;
+  }
+  .footer-cta__sub {
+    font-size: 14px;
+    color: var(--ink-mute);
+    margin-bottom: 28px;
+  }
+
+  /* === FOOTER === */
+  .page-foot {
+    padding: 24px 0 36px;
+    text-align: center;
+    color: var(--ink-mute);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 760px) {
+    .hero { padding: 40px 0 32px; }
+    .cta { padding: 16px 32px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 18px; }
+    .video-toggle__btn { font-size: 13px; padding: 9px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__eyebrow">Запись вебинара · Психосоматика</div>
+    <h1 class="hero__title h-display">Психосоматика: <em>тело говорит</em> то, что замалчивает психика</h1>
+    <p class="hero__sub">Разбираем связь симптомов и психологических процессов — для себя и для работы со своими клиентами</p>
+
+    <div class="video-wrap">
+      <div class="video-toggle" role="tablist" aria-label="Выбор плеера">
+        <button class="video-toggle__btn is-active" data-player="kinescope" type="button">Kinescope</button>
+        <button class="video-toggle__btn" data-player="youtube" type="button">YouTube</button>
+      </div>
+      <div class="video-player" id="videoPlayer">
+        <div class="video-player__placeholder">Загружаю плеер…</div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <a class="cta" href="#pricing" id="ctaHero">Выбрать тариф</a>
+      <span class="cta__hint">Доступ сразу после оплаты · Смотреть в удобное время</span>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО РАЗБЕРЁМ -->
+<section class="what">
+  <div class="wrap">
+    <h2 class="what__title h-section">Что <em>разберём</em> на вебинаре</h2>
+    <p class="what__sub">Вебинар объединяет классику психосоматики и современный клинический взгляд — полезно как для личного понимания, так и для практики с клиентами</p>
+
+    <div class="topics-grid">
+      <div class="topic-card is-warm">
+        <div class="topic-card__icon">🧠</div>
+        <div class="topic-card__title">Механизм психосоматики</div>
+        <div class="topic-card__text">Как психологический конфликт становится телесным симптомом. Нейробиологический и психоаналитический взгляд.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-card__icon">🫀</div>
+        <div class="topic-card__title">Классические психосоматозы</div>
+        <div class="topic-card__text">Семь психосоматических заболеваний Александера и их современная интерпретация.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-card__icon">🔍</div>
+        <div class="topic-card__title">Диагностика по телу</div>
+        <div class="topic-card__text">Как читать симптом как сообщение. Зоны тела и их символическое значение.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-card__icon">💬</div>
+        <div class="topic-card__title">Работа с клиентом</div>
+        <div class="topic-card__text">Техники телесного осознавания и формулировки вопросов, которые помогают клиенту услышать себя.</div>
+      </div>
+      <div class="topic-card is-warm">
+        <div class="topic-card__icon">🩺</div>
+        <div class="topic-card__title">Граница компетенций</div>
+        <div class="topic-card__text">Когда психосоматика — точка входа, а когда нужно направить к врачу. Безопасная работа специалиста.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-card__icon">🌿</div>
+        <div class="topic-card__title">Ресурсы и практики</div>
+        <div class="topic-card__text">Упражнения для интеграции тела и психики: дыхание, заземление, работа с образом симптома.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ДЛЯ КОГО -->
+<section class="forwhom">
+  <div class="wrap">
+    <h2 class="forwhom__title h-section">Для <em>кого</em> этот вебинар</h2>
+    <div class="forwhom__grid">
+      <div class="forwhom__card">
+        <div class="forwhom__card-num">Тариф 01</div>
+        <div class="forwhom__card-title">Для себя</div>
+        <div class="forwhom__card-text">Если вы хотите разобраться, что говорит вам ваше тело. Понять связи между тем, что вы чувствуете внутри — и тем, что проявляется снаружи. Практики и инструменты для личного применения.</div>
+      </div>
+      <div class="forwhom__card">
+        <div class="forwhom__card-num">Тариф 02</div>
+        <div class="forwhom__card-title">Специалист очно</div>
+        <div class="forwhom__card-text">Для практикующих специалистов — остеопатов, массажистов, врачей, телесных терапевтов. Расширяет понимание клиентов и даёт язык для разговора о психосоматике во время сессий.</div>
+      </div>
+      <div class="forwhom__card">
+        <div class="forwhom__card-num">Тариф 03</div>
+        <div class="forwhom__card-title">Специалист онлайн</div>
+        <div class="forwhom__card-text">Для психологов, коучей и консультантов. Добавляет телесное измерение в онлайн-работу, формулировки для диагностики и техники, которые работают через экран.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <h2 class="pricing__title h-section">Выберите <em>свой тариф</em></h2>
+    <p class="pricing__sub">Каждый тариф включает полную запись вебинара. Разница — в дополнительных материалах и поддержке</p>
+
+    <div class="plans">
+
+      <!-- ТАРИФ 1: ДЛЯ СЕБЯ -->
+      <div class="plan">
+        <div class="plan__name">Тариф 01</div>
+        <div class="plan__title">Для себя</div>
+        <div class="plan__price">ЦЕНА<span class="plan__price-old">СТАРАЯ</span></div>
+        <div class="plan__period">единоразовый платёж</div>
+        <hr class="plan__divider">
+        <ul class="plan__feats">
+          <li class="plan__feat">Полная <strong>запись вебинара</strong></li>
+          <li class="plan__feat">Конспект и ключевые тезисы</li>
+          <li class="plan__feat">Практические упражнения для личного применения</li>
+          <li class="plan__feat">Доступ к записи <strong>бессрочно</strong></li>
+        </ul>
+        <p class="plan__desc">Для тех, кто хочет понять себя и своё тело — без профессионального применения</p>
+        <a class="plan__cta" href="#" data-plan="self">Купить →</a>
+      </div>
+
+      <!-- ТАРИФ 2: СПЕЦИАЛИСТ ОЧНО (featured) -->
+      <div class="plan is-featured">
+        <div class="plan__badge">Популярный выбор</div>
+        <div class="plan__name">Тариф 02</div>
+        <div class="plan__title">Специалист очно</div>
+        <div class="plan__price">ЦЕНА<span class="plan__price-old">СТАРАЯ</span></div>
+        <div class="plan__period">единоразовый платёж</div>
+        <hr class="plan__divider">
+        <ul class="plan__feats">
+          <li class="plan__feat">Всё из тарифа «Для себя»</li>
+          <li class="plan__feat"><strong>Блок для специалиста:</strong> как говорить с клиентом о психосоматике на очной сессии</li>
+          <li class="plan__feat">Готовые формулировки и вопросы для анамнеза</li>
+          <li class="plan__feat">Разбор 3 клинических случаев</li>
+          <li class="plan__feat">Чек-лист: когда направлять к смежному специалисту</li>
+          <li class="plan__feat">Доступ к записи <strong>бессрочно</strong></li>
+        </ul>
+        <p class="plan__desc">Для телесных терапевтов, остеопатов, массажистов и врачей</p>
+        <a class="plan__cta" href="#" data-plan="offline">Купить →</a>
+      </div>
+
+      <!-- ТАРИФ 3: СПЕЦИАЛИСТ ОНЛАЙН -->
+      <div class="plan">
+        <div class="plan__name">Тариф 03</div>
+        <div class="plan__title">Специалист онлайн</div>
+        <div class="plan__price">ЦЕНА<span class="plan__price-old">СТАРАЯ</span></div>
+        <div class="plan__period">единоразовый платёж</div>
+        <hr class="plan__divider">
+        <ul class="plan__feats">
+          <li class="plan__feat">Всё из тарифа «Специалист очно»</li>
+          <li class="plan__feat"><strong>Адаптация для онлайн-работы:</strong> техники через экран</li>
+          <li class="plan__feat">Протокол онлайн-сессии с телесным фокусом</li>
+          <li class="plan__feat">Разбор специфики дистанционной работы с симптомом</li>
+          <li class="plan__feat">Шаблон домашних практик для клиентов</li>
+          <li class="plan__feat"><strong>Разбор вопросов</strong> в закрытом чате</li>
+          <li class="plan__feat">Доступ к записи <strong>бессрочно</strong></li>
+        </ul>
+        <p class="plan__desc">Для психологов, коучей и консультантов, работающих онлайн</p>
+        <a class="plan__cta" href="#" data-plan="online">Купить →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ГАРАНТИЯ -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="guarantee__box">
+      <div class="guarantee__icon">🤝</div>
+      <div class="guarantee__title">Гарантия возврата 7 дней</div>
+      <p class="guarantee__text">Если запись окажется не тем, что вы ожидали — напишите в течение 7 дней после покупки, и мы вернём полную сумму. <strong>Без лишних вопросов.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <h2 class="faq__title h-section">Частые вопросы</h2>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Когда я получу доступ к записи?
+          <span class="faq__q-arrow">+</span>
+        </button>
+        <div class="faq__a">
+          <p>Сразу после оплаты — ссылка придёт на ваш email. Запись доступна бессрочно, смотреть можно в любое удобное время.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Нужно ли медицинское образование, чтобы понять вебинар?
+          <span class="faq__q-arrow">+</span>
+        </button>
+        <div class="faq__a">
+          <p>Нет. Вебинар построен так, что он одинаково понятен и для людей без профессионального бэкграунда, и для практикующих специалистов. Специальных знаний не требуется.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          В чём отличие тарифа «Специалист очно» от «Специалист онлайн»?
+          <span class="faq__q-arrow">+</span>
+        </button>
+        <div class="faq__a">
+          <p>«Специалист онлайн» включает всё из «очного» тарифа плюс блок, адаптированный для дистанционной работы: протокол онлайн-сессии, техники через экран, шаблон домашних практик для клиентов и доступ к чату для разбора вопросов.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Можно ли перейти на тариф выше после покупки?
+          <span class="faq__q-arrow">+</span>
+        </button>
+        <div class="faq__a">
+          <p>Да. Если после покупки вы захотите апгрейд — напишите нам, доплатите разницу и сразу получите доступ к дополнительным материалам.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Как долго доступен закрытый чат в тарифе «Специалист онлайн»?
+          <span class="faq__q-arrow">+</span>
+        </button>
+        <div class="faq__a">
+          <p>Доступ к закрытому чату открыт в течение 30 дней после покупки. За это время вы можете задать вопросы и получить обратную связь от автора.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- НИЖНИЙ CTA -->
+<section class="footer-cta">
+  <div class="wrap">
+    <div class="footer-cta__caption">«тело уже всё знает — запись поможет это услышать»</div>
+    <p class="footer-cta__sub">Доступ сразу после оплаты · Смотреть в удобное время · Бессрочно</p>
+    <div class="cta-block">
+      <a class="cta" href="#pricing" id="ctaBottom">Выбрать тариф</a>
+    </div>
+  </div>
+</section>
+
+<footer class="page-foot">
+  <div class="wrap">© АнтиГравитация · Психосоматика · 2026</div>
+</footer>
+
+<script>
+(() => {
+  // ====== ВИДЕО ПЛЕЕР ======
+  // ЗАМЕНИТЬ на реальные ссылки:
+  const VIDEOS = {
+    kinescope: '',   // напр. 'https://kinescope.io/XXXXXX'
+    youtube:   '',   // напр. 'https://www.youtube.com/embed/XXXXXX'
+  };
+
+  const player = document.getElementById('videoPlayer');
+  const toggleBtns = document.querySelectorAll('.video-toggle__btn');
+
+  function loadVideo(kind) {
+    const src = VIDEOS[kind];
+    if (!src) {
+      player.innerHTML = '<div class="video-player__placeholder">Ссылка на видео появится скоро</div>';
+      return;
+    }
+    player.innerHTML = `<iframe src="${src}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  }
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      loadVideo(btn.dataset.player);
+    });
+  });
+
+  loadVideo('kinescope');
+
+  // ====== CTA → ТАРИФЫ ======
+  document.querySelectorAll('#ctaHero, #ctaBottom').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ====== ССЫЛКИ НА ОПЛАТУ ======
+  // ЗАМЕНИТЬ на реальные ссылки оплаты:
+  const PAYMENT_URLS = {
+    self:    '',   // ссылка для тарифа «Для себя»
+    offline: '',   // ссылка для тарифа «Специалист очно»
+    online:  '',   // ссылка для тарифа «Специалист онлайн»
+  };
+
+  document.querySelectorAll('.plan__cta').forEach(a => {
+    const plan = a.dataset.plan;
+    const url = PAYMENT_URLS[plan];
+    if (url) {
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
+
+  // ====== FAQ ======
+  document.querySelectorAll('.faq__q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq__item');
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('is-open'));
+      if (!isOpen) item.classList.add('is-open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -93,10 +93,26 @@ function renderBlock(b){
       return '<div class="price-card"><div class="tier-name">'+md(b.name)+'</div>'+feats+'<div class="price-bottom">'+strikeHtml+finalHtml+'</div></div>';
 
     case 'illus':
-      return '<div class="illus-wrap"><img class="illus-img" src="'+b.v+'" alt=""></div>';
+      var illusStyle = b.size ? ' style="max-height:'+b.size+'"' : '';
+      return '<div class="illus-wrap"><img class="illus-img"'+illusStyle+' src="'+b.v+'" alt=""></div>';
 
     case 'photos':
-      return '<div class="photo-row">'+b.v.map(src=>'<img class="slide-photo" src="'+src+'" alt="">').join('')+'</div>';
+      var photoCls = 'slide-photo' + (b.contain ? ' photo-contain' : '');
+      var photoStyle = (b.objPos||b.size) ? ' style="'+(b.size?'max-height:'+b.size+';':'')+(b.objPos?'object-position:'+b.objPos:'')+'"' : '';
+      return '<div class="photo-row">'+b.v.map(src=>'<img class="'+photoCls+'"'+photoStyle+' src="'+src+'" alt="">').join('')+'</div>';
+
+    case 'photocols':
+      var colRight = '';
+      if (b.tag) colRight += '<div style="font-size:11px;font-weight:800;letter-spacing:2px;color:var(--orange);margin-bottom:6px">'+md(b.tag)+'</div>';
+      if (b.h) colRight += '<h1 style="font-size:clamp(22px,2.6vw,38px);margin-bottom:10px">'+md(b.h)+'</h1>';
+      if (b.p) colRight += '<p>'+md(b.p)+'</p>';
+      if (b.list) colRight += '<ul class="items">'+b.list.map(function(item){return '<li>'+md(item)+'</li>';}).join('')+'</ul>';
+      if (b.quote) colRight += '<div class="quote-block"><p>'+md(b.quote.v)+'</p><div class="by">— '+b.quote.by+'</div></div>';
+      if (b.small) colRight += '<div class="small">'+md(b.small)+'</div>';
+      var imgStyle = b.photoW ? ' style="width:'+b.photoW+'"' : '';
+      var imgCls = 'photocols-img' + (b.imgContain ? ' img-contain' : '');
+      var photocolsCls = 'photocols' + (b.photoRight ? ' photo-right' : '');
+      return '<div class="'+photocolsCls+'"><img class="'+imgCls+'"'+imgStyle+' src="'+b.photo+'" alt=""><div class="photocols-list">'+colRight+'</div></div>';
 
     case 'scientists':
       return '<div class="sci-row">'+b.v.map(function(s){
@@ -167,7 +183,7 @@ function fitContent(slide){
   sc.style.width = '';
   if(sc.scrollHeight > sc.clientHeight + 8){
     var ratio = sc.clientHeight / sc.scrollHeight;
-    var minScale = window.innerWidth <= 900 ? 0.5 : 0.58;
+    var minScale = window.innerWidth <= 900 ? 0.45 : 0.48;
     var scale = Math.max(ratio, minScale);
     sc.style.transform = 'scale('+scale.toFixed(3)+')';
     sc.style.width = (100/scale).toFixed(1)+'%';
