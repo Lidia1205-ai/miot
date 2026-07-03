@@ -97,10 +97,13 @@ function renderBlock(b){
       return '<div class="illus-wrap"><img class="illus-img"'+illusStyle+' src="'+b.v+'" alt=""></div>';
 
     case 'photos':
-      return '<div class="photo-row">'+b.v.map(src=>'<img class="slide-photo" src="'+src+'" alt="">').join('')+'</div>';
+      var photoCls = 'slide-photo' + (b.contain ? ' photo-contain' : '');
+      var photoStyle = (b.objPos||b.size) ? ' style="'+(b.size?'max-height:'+b.size+';':'')+(b.objPos?'object-position:'+b.objPos:'')+'"' : '';
+      return '<div class="photo-row">'+b.v.map(src=>'<img class="'+photoCls+'"'+photoStyle+' src="'+src+'" alt="">').join('')+'</div>';
 
     case 'photocols':
       var colRight = '';
+      if (b.tag) colRight += '<div style="font-size:11px;font-weight:800;letter-spacing:2px;color:var(--orange);margin-bottom:6px">'+md(b.tag)+'</div>';
       if (b.h) colRight += '<h1 style="font-size:clamp(22px,2.6vw,38px);margin-bottom:10px">'+md(b.h)+'</h1>';
       if (b.p) colRight += '<p>'+md(b.p)+'</p>';
       if (b.list) colRight += '<ul class="items">'+b.list.map(function(item){return '<li>'+md(item)+'</li>';}).join('')+'</ul>';
