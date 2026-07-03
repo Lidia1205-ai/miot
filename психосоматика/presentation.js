@@ -112,7 +112,8 @@ function renderBlock(b){
       var imgStyle = b.photoW ? ' style="width:'+b.photoW+'"' : '';
       var imgCls = 'photocols-img' + (b.imgContain ? ' img-contain' : '');
       var photocolsCls = 'photocols' + (b.photoRight ? ' photo-right' : '');
-      return '<div class="'+photocolsCls+'"><img class="'+imgCls+'"'+imgStyle+' src="'+b.photo+'" alt=""><div class="photocols-list">'+colRight+'</div></div>';
+      var listStyle = b.fontSize ? ' style="font-size:'+b.fontSize+'"' : '';
+      return '<div class="'+photocolsCls+'"><img class="'+imgCls+'"'+imgStyle+' src="'+b.photo+'" alt=""><div class="photocols-list"'+listStyle+'>'+colRight+'</div></div>';
 
     case 'scientists':
       return '<div class="sci-row">'+b.v.map(function(s){
