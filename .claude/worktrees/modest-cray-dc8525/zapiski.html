@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Записи эфиров — Система внутренних давлений | МИОТ</title>
+<meta name="description" content="Купите записи эфиров о системе внутренних давлений тела: как голова, сердце и таз создают ваш личный вектор реализации." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #E8EEF6;
+    --bg-tint:      #DCE5F0;
+    --surface:      #F2F6FB;
+    --surface-tint: #E5EDF6;
+    --ink:          #141C2A;
+    --ink-soft:     #3A4758;
+    --ink-mute:     #7A8FA8;
+    --border:       rgba(40, 80, 140, 0.11);
+    --warm:         #2E5F9E;
+    --warm-soft:    #DDE8F5;
+    --warm-line:    rgba(46, 95, 158, 0.22);
+    --accent:       #C07230;
+    --accent-soft:  #FAEEDE;
+    --accent-line:  rgba(192, 114, 48, 0.28);
+    --shadow-sm:    0 6px 14px -8px rgba(20,50,110,0.16);
+    --shadow-md:    0 12px 28px -12px rgba(20,50,110,0.22);
+    --shadow-lg:    0 24px 48px -16px rgba(20,50,110,0.30);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .h-display {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .h-section {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ══ HERO ══ */
+  .hero {
+    padding: 72px 0 56px;
+    text-align: center;
+  }
+  .hero__eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 9px 20px;
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 24px;
+    margin-bottom: 26px;
+  }
+  .hero__title {
+    font-size: clamp(28px, 4.5vw, 56px);
+    color: var(--ink);
+    margin: 0 auto 20px;
+    max-width: 900px;
+  }
+  .hero__title em { font-style: normal; color: var(--warm); }
+  .hero__subtitle {
+    font-size: clamp(15px, 1.7vw, 19px);
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin: 0 auto 16px;
+    line-height: 1.6;
+  }
+  .hero__sub-caption {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--ink-mute);
+    display: inline-block;
+    transform: rotate(-1deg);
+    margin-bottom: 36px;
+  }
+
+  /* ══ ИДЕЯ-ОБЪЕДИНИТЕЛЬ ══ */
+  .big-idea {
+    padding: 0 0 72px;
+  }
+  .big-idea__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--warm-line);
+    border-top: 4px solid var(--warm);
+    border-radius: 0 0 24px 24px;
+    padding: 44px 48px 40px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+  .big-idea__label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 18px;
+  }
+  .big-idea__title {
+    font-size: clamp(22px, 2.8vw, 34px);
+    color: var(--ink);
+    margin: 0 auto 22px;
+    max-width: 760px;
+    line-height: 1.25;
+  }
+  .big-idea__title em { font-style: normal; color: var(--warm); }
+  .big-idea__text {
+    font-size: clamp(15px, 1.6vw, 17px);
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .big-idea__text strong { color: var(--ink); font-weight: 700; }
+
+  /* ══ СЕТКА ЭФИРОВ ══ */
+  .lectures {
+    padding: 72px 0 48px;
+  }
+  .lectures__header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .lectures__title {
+    font-size: clamp(24px, 3.4vw, 40px);
+    color: var(--ink);
+    margin: 0 auto 12px;
+    max-width: 700px;
+  }
+  .lectures__title em { font-style: normal; color: var(--warm); }
+  .lectures__hint {
+    font-size: 14px;
+    color: var(--ink-mute);
+    letter-spacing: 0.01em;
+  }
+
+  .lecture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+
+  .lcard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 32px 30px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .lcard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .lcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--warm) 0%, rgba(46,95,158,0.3) 100%);
+    border-radius: 22px 22px 0 0;
+  }
+
+  .lcard__num {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(46,95,158,0.35);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .lcard__label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .lcard__title {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: clamp(16px, 1.7vw, 20px);
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0 0 16px;
+    letter-spacing: -0.015em;
+  }
+  .lcard__desc {
+    font-size: clamp(14px, 1.4vw, 15px);
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+    flex: 1;
+  }
+  .lcard__desc strong { color: var(--ink); font-weight: 700; }
+
+  .lcard__footer {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .lcard__price {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 2vw, 26px);
+    color: var(--warm);
+    letter-spacing: -0.02em;
+  }
+  .lcard__price-hint {
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  .btn-buy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--warm);
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: -0.005em;
+    padding: 13px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(.2,.6,.2,1);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .btn-buy:hover {
+    transform: translateY(-2px);
+    background: #22508A;
+    box-shadow: 0 10px 22px -8px rgba(46,95,158,0.45);
+  }
+  .btn-buy:active { transform: translateY(0); }
+
+  /* ══ БАНДЛ ══ */
+  .bundle {
+    padding: 24px 0 80px;
+  }
+  .bundle__inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #1a3a60 0%, #0d2240 100%);
+    border-radius: 28px;
+    padding: 52px 56px 48px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .bundle__inner::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(192,114,48,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .bundle__inner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(46,95,158,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .bundle__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 7px 16px;
+    background: var(--accent-soft);
+    border-radius: 24px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .bundle__badge-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .bundle__layout {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .bundle__title {
+    font-size: clamp(24px, 3vw, 38px);
+    color: #fff;
+    margin: 0 0 14px;
+    line-height: 1.15;
+  }
+  .bundle__title em { font-style: normal; color: var(--accent); }
+  .bundle__desc {
+    font-size: clamp(14px, 1.55vw, 16px);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    margin: 0 0 24px;
+  }
+  .bundle__includes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0;
+    list-style: none;
+    padding: 0;
+  }
+  .bundle__includes li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-weight: 600;
+  }
+  .bundle__price-block {
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .bundle__price-old {
+    font-size: 18px;
+    text-decoration: line-through;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+  }
+  .bundle__price-new {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 4vw, 52px);
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .bundle__price-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .bundle__saving {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 8px;
+    padding: 4px 12px;
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .btn-bundle {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.005em;
+    padding: 17px 28px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(.2,.6,.2,1);
+    box-shadow: 0 14px 28px -10px rgba(192,114,48,0.5);
+    text-transform: uppercase;
+  }
+  .btn-bundle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 32px -10px rgba(192,114,48,0.65);
+    background: #a85e20;
+  }
+  .btn-bundle:active { transform: translateY(0); }
+  .bundle__btn-hint {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  /* ══ АВТОР ══ */
+  .author {
+    padding: 60px 0 72px;
+  }
+  .author__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 40px;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px 40px;
+    box-shadow: var(--shadow-sm);
+  }
+  .author__photo {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--warm-line);
+    box-shadow: var(--shadow-md);
+    background: var(--bg-tint);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .author__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .author__eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .author__name {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 2.4vw, 28px);
+    color: var(--ink);
+    margin: 0 0 14px;
+    line-height: 1.15;
+  }
+  .author__bio p {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+    line-height: 1.6;
+  }
+  .author__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .stat {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+  .stat strong {
+    display: block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--warm);
+    letter-spacing: -0.02em;
+  }
+  .stat span {
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  /* ══ FAQ ══ */
+  .faq {
+    padding: 0 0 72px;
+  }
+  .faq__title {
+    font-size: clamp(22px, 2.8vw, 34px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 36px;
+    max-width: 640px;
+  }
+  .faq__title em { font-style: normal; color: var(--warm); }
+  .faq__list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .faq__item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .faq__q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: 700;
+    color: var(--ink);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: color 0.2s;
+  }
+  .faq__q:hover { color: var(--warm); }
+  .faq__icon {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: var(--warm-soft);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warm);
+    transition: transform 0.25s ease;
+  }
+  .faq__item.is-open .faq__icon { transform: rotate(45deg); }
+  .faq__a {
+    display: none;
+    padding: 0 24px 22px;
+    font-size: clamp(14px, 1.45vw, 15px);
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+  .faq__item.is-open .faq__a { display: block; }
+
+  /* ══ FOOTER ══ */
+  .page-foot {
+    padding: 24px 0 40px;
+    text-align: center;
+    color: var(--ink-mute);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--border);
+  }
+  .page-foot a { color: var(--warm); text-decoration: none; }
+  .page-foot a:hover { text-decoration: underline; }
+  .page-foot__links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  /* ══ MEDIA ══ */
+  @media (max-width: 860px) {
+    .lecture-grid { grid-template-columns: 1fr; }
+    .bundle__layout { grid-template-columns: 1fr; text-align: center; }
+    .bundle__includes { justify-content: center; }
+    .bundle__price-block { order: -1; }
+    .bundle__inner { padding: 36px 24px 32px; }
+  }
+  @media (max-width: 600px) {
+    .author__inner { grid-template-columns: 1fr; text-align: center; padding: 28px 22px; }
+    .author__photo { margin: 0 auto; }
+    .author__stats { justify-content: center; }
+    .hero { padding: 48px 0 36px; }
+    .big-idea__inner { padding: 30px 22px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    .lcard { padding: 24px 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__eyebrow">Серия закрытых эфиров · Записи</div>
+    <h1 class="hero__title h-display">Система внутренних давлений:<br><em>от биологии — к вектору жизни</em></h1>
+    <p class="hero__subtitle">Четыре эфира, которые собрали серию воедино. Купите отдельные записи или всю серию со скидкой.</p>
+    <div class="hero__sub-caption">доступ сразу после оплаты</div>
+  </div>
+</section>
+
+<!-- ══════ БОЛЬШАЯ ИДЕЯ ══════ -->
+<section class="big-idea">
+  <div class="wrap">
+    <div class="big-idea__inner">
+      <span class="big-idea__label">Что объединяет все 4 эфира</span>
+      <h2 class="big-idea__title h-section">Тело — это не проблема.<br>Это <em>навигационная система.</em></h2>
+      <p class="big-idea__text">
+        Голова, сердце и таз — три центра давления, которые постоянно ведут переговоры друг с другом. Когда они «говорят» на разных языках, тело буксует: усталость без причины, решения не реализуются, ощущение что «не то» делаешь. <strong>Четыре эфира — это последовательное путешествие</strong> от понимания внутренних ритмов к конкретному вектору, куда ваша биология хочет двигаться. Каждый следующий слой разворачивает предыдущий.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ЭФИРЫ ══════ -->
+<section class="lectures">
+  <div class="wrap">
+    <div class="lectures__header">
+      <h2 class="lectures__title h-section">Купить <em>отдельные записи</em></h2>
+      <p class="lectures__hint">Каждый эфир — самостоятельная единица. Но вместе они работают как система.</p>
+    </div>
+
+    <div class="lecture-grid">
+
+      <!-- Эфир 1 -->
+      <div class="lcard">
+        <div class="lcard__num">01</div>
+        <div class="lcard__label">Эфир 1</div>
+        <h3 class="lcard__title">Биоритмы тела как язык внутренних сигналов</h3>
+        <p class="lcard__desc">
+          Разобрали, почему тело говорит с вами давлением — и как научиться этот язык читать.
+          <strong>Что такое внутренний ритм, откуда берутся «зажимы» в жизни</strong> и как они связаны с тем, что происходит в теле прямо сейчас.
+        </p>
+        <div class="lcard__footer">
+          <div>
+            <div class="lcard__price">1 900 ₽</div>
+            <div class="lcard__price-hint">доступ навсегда</div>
+          </div>
+          <a href="https://t.me/TatyBondar" class="btn-buy" target="_blank">Купить →</a>
+        </div>
+      </div>
+
+      <!-- Эфир 2 -->
+      <div class="lcard">
+        <div class="lcard__num">02</div>
+        <div class="lcard__label">Эфир 2</div>
+        <h3 class="lcard__title">Внутренний контур: висцеральные давления</h3>
+        <p class="lcard__desc">
+          Погружение в слой органов — как они держат историю, какие паттерны накапливают и <strong>почему проработка «снаружи» не всегда меняет жизнь.</strong>
+          Первый шаг к тому, чтобы тело перестало тянуть назад.
+        </p>
+        <div class="lcard__footer">
+          <div>
+            <div class="lcard__price">1 900 ₽</div>
+            <div class="lcard__price-hint">доступ навсегда</div>
+          </div>
+          <a href="https://t.me/TatyBondar" class="btn-buy" target="_blank">Купить →</a>
+        </div>
+      </div>
+
+      <!-- Эфир 3 -->
+      <div class="lcard">
+        <div class="lcard__num">03</div>
+        <div class="lcard__label">Эфир 3</div>
+        <h3 class="lcard__title">Центральный контур: как диафрагмы управляют решениями</h3>
+        <p class="lcard__desc">
+          Три диафрагмы тела — три «клапана», через которые проходит ваша энергия. <strong>Разобрали, где буксует движение</strong> и почему умное тело блокирует то, что кажется «правильным» для головы.
+        </p>
+        <div class="lcard__footer">
+          <div>
+            <div class="lcard__price">1 900 ₽</div>
+            <div class="lcard__price-hint">доступ навсегда</div>
+          </div>
+          <a href="https://t.me/TatyBondar" class="btn-buy" target="_blank">Купить →</a>
+        </div>
+      </div>
+
+      <!-- Эфир 4 -->
+      <div class="lcard">
+        <div class="lcard__num">04</div>
+        <div class="lcard__label">Эфир 4</div>
+        <h3 class="lcard__title">Внешний контур: биология встречает реальность</h3>
+        <p class="lcard__desc">
+          Разобрали внешний контур — ту самую зону, где внутренняя биология наконец встречается с реальностью и превращается в личный вектор реализации.
+          <strong>Как через систему внутренних давлений «подружить» голову, сердце и таз,</strong> чтобы тело перестало буксовать и начало двигаться туда, куда вы действительно хотите.
+        </p>
+        <div class="lcard__footer">
+          <div>
+            <div class="lcard__price">1 900 ₽</div>
+            <div class="lcard__price-hint">доступ навсегда</div>
+          </div>
+          <a href="https://t.me/TatyBondar" class="btn-buy" target="_blank">Купить →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ БАНДЛ ══════ -->
+<section class="bundle" id="bundle">
+  <div class="wrap">
+    <div class="bundle__inner">
+      <div class="bundle__badge">
+        <span class="bundle__badge-dot"></span>
+        Выгодно
+      </div>
+
+      <div class="bundle__layout">
+        <div class="bundle__left">
+          <h2 class="bundle__title h-display">Все 4 эфира<br><em>одним пакетом</em></h2>
+          <p class="bundle__desc">
+            Серия выстроена как система: каждый следующий эфир раскрывает предыдущий. Берите всё сразу — и получите целостную картину, а не отдельные инсайты.
+          </p>
+          <ul class="bundle__includes">
+            <li>Эфир 1 — Биоритмы</li>
+            <li>Эфир 2 — Внутренний контур</li>
+            <li>Эфир 3 — Диафрагмы</li>
+            <li>Эфир 4 — Внешний контур</li>
+          </ul>
+        </div>
+
+        <div class="bundle__price-block">
+          <div class="bundle__price-old">7 600 ₽</div>
+          <div class="bundle__price-new">5 500 ₽</div>
+          <div class="bundle__price-sub">за все 4 эфира</div>
+          <div class="bundle__saving">↓ Экономия 2 100 ₽</div>
+          <a href="https://t.me/TatyBondar" class="btn-bundle" target="_blank">Купить пакет</a>
+          <div class="bundle__btn-hint">доступ навсегда · сразу после оплаты</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ АВТОР ══════ -->
+<section class="author">
+  <div class="wrap">
+    <div class="author__inner">
+      <div class="author__photo">
+        <img src="osteogynecology/oleg.jpg" alt="Олег Агапэ"
+          onerror="this.src='branding/logo.png'" />
+      </div>
+      <div class="author__text">
+        <div class="author__eyebrow">Автор эфиров</div>
+        <h3 class="author__name h-section">Олег Агапэ</h3>
+        <div class="author__bio">
+          <p>Ведущий демонстрационных вскрытий (диссекций) в России, организовал <strong>более 20 анатомических разборов</strong> для специалистов.</p>
+          <p><strong>Эксперт по функциональной анатомии и биодинамике тела:</strong> обучил более 300 студентов прикладному подходу к работе с телом.</p>
+          <p><strong>Более 14 лет медицинского опыта</strong> — объединяет академические знания с телесно-ориентированными практиками.</p>
+        </div>
+        <div class="author__stats">
+          <div class="stat"><strong>300+</strong><span>студентов</span></div>
+          <div class="stat"><strong>20+</strong><span>диссекций</span></div>
+          <div class="stat"><strong>14 лет</strong><span>опыта</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<section class="faq">
+  <div class="wrap">
+    <h2 class="faq__title h-section">Частые <em>вопросы</em></h2>
+    <div class="faq__list">
+
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Как долго будет доступ к записям?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">Доступ к записям предоставляется навсегда. Вы сможете пересматривать в любое удобное время, без ограничений.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Нужен ли особый уровень подготовки?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">Нет. Эфиры выстроены так, чтобы были понятны без специального медицинского образования. Важен живой интерес к теме тела и самопознанию.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Можно купить только один эфир, а потом добрать остальные?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">Да. Вы можете купить любой эфир отдельно. Если после просмотра захотите добрать остальные — напишите нам, и мы учтём уже оплаченный эфир при расчёте стоимости.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Как получить доступ после оплаты?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">После оплаты менеджер напишет вам в Telegram и пришлёт ссылку на запись. Обычно это происходит в течение нескольких минут.</div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__q" type="button">
+          Обязательно ли смотреть эфиры по порядку?
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">Рекомендуем смотреть последовательно — каждый следующий эфир опирается на предыдущий. Но каждая запись самодостаточна и понятна отдельно.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="page-foot">
+  <div class="wrap">
+    <div>© 2026 · МИОТ · <a href="https://agape-course.com" target="_blank">agape-course.com</a> · Все права защищены</div>
+    <div class="page-foot__links">
+      <a href="https://agape-course.com/policy" target="_blank">Политика конфиденциальности</a>
+      <a href="https://agape-course.com/offer" target="_blank">Договор оферты</a>
+      <a href="https://agape-course.com/soglasie" target="_blank">Согласие на обработку данных</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ══ FAQ АККОРДЕОН ══
+  document.querySelectorAll('.faq__q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq__item');
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item.is-open').forEach(el => el.classList.remove('is-open'));
+      if (!isOpen) item.classList.add('is-open');
+    });
+  });
+</script>
+</body>
+</html>

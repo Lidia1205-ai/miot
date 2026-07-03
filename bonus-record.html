@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МВО — модель высокоохватной органики</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-tint: #F2F2F2;
+    --surface: #F8F8F8;
+    --surface-tint: #EFEFEF;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-mute: #7A7A7A;
+    --border: rgba(26,26,26,0.10);
+    --warm: #C8392F;
+    --warm-soft: #FBE4DD;
+    --warm-line: rgba(200,57,47,0.25);
+    --green: #2E7A3A;
+    --shadow-sm: 0 6px 14px -8px rgba(26,26,26,0.25);
+    --shadow-md: 0 12px 28px -12px rgba(26,26,26,0.32);
+    --shadow-lg: 0 24px 48px -16px rgba(26,26,26,0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .h-display {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  .h-section {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 60px 0 48px;
+    text-align: center;
+  }
+  .hero__eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 9px 20px;
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 24px;
+    margin-bottom: 26px;
+  }
+  .hero__title {
+    font-size: clamp(34px, 5.5vw, 64px);
+    color: var(--ink);
+    margin: 0 auto 18px;
+    max-width: 920px;
+  }
+  .hero__title em { font-style: normal; color: var(--warm); }
+  .hero__hint {
+    font-size: 14px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin: 0 0 36px;
+    letter-spacing: 0.01em;
+  }
+
+  /* === ВИДЕО + ПЕРЕКЛЮЧАТЕЛЬ === */
+  .video-wrap {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .video-toggle {
+    display: inline-flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 4px;
+    margin: 0 auto 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .video-toggle__btn {
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+  .video-toggle__btn:hover { color: var(--ink); }
+  .video-toggle__btn.is-active {
+    background: var(--ink);
+    color: var(--surface);
+  }
+  .video-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .video-player iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-player__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-mute);
+    font-size: 14px;
+    background: var(--bg-tint);
+    pointer-events: none;
+  }
+
+  /* === ПРЕДЗАПИСЬ БЛОК === */
+  .preorder {
+    padding: 90px 0 50px;
+    text-align: center;
+  }
+  .preorder__title {
+    font-size: clamp(26px, 3.6vw, 42px);
+    color: var(--ink);
+    margin: 0 auto 28px;
+    max-width: 900px;
+    line-height: 1.18;
+  }
+  .preorder__title em { font-style: normal; color: var(--warm); }
+  .preorder__body {
+    max-width: 760px;
+    margin: 0 auto 28px;
+    text-align: center;
+  }
+  .preorder__body p {
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0 0 18px;
+  }
+  .preorder__body p strong { color: var(--ink); font-weight: 700; }
+
+  .cta-block {
+    margin: 38px 0 26px;
+    text-align: center;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--warm);
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: clamp(16px, 1.8vw, 20px);
+    letter-spacing: -0.005em;
+    padding: 18px 44px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(.2,.6,.2,1);
+    box-shadow: 0 14px 28px -10px rgba(200,57,47,0.55);
+    text-transform: uppercase;
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 32px -10px rgba(200,57,47,0.65);
+  }
+  .cta:active { transform: translateY(0); }
+  .cta__hint {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.01em;
+  }
+
+  .preorder__result {
+    max-width: 820px;
+    margin: 30px auto 0;
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    text-align: center;
+  }
+  .preorder__result-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .preorder__result-text {
+    font-size: clamp(16px, 1.85vw, 20px);
+    color: var(--ink);
+    line-height: 1.5;
+    font-weight: 600;
+    margin: 0;
+  }
+  .preorder__result-text em { font-style: normal; color: var(--warm); }
+
+  /* === КЕЙСЫ-КАРУСЕЛЬ === */
+  .cases {
+    padding: 80px 0 60px;
+  }
+  .cases__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 12px;
+    max-width: 900px;
+  }
+  .cases__title em { font-style: normal; color: var(--warm); }
+  .cases__sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: clamp(14px, 1.5vw, 17px);
+    margin: 0 auto 36px;
+    max-width: 720px;
+  }
+  .carousel {
+    position: relative;
+  }
+  .carousel__track {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 8px 4px 28px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .carousel__track::-webkit-scrollbar { display: none; }
+
+  .case-card {
+    flex: 0 0 320px;
+    scroll-snap-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(.2,.6,.2,1);
+  }
+  .case-card.is-warm { background: var(--warm-soft); border-color: var(--warm-line); }
+  .case-card:hover { transform: translateY(-4px); }
+  .case-card.is-noproofs .case-card__result { margin-bottom: 22px; }
+  .case-card.is-noproofs { padding-bottom: 4px; }
+  .case-card__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px 14px;
+  }
+  .case-card__chip {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--ink);
+    color: var(--surface);
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .case-card.is-warm .case-card__chip { background: var(--warm); }
+  .case-card__name {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .case-card__name .vip {
+    display: inline-block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    background: var(--warm);
+    color: #fff;
+    padding: 3px 7px;
+    border-radius: 6px;
+    margin-left: 6px;
+    vertical-align: 2px;
+    font-weight: 700;
+  }
+  .case-card__sub {
+    padding: 0 20px 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .case-card__result {
+    margin: 0 20px 16px;
+    padding: 12px 16px;
+    background: var(--bg);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .case-card.is-warm .case-card__result { background: var(--surface); }
+  .case-card__result-val {
+    display: block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--warm);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .case-card__result-rs {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .case-card__proofs {
+    margin: 0;
+    padding: 6px;
+    background: var(--bg-tint);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    align-items: stretch;
+    min-height: 220px;
+  }
+  .case-card__proofs.is-single { grid-template-columns: 1fr; }
+  .case-card__proofs.is-trio   { grid-template-columns: 1fr 1fr; }
+  .case-card__proofs.is-trio .case-card__proof:first-child {
+    grid-column: 1 / -1;
+  }
+  .case-card__proof {
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+  .case-card__proof img {
+    max-width: 100%;
+    max-height: 220px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .carousel__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .carousel__btn {
+    appearance: none;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+  }
+  .carousel__btn:hover { background: var(--warm); color: #fff; border-color: var(--warm); }
+  .carousel__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .carousel__counter {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    min-width: 60px;
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  /* === VOLUME (гифка с массой кейсов) === */
+  .volume {
+    padding: 40px 0 70px;
+    text-align: center;
+  }
+  .volume__title {
+    font-size: clamp(26px, 3.6vw, 42px);
+    color: var(--ink);
+    margin: 0 auto 28px;
+    max-width: 820px;
+  }
+  .volume__title em { font-style: normal; color: var(--warm); }
+  .volume__video-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .volume__video {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    max-width: min(420px, 80vw);
+    max-height: 60vh;
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-tint);
+  }
+  @media (max-width: 760px){
+    .volume { padding: 30px 0 50px; }
+    .volume__video { max-width: 80vw; max-height: 55vh; }
+  }
+
+  /* === ПОЧЕМУ УСПЕТЬ === */
+  .why {
+    padding: 80px 0 40px;
+  }
+  .why__title {
+    font-size: clamp(28px, 4vw, 46px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 44px;
+    max-width: 800px;
+  }
+  .why__title em { font-style: normal; color: var(--warm); }
+  .why__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    max-width: 1000px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+  .why__item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px 26px 24px;
+    position: relative;
+  }
+  .why__item.is-wide {
+    grid-column: 1 / -1;
+  }
+  .why__num {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: transparent;
+    -webkit-text-stroke: 1.2px rgba(200,57,47,0.55);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .why__text {
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .why__text strong { color: var(--warm); font-weight: 700; }
+
+  .why__block {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 40px;
+  }
+  .why__block p {
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0 0 18px;
+  }
+  .why__block p:last-child { margin-bottom: 0; }
+  .why__block p strong { color: var(--ink); font-weight: 700; }
+  .why__block-final { color: var(--warm) !important; }
+  .why__block-final strong { color: var(--warm) !important; }
+  @media (max-width: 760px) {
+    .why__block { padding: 24px 20px; }
+  }
+
+  /* === НИЖНИЙ CTA === */
+  .footer-cta {
+    padding: 36px 0 80px;
+    text-align: center;
+  }
+  .footer-cta__caption {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(22px, 2.4vw, 30px);
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    transform: rotate(-1deg);
+    display: inline-block;
+  }
+
+  /* === FOOTER === */
+  .page-foot {
+    padding: 24px 0 36px;
+    text-align: center;
+    color: var(--ink-mute);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* === MEDIA === */
+  @media (max-width: 760px) {
+    .hero { padding: 40px 0 32px; }
+    .preorder { padding: 60px 0 30px; }
+    .cases { padding: 56px 0 40px; }
+    .why { padding: 56px 0 30px; }
+    .case-card { flex-basis: 280px; }
+    .why__list { grid-template-columns: 1fr; }
+    .preorder__result { padding: 22px 20px; }
+    .cta { padding: 16px 32px; }
+  }
+
+  @media (max-width: 480px) {
+    .wrap { padding: 0 18px; }
+    .case-card { flex-basis: 260px; }
+    .video-toggle__btn { font-size: 13px; padding: 9px 14px; }
+  }
+
+  /* === ЧТО ТАКОЕ МВО === */
+  .about {
+    padding: 80px 0 60px;
+  }
+  .about__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 14px;
+    max-width: 860px;
+  }
+  .about__title em { font-style: normal; color: var(--warm); }
+  .about__sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: clamp(15px, 1.7vw, 18px);
+    max-width: 700px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto 48px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px 24px;
+    text-align: center;
+  }
+  .stat-card__val {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--warm);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .stat-card__label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .about__desc {
+    max-width: 820px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .about__point {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .about__point-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .about__point-text {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .about__point-text strong { color: var(--warm); font-weight: 700; }
+  @media (max-width: 760px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .about__desc { grid-template-columns: 1fr; }
+    .about { padding: 56px 0 40px; }
+  }
+  @media (max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* === ДЛЯ КОГО === */
+  .forwhom {
+    padding: 80px 0 60px;
+  }
+  .forwhom__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 860px;
+  }
+  .forwhom__title em { font-style: normal; color: var(--warm); }
+  .forwhom__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .forwhom__card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 28px 24px;
+  }
+  .forwhom__card-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--warm);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .forwhom__card-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(15px, 1.8vw, 18px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .forwhom__card-text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  @media (max-width: 760px) {
+    .forwhom__grid { grid-template-columns: 1fr; }
+    .forwhom { padding: 56px 0 40px; }
+  }
+
+  /* === ПРОГРАММА === */
+  .program {
+    padding: 80px 0 60px;
+  }
+  .program__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 12px;
+    max-width: 860px;
+  }
+  .program__title em { font-style: normal; color: var(--warm); }
+  .program__sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: clamp(14px, 1.5vw, 17px);
+    margin: 0 auto 36px;
+    max-width: 680px;
+  }
+  .modules-carousel {
+    position: relative;
+  }
+  .modules-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 8px 4px 28px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .modules-track::-webkit-scrollbar { display: none; }
+  .module {
+    flex: 0 0 calc(33.333% - 11px);
+    scroll-snap-align: start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+  .module__num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--warm);
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.01em;
+  }
+  .module__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .module__text {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+    flex: 1;
+  }
+  .module__result {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--warm);
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 8px;
+    padding: 5px 10px;
+    letter-spacing: 0.01em;
+    align-self: flex-start;
+  }
+  .modules-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  @media (max-width: 760px) {
+    .module { flex: 0 0 calc(50% - 8px); }
+  }
+  @media (max-width: 480px) {
+    .module { flex: 0 0 82vw; }
+    .program { padding: 56px 0 40px; }
+  }
+
+  /* === СКРИНКАСТ ОТЗЫВОВ === */
+  .reviews-volume {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto 32px;
+  }
+  .reviews-volume__head {
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .reviews-volume__tag {
+    font-family: 'Manrope', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--warm);
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+  .reviews-volume__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0;
+  }
+  .reviews-volume__title em { font-style: normal; color: var(--warm); }
+  .reviews-volume__video {
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+  }
+  .reviews-volume__video video {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 480px;
+  }
+  .channel-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--warm);
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: clamp(14px, 1.6vw, 17px);
+    letter-spacing: -0.005em;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(.2,.6,.2,1);
+    box-shadow: 0 10px 24px -8px rgba(200,57,47,0.5);
+    margin-top: 8px;
+  }
+  .channel-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -8px rgba(200,57,47,0.65);
+  }
+  @media (max-width: 760px) {
+    .reviews-volume__head { padding: 16px 18px 12px; }
+    .reviews-volume__video { padding: 16px 0; }
+    .reviews-volume__video video { max-height: 360px; }
+  }
+
+  /* === СЦЕНАРИИ ЗАРАБОТКА === */
+  .scenarios {
+    padding: 80px 0 60px;
+  }
+  .scenarios__title {
+    font-size: clamp(28px, 4vw, 48px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 860px;
+  }
+  .scenarios__title em { font-style: normal; color: var(--warm); }
+  .scenarios__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .scenario {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 28px 24px;
+  }
+  .scenario.is-warm { background: var(--warm-soft); border-color: var(--warm-line); }
+  .scenario__icon { font-size: 28px; margin-bottom: 14px; line-height: 1; }
+  .scenario__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(15px, 1.8vw, 17px);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .scenario__text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .scenario__example {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--warm);
+  }
+  @media (max-width: 760px) {
+    .scenarios__grid { grid-template-columns: 1fr; }
+    .scenarios { padding: 56px 0 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__eyebrow">Запись до 4 июня</div>
+    <h1 class="hero__title h-display">Экскурсия в модель <em>высокоохватной органики</em></h1>
+
+    <div class="video-wrap">
+      <div class="video-toggle" role="tablist" aria-label="Выбор плеера">
+        <button class="video-toggle__btn is-active" data-player="kinescope" type="button">Kinescope</button>
+        <button class="video-toggle__btn" data-player="youtube" type="button">YouTube</button>
+      </div>
+
+      <div class="video-player" id="videoPlayer">
+        <div class="video-player__placeholder">Загружаю плеер…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ТАКОЕ МВО -->
+<section class="about">
+  <div class="wrap">
+    <h2 class="about__title h-section">Что такое <em>МВО</em></h2>
+    <p class="about__sub">Бизнес-модель создания сетки YouTube/TikTok-каналов с контентом без лица автора. Канал подключается к официальной монетизации и работает как автоматический актив — растёт в цене и приносит доход без твоего постоянного участия.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-card__val">от 10 к ₽</div>
+        <div class="stat-card__label">минимальный стартовый капитал</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val">$3–7 тыс</div>
+        <div class="stat-card__label">средний доход с одного канала в месяц</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val">14–60 дней</div>
+        <div class="stat-card__label">до первой выплаты в долларах</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val">4–15×</div>
+        <div class="stat-card__label">окупаемость вложений</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val">1–3 ч/нед</div>
+        <div class="stat-card__label">твоя операционка после делегирования</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val">без лица</div>
+        <div class="stat-card__label">не нужен личный бренд и постоянные продажи</div>
+      </div>
+    </div>
+
+    <div class="about__desc">
+      <div class="about__point">
+        <div class="about__point-icon">🛡️</div>
+        <div class="about__point-text"><strong>Защита от блокировок</strong> — органический трафик YouTube/TikTok никто не отключит, в отличие от платной рекламы</div>
+      </div>
+      <div class="about__point">
+        <div class="about__point-icon">📈</div>
+        <div class="about__point-text"><strong>Растущий актив</strong> — канал увеличивается в цене. Пример ученика: $250 на входе → $13 000 продажа 2 каналов через 5 месяцев</div>
+      </div>
+      <div class="about__point">
+        <div class="about__point-icon">💸</div>
+        <div class="about__point-text"><strong>Низкие затраты</strong> — 10–40 тыс ₽/месяц на контент, готовый канал от 1 до 10 тыс ₽</div>
+      </div>
+      <div class="about__point">
+        <div class="about__point-icon">🤖</div>
+        <div class="about__point-text"><strong>ИИ-автоматизация</strong> — закрытый софт анализирует конкурентов и создаёт «вирусные» сценарии. В блоке по ИИ вы научитесь создавать ролики в больших объёмах за копейки</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ДЛЯ КОГО -->
+<section class="forwhom">
+  <div class="wrap">
+    <h2 class="forwhom__title h-section">Кому <em>подходит</em> МВО</h2>
+    <div class="forwhom__grid">
+      <div class="forwhom__card">
+        <div class="forwhom__card-num">01</div>
+        <div class="forwhom__card-title">Фрилансеры и наёмные работники</div>
+        <div class="forwhom__card-text">Альтернативный валютный доход параллельно работе. Свободный график, мягкий выход из найма без стресса и рисков.</div>
+      </div>
+      <div class="forwhom__card">
+        <div class="forwhom__card-num">02</div>
+        <div class="forwhom__card-title">Инфобизнесмены и продюсеры</div>
+        <div class="forwhom__card-text">Собственный источник дешёвого трафика и огромных просмотров. Дополнительная монетизация без зависимости от экспертов.</div>
+      </div>
+      <div class="forwhom__card">
+        <div class="forwhom__card-num">03</div>
+        <div class="forwhom__card-title">Онлайн-предприниматели</div>
+        <div class="forwhom__card-text">Второй источник дохода, не пересекающийся с основным бизнесом. Делегирование под ключ и снижение рисков.</div>
+      </div>
+      <div class="forwhom__card">
+        <div class="forwhom__card-num">04</div>
+        <div class="forwhom__card-title">Новички в онлайне</div>
+        <div class="forwhom__card-text">Низкий порог входа и понятный путь. Первый заработок в долларах уже через 14–60 дней с нуля.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРЕДЗАПИСЬ -->
+<section class="preorder">
+  <div class="wrap">
+    <h2 class="preorder__title h-section">Запусти свой первый монетизируемый канал за 2 недели и сетку за 8 недель в курсе-сопровождении <em>«Модель высокоохватной органики 5.0»</em></h2>
+
+    <div class="preorder__body">
+      <p><strong>МВО</strong> — это пошаговая система по запуску и масштабированию сеток каналов в YouTube и других платформах с окупаемостью в <strong>×10</strong>.</p>
+      <p>Первый канал — официальная монетизация и первые выплаты в долларах. Сетка — стабильный пассивный доход с минимальным участием.</p>
+    </div>
+
+    <div class="cta-block">
+      <a class="cta" href="#" id="ctaTop">Написать менеджеру</a>
+    </div>
+
+    <div class="preorder__result">
+      <span class="preorder__result-label">Главный результат программы</span>
+      <p class="preorder__result-text">Выйти на <em>большую и стабильную прибыль онлайн</em> — без продюсеров и экспертов, без начальников, без лица и личного бренда. И главное — без пахоты 24/7.</p>
+    </div>
+  </div>
+</section>
+
+<!-- КАРУСЕЛЬ КЕЙСОВ -->
+<section class="cases">
+  <div class="wrap">
+    <h2 class="cases__title h-section">10 примеров учеников</h2>
+    <p class="cases__sub">Разные старты — одна модель. У каждого в руках оказался актив, а не очередной запуск.</p>
+
+    <div class="carousel">
+      <div class="carousel__track" id="casesTrack">
+        <!-- Карточки вставляются через JS -->
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" id="caseLeft" aria-label="Назад">‹</button>
+        <span class="carousel__counter" id="caseCounter">1 / 10</span>
+        <button class="carousel__btn" id="caseRight" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СКРИНКАСТ ОТЗЫВОВ + КАНАЛ -->
+<section class="volume">
+  <div class="wrap">
+    <div class="reviews-volume">
+      <div class="reviews-volume__head">
+        <div class="reviews-volume__tag">/ всех результатов больше</div>
+        <h3 class="reviews-volume__title">Таких результатов <em>сотни</em>. Буквально.</h3>
+      </div>
+      <div class="reviews-volume__video">
+        <video src="gif.mp4" autoplay loop muted playsinline disablepictureinpicture preload="metadata"></video>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a class="channel-cta" href="https://t.me/+eD-Yg7KntvY0MjYy" target="_blank" rel="noopener">
+        Канал с результатами →
+      </a>
+    </div>
+
+    <div class="cta-block" style="margin-top: 40px;">
+      <a class="cta" href="#" id="ctaVolume">Написать менеджеру</a>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОГРАММА -->
+<section class="program">
+  <div class="wrap">
+    <h2 class="program__title h-section">Программа — <em>7 модулей</em> за 8 недель</h2>
+    <p class="program__sub">Два спринта: сначала запускаешь первый канал и получаешь выплату, затем собираешь сетку и выходишь из операционки.</p>
+    <div class="modules-carousel">
+      <div class="modules-track" id="modulesTrack">
+        <div class="module">
+          <div class="module__num">01</div>
+          <div class="module__title">Диагностика и выбор ниши</div>
+          <div class="module__text">Выбор оптимальной тематики по соотношению конкуренции и популярности. RPM варьируется в зависимости от ниши в 10 раз — выбираем правильно.</div>
+          <span class="module__result">→ 2–3 валидированные ниши с расчётом доходности</span>
+        </div>
+        <div class="module">
+          <div class="module__num">02</div>
+          <div class="module__title">Сбор и запуск первого канала</div>
+          <div class="module__text">Поиск доходного канала для покупки или взращивание с нуля. Биржи каналов, безопасные сделки, системы защиты.</div>
+          <span class="module__result">→ Готовый канал + навыки безопасного ведения сетки</span>
+        </div>
+        <div class="module">
+          <div class="module__num">03</div>
+          <div class="module__title">Контент-механика и формулы</div>
+          <div class="module__text">Алгоритмы YouTube, структуры видео-миллионников, ИИ-озвучка, анимации, превью. Закрытый партнёрский софт даёт до $5 за длинное видео.</div>
+          <span class="module__result">→ Быстрое производство + доступ к закрытому ПО</span>
+        </div>
+        <div class="module">
+          <div class="module__num">04</div>
+          <div class="module__title">Подключение монетизации</div>
+          <div class="module__text">Официальный AdSense, работа с рекламодателями, решение страйков и апелляций. Партнёрское агентство — 170+ каналов, оборот $100к+/мес.</div>
+          <span class="module__result">→ Официальная монетизация, выплаты в долларах</span>
+        </div>
+        <div class="module">
+          <div class="module__num">05</div>
+          <div class="module__title">Делегирование и управление</div>
+          <div class="module__text">Сборка команды, должностные инструкции, система отчётности, автоматизация. Цель — вывести себя из операционки на 90%.</div>
+          <span class="module__result">→ Команда по регламентам, ты выходишь из рутины</span>
+        </div>
+        <div class="module">
+          <div class="module__num">06</div>
+          <div class="module__title">Сборка сетки каналов</div>
+          <div class="module__text">От одного канала (150–300 тыс ₽/мес) к мини-сетке (до 1 млн) и полной сетке (1,5–3 млн). Диверсификация по тематикам и партнёркам.</div>
+          <span class="module__result">→ Система с прогнозируемым и растущим доходом</span>
+        </div>
+        <div class="module">
+          <div class="module__num">07</div>
+          <div class="module__title">Бонусные связки</div>
+          <div class="module__text">TikTok (23M просмотров/мес), монетизация в Telegram, ИИ-аватары, перепродажа трафика, крипто-реферальные программы.</div>
+          <span class="module__result">→ +2–5× доход за счёт дополнительных потоков</span>
+        </div>
+      </div>
+      <div class="carousel__nav modules-nav">
+        <button class="carousel__btn" id="modLeft" aria-label="Назад">‹</button>
+        <span class="carousel__counter" id="modCounter">1–3 / 7</span>
+        <button class="carousel__btn" id="modRight" aria-label="Вперёд">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СЦЕНАРИИ ЗАРАБОТКА -->
+<section class="scenarios">
+  <div class="wrap">
+    <h2 class="scenarios__title h-section">4 сценария — <em>как ты будешь зарабатывать</em></h2>
+    <div class="scenarios__grid">
+      <div class="scenario">
+        <div class="scenario__icon">🏗️</div>
+        <div class="scenario__title">Свой актив</div>
+        <div class="scenario__text">Собираешь сетку каналов, монетизируешь напрямую через AdSense и партнёрки, нанимаешь команду и выходишь из операционки.</div>
+        <div class="scenario__example">Пример: 20–25 тыс ₽/день чистыми</div>
+      </div>
+      <div class="scenario is-warm">
+        <div class="scenario__icon">💼</div>
+        <div class="scenario__title">Перепродажа каналов</div>
+        <div class="scenario__text">Покупаешь дёшево, раскачиваешь по системе МВО, продаёшь как актив с многократной наценкой.</div>
+        <div class="scenario__example">Пример: $56 000 за полгода реселлинга</div>
+      </div>
+      <div class="scenario is-warm">
+        <div class="scenario__icon">🤝</div>
+        <div class="scenario__title">Услуги для клиентов</div>
+        <div class="scenario__text">Управляешь сеткой заказчика за процент от дохода или фиксированный чек. Высокий доход без собственных вложений в каналы.</div>
+        <div class="scenario__example">Пример: $2 000 каждые 2 недели</div>
+      </div>
+      <div class="scenario">
+        <div class="scenario__icon">🔀</div>
+        <div class="scenario__title">Перелив трафика</div>
+        <div class="scenario__text">Используешь каналы как источник миллионов просмотров и заявок для своего основного продукта или бизнеса.</div>
+        <div class="scenario__example">Пример: $30 000 за 20 млн просмотров за 48ч</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОСЛЕДНИЙ ШАНС -->
+<section class="why">
+  <div class="wrap">
+    <h2 class="why__title h-section">Это <em>последний шанс</em> зайти в МВО</h2>
+    <div class="why__block">
+      <p>Когда я запускал первый поток, я пообещал: наберу 500 человек — и на этом закроюсь. Больше это обучение продавать не буду.</p>
+      <p>5 июня стартует пятый поток, и мы уже почти уперлись в эти 500. Места заканчиваются.</p>
+      <p>Слово я держу, поэтому исключений и «вы очень просили» не будет. Кто успел зайти в 500 — тот остается в закрытом комьюнити. И дальше бесплатно получает все обновления: новые ниши, рабочие связки, все самое актуальное.</p>
+      <p>Есть и вторая причина, почему продаж больше не будет. Часть инструментов, которые получают ученики, работает только пока нас немного — раздать их всем подряд не выйдет. Тот же софт мы технически не потянем на всех желающих. Сейчас доводим его до полного цикла, чтобы сценарии и монтаж были в одном месте. Закончим — откроем доступ ученикам.</p>
+      <p class="why__block-final">Это последний шанс зайти в МВО вместе с нами — потом такой возможности уже не будет.</p>
+    </div>
+  </div>
+</section>
+
+<!-- НИЖНИЙ CTA -->
+<section class="footer-cta">
+  <div class="wrap">
+    <div class="footer-cta__caption">«не откладывайте — окно на 7 дней»</div>
+    <div class="cta-block">
+      <a class="cta" href="#" id="ctaBottom">Написать менеджеру</a>
+    </div>
+  </div>
+</section>
+
+<footer class="page-foot">
+  <div class="wrap">© Макс Люшер · МВО · 2026</div>
+</footer>
+
+<script>
+(() => {
+  // ====== ВИДЕО ПЛЕЕР ======
+  // ЗАМЕНИТЬ на реальные ссылки когда придут:
+  const VIDEOS = {
+    kinescope: 'https://kinescope.io/giWoRTi4KgxvEPWJZQ8GjT/plnfIj2N',
+    youtube:   'https://www.youtube.com/embed/rK40vlOJF8g',
+  };
+
+  const player = document.getElementById('videoPlayer');
+  const toggleBtns = document.querySelectorAll('.video-toggle__btn');
+
+  function loadVideo(kind) {
+    const src = VIDEOS[kind];
+    if (!src) {
+      player.innerHTML = '<div class="video-player__placeholder">Ссылка на видео появится скоро</div>';
+      return;
+    }
+    player.innerHTML = `<iframe src="${src}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  }
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      loadVideo(btn.dataset.player);
+    });
+  });
+
+  loadVideo('kinescope');
+
+  // ====== АНКЕТА (CTA) ======
+  const FORM_URL = 'https://t.me/why_lusher';
+  document.querySelectorAll('#ctaTop, #ctaVolume, #ctaBottom').forEach(a => {
+    a.href = FORM_URL;
+    if (FORM_URL.startsWith('http')) {
+      a.target = '_blank';
+      a.rel = 'noopener';
+    }
+  });
+
+  // ====== КАРУСЕЛЬ КЕЙСОВ ======
+  const CASES = [
+    { tone:'ink',  n:'1',  name:'Максим',  sub:'Маркетолог 27 лет, апатия, 150к ₽/мес. Канал за 2 700 ₽.', r:'$11 200', rs:'через 40 дней' },
+    { tone:'warm', n:'2',  name:'Наташа',  sub:'Продюсер, устала от экспертов. Один канал.',                 r:'200+ к ₽', rs:'каждый месяц стабильно' },
+    { tone:'ink',  n:'3',  name:'Илья',    sub:'С нуля до миллионов за обучение.',                           r:'$18 000', rs:'за период обучения' },
+    { tone:'warm', n:'4',  name:'Владимир',sub:'Офлайн-предприниматель, в контенте ноль.',                   r:'$15–16 000', rs:'за период обучения' },
+    { tone:'ink',  n:'5',  name:'Никита',  sub:'Фрилансер-продюсер, 20 лет. 3 канала, вложил меньше 14к ₽.', r:'20–25к ₽/день', rs:'чистыми' },
+    { tone:'warm', n:'6',  name:'Саша',    sub:'Фотограф, 400к ₽ в инфобизе. Перешёл в органику.',           r:'+$2 000', rs:'каждые две недели' },
+    { tone:'ink',  n:'7',  name:'Ольга',   sub:'Маркетолог, новичок. Окупила обучение за 20 дней.',          r:'$813', rs:'на 11-й день' },
+    { tone:'warm', n:'8',  name:'Артём',   sub:'Дизайн-студия. Канал за 1 500 ₽.',                           r:'+$950', rs:'через месяц' },
+    { tone:'ink',  n:'9',  name:'Георгий', sub:'Выгоревший продюсер, без работы и накоплений. 5 недель.',    r:'$30 000', rs:'20 млн просмотров за 48ч' },
+    { tone:'warm', n:'10', name:'Артур', vip:true, sub:'Топ-продюсер, запуски 10–20 млн, «заёбанный в усмерть».', r:'$56 000', rs:'через полгода, реселлинг' }
+  ];
+
+  const track = document.getElementById('casesTrack');
+  CASES.forEach(c => {
+    const card = document.createElement('article');
+    card.className = 'case-card' + (c.tone === 'warm' ? ' is-warm' : '') + ' is-noproofs';
+    card.innerHTML = `
+      <div class="case-card__head">
+        <div class="case-card__chip">${c.n}</div>
+        <div class="case-card__name">${c.name}${c.vip ? '<span class="vip">VIP</span>' : ''}</div>
+      </div>
+      <div class="case-card__sub">${c.sub}</div>
+      <div class="case-card__result">
+        <span class="case-card__result-val">${c.r}</span>
+        <span class="case-card__result-rs">${c.rs}</span>
+      </div>
+    `;
+    track.appendChild(card);
+  });
+
+  const left = document.getElementById('caseLeft');
+  const right = document.getElementById('caseRight');
+  const counter = document.getElementById('caseCounter');
+
+  function updateCounter() {
+    const cards = track.querySelectorAll('.case-card');
+    const trackRect = track.getBoundingClientRect();
+    const center = trackRect.left + trackRect.width / 2;
+    let active = 0;
+    let bestDist = Infinity;
+    cards.forEach((c, i) => {
+      const r = c.getBoundingClientRect();
+      const cardCenter = r.left + r.width / 2;
+      const d = Math.abs(cardCenter - center);
+      if (d < bestDist) { bestDist = d; active = i; }
+    });
+    counter.textContent = `${active + 1} / ${cards.length}`;
+    left.disabled = (track.scrollLeft <= 4);
+    right.disabled = (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4);
+  }
+
+  function scrollByCard(dir) {
+    const card = track.querySelector('.case-card');
+    if (!card) return;
+    const step = card.offsetWidth + 18;
+    track.scrollBy({ left: dir * step, behavior: 'smooth' });
+  }
+
+  left.addEventListener('click', () => scrollByCard(-1));
+  right.addEventListener('click', () => scrollByCard(1));
+  track.addEventListener('scroll', () => {
+    window.requestAnimationFrame(updateCounter);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft')  scrollByCard(-1);
+    if (e.key === 'ArrowRight') scrollByCard(1);
+  });
+
+  setTimeout(updateCounter, 100);
+
+  // ====== КАРУСЕЛЬ МОДУЛЕЙ ======
+  const modTrack = document.getElementById('modulesTrack');
+  const modLeft = document.getElementById('modLeft');
+  const modRight = document.getElementById('modRight');
+  const modCounter = document.getElementById('modCounter');
+  const totalMods = modTrack.querySelectorAll('.module').length;
+
+  function getModsPerView() {
+    if (window.innerWidth <= 480) return 1;
+    if (window.innerWidth <= 760) return 2;
+    return 3;
+  }
+
+  function updateModCounter() {
+    const perView = getModsPerView();
+    const moduleEl = modTrack.querySelector('.module');
+    if (!moduleEl) return;
+    const cardW = moduleEl.offsetWidth + 16;
+    const idx = Math.round(modTrack.scrollLeft / cardW);
+    const from = idx + 1;
+    const to = Math.min(idx + perView, totalMods);
+    modCounter.textContent = perView === 1 ? `${from} / ${totalMods}` : `${from}–${to} / ${totalMods}`;
+    modLeft.disabled = modTrack.scrollLeft <= 4;
+    modRight.disabled = modTrack.scrollLeft + modTrack.clientWidth >= modTrack.scrollWidth - 4;
+  }
+
+  function scrollMods(dir) {
+    const perView = getModsPerView();
+    const moduleEl = modTrack.querySelector('.module');
+    if (!moduleEl) return;
+    const step = (moduleEl.offsetWidth + 16) * perView;
+    modTrack.scrollBy({ left: dir * step, behavior: 'smooth' });
+  }
+
+  modLeft.addEventListener('click', () => scrollMods(-1));
+  modRight.addEventListener('click', () => scrollMods(1));
+  modTrack.addEventListener('scroll', () => requestAnimationFrame(updateModCounter));
+  window.addEventListener('resize', updateModCounter);
+  setTimeout(updateModCounter, 150);
+})();
+</script>
+
+</body>
+</html>

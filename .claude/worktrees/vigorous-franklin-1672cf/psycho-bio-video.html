@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>if(window.location.hash)history.replaceState(null,document.title,window.location.pathname+window.location.search);</script>
+<title>Психосоматика и Биодинамика — видео с ответами на вопросы</title>
+<meta name="description" content="Смотрите видео, где Олег Агапэ отвечает на все вопросы об обучении психосоматике и биодинамике." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #E8EEF6;
+    --bg-tint:      #DCE5F0;
+    --surface:      #F2F6FB;
+    --surface-tint: #E5EDF6;
+    --ink:          #141C2A;
+    --ink-soft:     #3A4758;
+    --ink-mute:     #7A8FA8;
+    --border:       rgba(40, 80, 140, 0.11);
+    --warm:         #2E5F9E;
+    --warm-soft:    #DDE8F5;
+    --warm-line:    rgba(46, 95, 158, 0.22);
+    --accent:       #C07230;
+    --accent-soft:  #FAEEDE;
+    --accent-line:  rgba(192, 114, 48, 0.28);
+    --shadow-sm:    0 6px 14px -8px rgba(20,50,110,0.16);
+    --shadow-md:    0 12px 28px -12px rgba(20,50,110,0.22);
+    --shadow-lg:    0 24px 48px -16px rgba(20,50,110,0.30);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .h-display {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .h-section {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ══ ШАПКА САЙТА ══ */
+  .site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .site-header__logo {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warm);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  /* ══ НАВИГАЦИЯ ПО КУРСАМ ══ */
+  .course-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .course-nav__inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .course-nav__inner::-webkit-scrollbar { display: none; }
+  .course-nav__link {
+    flex-shrink: 0;
+    display: block;
+    padding: 14px 28px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-mute);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: color .18s, border-color .18s;
+    letter-spacing: -0.01em;
+  }
+  .course-nav__link:hover { color: var(--warm); }
+  .course-nav__link.is-active { color: var(--warm); border-bottom-color: var(--warm); }
+  @media (max-width: 600px) {
+    .course-nav__link { padding: 12px 18px; font-size: 12px; }
+  }
+
+  /* ══ HERO ══ */
+  .hero {
+    padding: 60px 0 48px;
+    text-align: center;
+  }
+  .hero__eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 9px 20px;
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 24px;
+    margin-bottom: 26px;
+  }
+  .hero__title {
+    font-size: clamp(28px, 4.5vw, 54px);
+    color: var(--ink);
+    margin: 0 auto 18px;
+    max-width: 860px;
+  }
+  .hero__title em { font-style: normal; color: var(--warm); }
+  .hero__hint {
+    font-size: 14px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin: 0 0 16px;
+    letter-spacing: 0.01em;
+  }
+
+  /* ══ РАЗДЕЛИТЕЛЬ КУРСОВ ══ */
+  .course-divider {
+    padding: 60px 0 0;
+  }
+  .course-divider__line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--border) 50%, transparent 100%);
+    max-width: 940px;
+    margin: 0 auto 32px;
+  }
+  .course-divider__label {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* ══ СЕКЦИЯ КУРСА ══ */
+  .course-section {
+    scroll-margin-top: 56px;
+  }
+  .course-hero {
+    padding: 64px 0 40px;
+    text-align: center;
+  }
+  .course-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 9px 20px;
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    border-radius: 24px;
+    margin-bottom: 22px;
+  }
+  .course-title {
+    font-size: clamp(28px, 4.2vw, 52px);
+    color: var(--ink);
+    margin: 0 auto 16px;
+    max-width: 860px;
+  }
+  .course-title em { font-style: normal; color: var(--warm); }
+  .course-hint {
+    font-size: 14px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin: 0 0 36px;
+  }
+
+  /* ══ ВИДЕО + ПЕРЕКЛЮЧАТЕЛЬ ══ */
+  .video-wrap {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .video-toggle {
+    display: inline-flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 4px;
+    margin: 0 auto 18px;
+    box-shadow: var(--shadow-sm);
+  }
+  .video-toggle__btn {
+    appearance: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+  .video-toggle__btn:hover { color: var(--ink); }
+  .video-toggle__btn.is-active {
+    background: var(--warm);
+    color: #fff;
+  }
+  .video-player {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #0d1e36;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .video-player iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-player__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    background: linear-gradient(135deg, #0d1e36 0%, #1a3a60 100%);
+  }
+  .video-player__placeholder svg {
+    width: 64px; height: 64px;
+    opacity: 0.6;
+  }
+
+  /* ══ CTA ══ */
+  .cta-block {
+    margin: 36px 0 24px;
+    text-align: center;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: clamp(15px, 1.7vw, 19px);
+    letter-spacing: -0.005em;
+    padding: 18px 44px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(.2,.6,.2,1);
+    box-shadow: 0 14px 28px -10px rgba(192,114,48,0.45);
+    text-transform: uppercase;
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 32px -10px rgba(192,114,48,0.58);
+    background: #a85e20;
+  }
+  .cta:active { transform: translateY(0); }
+  .cta__hint {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.01em;
+  }
+
+  /* ══ БОЛЬ ══ */
+  .pain {
+    padding: 70px 0 60px;
+  }
+  .pain__inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .pain__title {
+    font-size: clamp(24px, 3.4vw, 40px);
+    color: var(--ink);
+    margin: 0 auto 16px;
+    max-width: 820px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .pain__title em { font-style: normal; color: var(--accent); }
+  .pain__sub {
+    text-align: center;
+    font-size: clamp(15px, 1.6vw, 17px);
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+  .pain__quote {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--warm);
+    border-radius: 0 20px 20px 0;
+    padding: 28px 32px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 24px;
+  }
+  .pain__quote-mark {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--warm-soft);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .pain__quote-text {
+    font-size: clamp(15px, 1.65vw, 17px);
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0 0 18px;
+  }
+  .pain__quote-text strong { color: var(--ink); font-weight: 700; }
+  .pain__quote-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 600;
+  }
+  .pain__quote-author::before {
+    content: '';
+    display: block;
+    width: 28px; height: 2px;
+    background: var(--warm-line);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .pain__conclusion {
+    background: linear-gradient(135deg, var(--warm-soft) 0%, var(--surface) 100%);
+    border: 1px solid var(--warm-line);
+    border-radius: 16px;
+    padding: 22px 28px;
+    font-size: clamp(15px, 1.65vw, 17px);
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.55;
+    text-align: center;
+  }
+  .pain__conclusion em { font-style: normal; color: var(--warm); }
+
+  /* ══ О ЧЁМ ВИДЕО ══ */
+  .about-webinar {
+    padding: 0 0 60px;
+    text-align: center;
+  }
+  .about-webinar__title {
+    font-size: clamp(24px, 3.4vw, 40px);
+    color: var(--ink);
+    margin: 0 auto 24px;
+    max-width: 820px;
+    line-height: 1.2;
+  }
+  .about-webinar__title em { font-style: normal; color: var(--warm); }
+  .about-webinar__body {
+    max-width: 720px;
+    margin: 0 auto 28px;
+  }
+  .about-webinar__body p {
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0 0 16px;
+  }
+  .about-webinar__body p strong { color: var(--ink); font-weight: 700; }
+  .about-webinar__result {
+    max-width: 820px;
+    margin: 20px auto 0;
+    padding: 26px 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .about-webinar__result-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .about-webinar__result-text {
+    font-size: clamp(15px, 1.8vw, 19px);
+    color: var(--ink);
+    line-height: 1.55;
+    font-weight: 600;
+    margin: 0;
+  }
+  .about-webinar__result-text em { font-style: normal; color: var(--warm); }
+
+  /* ══ ВОПРОСЫ — СЛАЙДЕР ══ */
+  .questions {
+    padding: 0 0 60px;
+  }
+  .questions__title {
+    font-size: clamp(26px, 3.8vw, 46px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 44px;
+    max-width: 800px;
+  }
+  .questions__title em { font-style: normal; color: var(--warm); }
+
+  .q-slider {
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .q-slider__viewport {
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .q-slider__track {
+    display: flex;
+    transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .q-slide {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 2px;
+  }
+  .q-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 24px 22px;
+    transition: box-shadow 0.2s ease;
+  }
+  .q-item:hover { box-shadow: var(--shadow-md); }
+  .q-num {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: transparent;
+    -webkit-text-stroke: 1.2px rgba(46,95,158,0.45);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .q-text {
+    font-size: clamp(14px, 1.55vw, 16px);
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .q-text strong { color: var(--warm); font-weight: 700; }
+
+  /* Стрелки */
+  .q-slider__arrows {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .q-arrow {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--ink-soft);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .18s;
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+  }
+  .q-arrow:hover { background: var(--warm); color: #fff; border-color: var(--warm); }
+  .q-arrow:disabled { opacity: .3; cursor: default; }
+
+  /* Точки */
+  .q-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .q-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all .22s;
+    flex-shrink: 0;
+  }
+  .q-dot.is-active {
+    background: var(--warm);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 640px) {
+    .q-slide { grid-template-columns: 1fr; }
+  }
+
+  /* ══ ОБ АВТОРЕ ══ */
+  .author {
+    padding: 70px 0 60px;
+  }
+  .author__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 40px;
+    align-items: start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px 40px;
+    box-shadow: var(--shadow-sm);
+  }
+  @media (max-width: 600px) {
+    .author__inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 28px 22px;
+    }
+    .author__photo { margin: 0 auto; }
+    .author__stats { justify-content: center; }
+  }
+  .author__photo {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--warm-line);
+    box-shadow: var(--shadow-md);
+    background: var(--bg-tint);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .author__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .author__photo-fallback { font-size: 3rem; }
+  .author__eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .author__name {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 2.4vw, 28px);
+    color: var(--ink);
+    margin: 0 0 14px;
+    line-height: 1.15;
+  }
+  .author__bio p {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+    line-height: 1.6;
+  }
+  .author__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .stat {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+  .stat strong {
+    display: block;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--warm);
+    letter-spacing: -0.02em;
+  }
+  .stat span {
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  /* ══ ПОЧЕМУ СТОИТ ПРИЙТИ ══ */
+  .why {
+    padding: 0 0 60px;
+  }
+  .why__title {
+    font-size: clamp(26px, 3.8vw, 46px);
+    color: var(--ink);
+    text-align: center;
+    margin: 0 auto 44px;
+    max-width: 800px;
+  }
+  .why__title em { font-style: normal; color: var(--warm); }
+  .why__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+  .why__item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px 26px 24px;
+  }
+  .why__item.is-wide { grid-column: 1 / -1; }
+  .why__num {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: transparent;
+    -webkit-text-stroke: 1.2px rgba(46,95,158,0.45);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .why__text {
+    font-size: clamp(14px, 1.55vw, 17px);
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .why__text strong { color: var(--warm); font-weight: 700; }
+
+  /* ══ СЕМИНАР ══ */
+  .seminar {
+    padding: 0 0 80px;
+    text-align: center;
+  }
+  .seminar__inner {
+    max-width: 880px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px 40px 40px;
+    box-shadow: var(--shadow-sm);
+  }
+  .seminar__label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--warm);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .seminar__title {
+    font-size: clamp(22px, 3vw, 36px);
+    color: var(--ink);
+    margin: 0 auto 28px;
+    max-width: 660px;
+    line-height: 1.25;
+  }
+  .seminar__details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 680px) {
+    .seminar__details { grid-template-columns: 1fr 1fr; }
+  }
+  .detail {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 14px;
+  }
+  .detail__label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .detail__val {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(13px, 1.4vw, 15px);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .seminar__note {
+    background: var(--warm-soft);
+    border-left: 3px solid var(--warm);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-align: left;
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+
+  /* ══ НИЖНИЙ CTA ══ */
+  .footer-cta {
+    padding: 36px 0 80px;
+    text-align: center;
+  }
+  .footer-cta__caption {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(22px, 2.4vw, 30px);
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+    transform: rotate(-1deg);
+    display: inline-block;
+  }
+  .footer-cta__btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-cta__btn--psycho {
+    background: var(--warm);
+    box-shadow: 0 14px 28px -10px rgba(46,95,158,0.40);
+  }
+  .footer-cta__btn--psycho:hover {
+    background: #1e4a84;
+    box-shadow: 0 18px 32px -10px rgba(46,95,158,0.52);
+  }
+  @media (max-width: 600px) {
+    .footer-cta__btns {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  /* ══ FOOTER ══ */
+  .page-foot {
+    padding: 24px 0 36px;
+    text-align: center;
+    color: var(--ink-mute);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .page-foot a { color: var(--warm); text-decoration: none; }
+  .page-foot a:hover { text-decoration: underline; }
+
+  /* ══ MEDIA ══ */
+  @media (max-width: 760px) {
+    .hero { padding: 40px 0 30px; }
+    .course-hero { padding: 44px 0 28px; }
+    .q-grid { grid-template-columns: 1fr; }
+    .q-item.is-wide { grid-column: auto; }
+    .why__list { grid-template-columns: 1fr; }
+    .why__item.is-wide { grid-column: auto; }
+    .seminar__inner { padding: 30px 20px; }
+    .cta { padding: 16px 32px; }
+    .author__inner { gap: 24px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 0 16px; }
+    .video-toggle__btn { font-size: 13px; padding: 9px 14px; }
+  }
+
+  /* ══ ТАЙМКОДЫ ══ */
+  .timecodes-section {
+    padding: 0 0 64px;
+  }
+  .timecodes {
+    margin: 0 auto;
+    max-width: 860px;
+  }
+  .timecodes__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .timecodes__list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  /* ══ СЛАЙДЕР ТАЙМКОДОВ ══ */
+  .tc-slider {
+    position: relative;
+  }
+  .tc-slider__overflow {
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .tc-slider__track {
+    display: flex;
+    transition: transform 0.38s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+  }
+  .tc-slider__slide {
+    min-width: 100%;
+  }
+  .tc-slider__slide .timecodes__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 700px) {
+    .tc-slider__slide .timecodes__list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .tc-slider__slide .timecodes__list {
+      grid-template-columns: 1fr;
+    }
+  }
+  .tc-slider__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .tc-slider__arrow {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid var(--warm-line);
+    background: #fff;
+    color: var(--warm);
+    cursor: pointer;
+    font-size: 17px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .15s, border-color .15s, transform .15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    flex-shrink: 0;
+  }
+  .tc-slider__arrow:hover:not(:disabled) {
+    background: var(--warm-soft);
+    border-color: var(--warm);
+    transform: scale(1.05);
+  }
+  .tc-slider__arrow:disabled { opacity: 0.28; cursor: default; }
+  .tc-slider__dots {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+  }
+  .tc-slider__dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--warm-line);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+    flex-shrink: 0;
+  }
+  .tc-slider__dot.is-active {
+    background: var(--warm);
+    transform: scale(1.3);
+  }
+  .timecode-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border: 1.5px solid transparent;
+    padding: 14px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: border-color .18s, box-shadow .18s, transform .15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .timecode-btn:hover {
+    border-color: var(--warm);
+    box-shadow: 0 4px 18px rgba(30,74,132,0.12);
+    transform: translateY(-1px);
+  }
+  .timecode-btn__time {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--warm);
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    min-width: 44px;
+    background: rgba(30,74,132,0.07);
+    border-radius: 8px;
+    padding: 5px 8px;
+    text-align: center;
+  }
+  .timecode-btn:hover .timecode-btn__time {
+    background: var(--warm);
+    color: #fff;
+  }
+  .timecode-btn__text {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+  .timecode-btn__play {
+    flex-shrink: 0;
+    margin-left: auto;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(30,74,132,0.06);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--warm);
+    opacity: 0;
+    transition: opacity .18s;
+  }
+  .timecode-btn:hover .timecode-btn__play { opacity: 1; }
+  .timecode-btn__play svg { width: 10px; height: 10px; }
+
+  /* ══ МОДАЛЬНОЕ ОКНО GETCOURSE ══ */
+  .gc-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+  }
+  .gc-modal.is-open { display: flex; }
+  .gc-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 20, 40, 0.70);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .gc-modal__box {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px 32px 32px;
+    width: 100%;
+    max-width: 540px;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 16px;
+    box-shadow: 0 32px 64px -16px rgba(10,30,80,0.40);
+  }
+  @media (max-width: 600px) {
+    .gc-modal__box { padding: 36px 16px 24px; }
+  }
+  .gc-modal__close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--ink-mute);
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: color .15s, background .15s;
+  }
+  .gc-modal__close:hover { color: var(--ink); background: var(--bg); }
+  .gc-modal__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 20px;
+    line-height: 1.3;
+  }
+  .gc-modal__body { min-height: 80px; }
+
+  /* ══ ОФФЕР-БАННЕР ══ */
+  .offer-banner {
+    padding: 0 0 64px;
+  }
+  .offer-banner__inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .offer-banner__headline {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(26px, 4vw, 46px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px;
+  }
+  .offer-banner__headline em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .offer-banner__desc {
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: #555;
+    line-height: 1.65;
+    margin: 0 0 32px;
+  }
+  .offer-banner__cta {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 22px 32px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform .18s, box-shadow .18s;
+    box-shadow: 0 10px 32px -6px rgba(192,114,48,0.45);
+  }
+  .offer-banner__cta:hover {
+    transform: translateY(-2px);
+    background: #a85e20;
+    box-shadow: 0 16px 40px -8px rgba(192,114,48,0.55);
+  }
+  .offer-banner__note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #aaa;
+    letter-spacing: 0.01em;
+  }
+  .offer-banner__result {
+    margin-top: 32px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 36px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    text-align: center;
+  }
+  .offer-banner__result-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .offer-banner__result-text {
+    font-size: clamp(17px, 1.9vw, 22px);
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+  }
+  .offer-banner__result-text em {
+    font-style: normal;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  @media (max-width: 600px) {
+    .offer-banner__result { padding: 22px 20px; }
+    .offer-banner__headline { font-size: clamp(22px, 7vw, 32px); }
+  }
+
+  /* ══ КЕЙСЫ ══ */
+  .cases {
+    padding: 60px 0;
+  }
+  .cases__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 auto 44px;
+    max-width: 700px;
+  }
+  .cases__title em { font-style: normal; color: var(--warm); }
+  .cases__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  @media (max-width: 760px) {
+    .cases__grid { grid-template-columns: 1fr; }
+  }
+  .case-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow .2s;
+  }
+  .case-card:hover { box-shadow: var(--shadow-md); }
+  .case-card__who {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .case-card__avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--warm-soft);
+    border: 1.5px solid var(--warm-line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--warm);
+    flex-shrink: 0;
+  }
+  .case-card__name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .case-card__role {
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 2px;
+  }
+  .case-card__before {
+    background: var(--bg-tint);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    border-left: 3px solid var(--border);
+  }
+  .case-card__before-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .case-card__after {
+    font-size: clamp(13px, 1.4vw, 15px);
+    color: var(--ink);
+    line-height: 1.55;
+    font-style: italic;
+    font-weight: 500;
+    border-left: 3px solid var(--warm);
+    padding-left: 14px;
+  }
+  .case-card__after strong { font-style: normal; color: var(--warm); font-weight: 700; }
+
+  /* ══ СРОЧНОСТЬ ══ */
+  .urgency {
+    padding: 0 0 56px;
+  }
+  .urgency__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px 48px;
+    box-shadow: var(--shadow-sm);
+  }
+  @media (max-width: 600px) {
+    .urgency__inner { padding: 28px 22px; }
+  }
+  .urgency__title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(18px, 2.4vw, 26px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin: 0 0 28px;
+    letter-spacing: -0.02em;
+  }
+  .urgency__title em { font-style: normal; color: var(--warm); }
+  .urgency__list {
+    list-style: none;
+    padding: 0; margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .urgency__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .urgency__icon {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--warm-soft);
+    border: 1px solid var(--warm-line);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    margin-top: 1px;
+  }
+  .urgency__item strong { color: var(--ink); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ══════ НАВИГАЦИЯ ПО КУРСАМ ══════ -->
+<nav class="course-nav" aria-label="Курсы">
+  <div class="wrap">
+    <div class="course-nav__inner">
+      <a class="course-nav__link" href="#bio">Биодинамика</a>
+      <a class="course-nav__link" href="#psycho">Психосоматика</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__eyebrow">Видео · Ответы на вопросы</div>
+    <h1 class="hero__title h-display">Биодинамика и <em>Психосоматика</em> — смотрите видео и узнайте, что вам даст каждый курс</h1>
+    <p class="hero__hint">Олег Агапэ отвечает честно и без воды — перед тем, как вы примете решение</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     КУРС 1: БИОДИНАМИКА
+══════════════════════════════════════════ -->
+<section class="course-section" id="bio">
+
+  <!-- Шапка курса -->
+  <div class="course-hero">
+    <div class="wrap" style="text-align:center">
+      <div class="course-eyebrow">Биодинамика · Сентябрь 2026 · Москва + онлайн</div>
+      <h2 class="course-title h-display">Биодинамика — <em>уровень, где техника перестаёт</em> быть главным инструментом</h2>
+      <p class="course-hint">Олег Агапэ объясняет механику и отвечает на вопросы специалистов</p>
+
+      <div class="video-wrap">
+        <div class="video-toggle" role="tablist" aria-label="Выбор плеера биодинамика">
+          <button class="video-toggle__btn is-active" data-player="youtube" data-course="bio" type="button">YouTube</button>
+          <button class="video-toggle__btn" data-player="vk" data-course="bio" type="button">ВКонтакте</button>
+        </div>
+        <div class="video-player" id="playerBio">
+          <div class="video-player__placeholder">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="30" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <path d="M26 20 L48 32 L26 44 Z" fill="rgba(255,255,255,0.7)"/>
+            </svg>
+            <span>Вставьте ссылку на видео в коде</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ОФФЕР-БАННЕР -->
+  <section class="offer-banner">
+    <div class="wrap">
+      <div class="offer-banner__inner">
+        <h2 class="offer-banner__headline">Предзапись на обучение<br>«<em>Биодинамика</em>»</h2>
+        <p class="offer-banner__desc">
+          6-месячная программа для остеопатов и телесных специалистов,
+          которые хотят перейти от техник к состоянию и работать на уровне первичного дыхания тела.
+          Старт — сентябрь 2026.
+        </p>
+        <button class="offer-banner__cta gc-button" type="button" data-course="bio">Попасть в предзапись</button>
+        <div class="offer-banner__note">за 1 минуту · бесплатно · без обязательств</div>
+        <div class="offer-banner__result">
+          <div class="offer-banner__result-label">Главный результат программы</div>
+          <p class="offer-banner__result-text">
+            Работать <em>из состояния, а не из техники</em> — глубже, без выгорания,
+            давая клиенту устойчивый результат.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТАЙМКОДЫ БИОДИНАМИКА -->
+  <section class="timecodes-section">
+    <div class="wrap">
+      <div class="timecodes" id="timecodesBio">
+        <div class="timecodes__label">Таймкоды</div>
+        <ul class="timecodes__list">
+          <li><button class="timecode-btn" onclick="seekBio(0)"><span class="timecode-btn__time">00:00</span><span class="timecode-btn__text">В чём суть биодинамики в отличие от других техник?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(91)"><span class="timecode-btn__time">01:31</span><span class="timecode-btn__text">Почему вокруг биодинамики столько интереса?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(120)"><span class="timecode-btn__time">02:00</span><span class="timecode-btn__text">Кому подходит это обучение?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(234)"><span class="timecode-btn__time">03:54</span><span class="timecode-btn__text">С какими запросами работает особенно глубоко?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(301)"><span class="timecode-btn__time">05:01</span><span class="timecode-btn__text">Когда привычная работа перестаёт давать результат?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(362)"><span class="timecode-btn__time">06:02</span><span class="timecode-btn__text">Как биодинамика влияет на состояние клиента?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(410)"><span class="timecode-btn__time">06:50</span><span class="timecode-btn__text">Как через мягкие техники получить серьёзный результат?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(451)"><span class="timecode-btn__time">07:31</span><span class="timecode-btn__text">Что меняется в работе специалиста?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(495)"><span class="timecode-btn__time">08:15</span><span class="timecode-btn__text">Как влияет на результаты и доверие клиентов?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(540)"><span class="timecode-btn__time">09:00</span><span class="timecode-btn__text">Почему иначе начинают чувствовать тело?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(570)"><span class="timecode-btn__time">09:30</span><span class="timecode-btn__text">Как не выгорать от плотной работы руками?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(605)"><span class="timecode-btn__time">10:05</span><span class="timecode-btn__text">Работать глубже, но мягче для себя и клиента?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(635)"><span class="timecode-btn__time">10:35</span><span class="timecode-btn__text">Как меняется позиционирование специалиста?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(682)"><span class="timecode-btn__time">11:22</span><span class="timecode-btn__text">Помогает ли выйти на платёжеспособную аудиторию?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(705)"><span class="timecode-btn__time">11:45</span><span class="timecode-btn__text">За счёт чего начинают зарабатывать больше?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(725)"><span class="timecode-btn__time">12:05</span><span class="timecode-btn__text">Как проходит обучение — теория или практика?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(740)"><span class="timecode-btn__time">12:20</span><span class="timecode-btn__text">Почему обучение длится 6 месяцев?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(767)"><span class="timecode-btn__time">12:47</span><span class="timecode-btn__text">Как устроена практика? Развитие чувствительности рук</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(810)"><span class="timecode-btn__time">13:30</span><span class="timecode-btn__text">Можно ли освоить биодинамику онлайн?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(840)"><span class="timecode-btn__time">14:00</span><span class="timecode-btn__text">Есть ли структура или это про состояние?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(870)"><span class="timecode-btn__time">14:30</span><span class="timecode-btn__text">Смогу внедрить в практику сразу после обучения?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(890)"><span class="timecode-btn__time">14:50</span><span class="timecode-btn__text">Нет остеопатического образования — освою?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(900)"><span class="timecode-btn__time">15:00</span><span class="timecode-btn__text">Только начинаю практику — не рано?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(915)"><span class="timecode-btn__time">15:15</span><span class="timecode-btn__text">Насколько это безопасно для клиента?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekBio(943)"><span class="timecode-btn__time">15:43</span><span class="timecode-btn__text">Чем ваше обучение отличается от других программ?</span></button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- БОЛЬ -->
+  <section class="pain">
+    <div class="wrap">
+      <div class="pain__inner">
+        <div class="pain__quote">
+          <span class="pain__quote-mark">«»</span>
+          <p class="pain__quote-text">Это тот этап, где остеопатия перестаёт быть набором техник и становится <strong>способом восприятия и взаимодействия с человеком.</strong> Именно этот уровень многие описывают как «магия» — когда минимальное воздействие даёт глубокие и устойчивые изменения. Но за этим стоит <strong>не магия, а навык восприятия и состояния.</strong></p>
+          <div class="pain__quote-author">Олег Агапэ — о биодинамике</div>
+        </div>
+
+        <div class="pain__conclusion">
+          Биодинамика — это не новые техники. Это <em>переход на уровень,</em> где техника перестаёт быть главным инструментом
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КЕЙСЫ БИОДИНАМИКА -->
+  <section class="cases">
+    <div class="wrap">
+      <h2 class="cases__title">Что меняется у специалистов <em>после обучения</em></h2>
+      <div class="cases__grid">
+
+        <div class="case-card">
+          <div class="case-card__who">
+            <div class="case-card__avatar">А</div>
+            <div>
+              <div class="case-card__name">Алексей</div>
+              <div class="case-card__role">Мануальный терапевт</div>
+            </div>
+          </div>
+          <div class="case-card__before">
+            <div class="case-card__before-label">Было</div>
+            Упёрся в финансовый потолок. Сеансы требовали больших физических сил — к вечеру едва стоял на ногах.
+          </div>
+          <div class="case-card__after">
+            Перешёл на <strong>премиальный сегмент</strong>. Теперь работает легко и мягко — пациенты сами просят записаться на курс вперёд.
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-card__who">
+            <div class="case-card__avatar">А</div>
+            <div>
+              <div class="case-card__name">Анна</div>
+              <div class="case-card__role">Массажист</div>
+            </div>
+          </div>
+          <div class="case-card__before">
+            <div class="case-card__before-label">Было</div>
+            Работала по стандартным техникам. Выгорание, боль в спине, мало клиентов, низкие чеки.
+          </div>
+          <div class="case-card__after">
+            Освоила системный подход. <strong>Очередь на месяц вперёд</strong>, чек вырос в 3 раза за счёт гарантированного результата.
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-card__who">
+            <div class="case-card__avatar">П</div>
+            <div>
+              <div class="case-card__name">Павел</div>
+              <div class="case-card__role">Телесный специалист</div>
+            </div>
+          </div>
+          <div class="case-card__before">
+            <div class="case-card__before-label">Было</div>
+            Искал структурное обучение. Не хватало уверенности и понимания, куда двигаться дальше.
+          </div>
+          <div class="case-card__after">
+            Поток клиентов вырос, получил уверенность. <strong>Начал преподавать и стал наставником</strong> для других специалистов.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- СРОЧНОСТЬ БИОДИНАМИКА -->
+  <section class="urgency">
+    <div class="wrap">
+      <div class="urgency__inner">
+        <h3 class="urgency__title">Почему стоит попасть <em>в предзапись сейчас</em></h3>
+        <ul class="urgency__list">
+          <li class="urgency__item">
+            <span class="urgency__icon">👥</span>
+            <span><strong>Группа маленькая намеренно.</strong> Биодинамика требует живой практики и внимания каждому участнику — поэтому мест немного и они заканчиваются быстро.</span>
+          </li>
+          <li class="urgency__item">
+            <span class="urgency__icon">🎁</span>
+            <span><strong>Участники предзаписи получают приоритетные условия</strong> — ранний доступ к материалам и специальные условия по стоимости до старта набора.</span>
+          </li>
+          <li class="urgency__item">
+            <span class="urgency__icon">💬</span>
+            <span><strong>Предзапись — это просто анкета.</strong> Мы свяжемся, ответим на вопросы и расскажем детали. Никаких обязательств.</span>
+          </li>
+        </ul>
+        <button class="cta gc-button" type="button" data-course="bio">Попасть в предзапись на Биодинамику</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ СТОИТ ПРИЙТИ -->
+  <section class="why">
+    <div class="wrap">
+      <h2 class="why__title h-section">После курса <em>вы получите</em></h2>
+      <ul class="why__list">
+        <li class="why__item">
+          <div class="why__num">01</div>
+          <p class="why__text"><strong>Стабильный и предсказуемый результат</strong> — понимание, почему работа «идёт» или «не идёт», и как это управлять</p>
+        </li>
+        <li class="why__item">
+          <div class="why__num">02</div>
+          <p class="why__text"><strong>Меньше физических усилий — больше эффекта.</strong> Тело перестаёт сопротивляться, когда специалист перестаёт «давить»</p>
+        </li>
+        <li class="why__item">
+          <div class="why__num">03</div>
+          <p class="why__text"><strong>Снижение выгорания</strong> — появляется ощущение потока, уходит напряжение «я должен сделать результат»</p>
+        </li>
+        <li class="why__item">
+          <div class="why__num">04</div>
+          <p class="why__text"><strong>Уверенность со сложными пациентами</strong> — внутренняя опора, которая не зависит от набора техник</p>
+        </li>
+        <li class="why__item is-wide">
+          <div class="why__num">05</div>
+          <p class="why__text"><strong>Собственный стиль работы</strong> и переход на уровень, где «ты перестаёшь бороться с телом и начинаешь с ним сотрудничать» — интуитивное понимание приоритетов и системная, а не точечная работа</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- СЕМИНАР -->
+  <section class="seminar">
+    <div class="wrap">
+      <div class="seminar__inner">
+        <span class="seminar__label">Курс</span>
+        <h2 class="seminar__title h-section">Биодинамика</h2>
+        <div class="seminar__details">
+          <div class="detail">
+            <div class="detail__label">Старт</div>
+            <div class="detail__val">Сентябрь 2026</div>
+          </div>
+          <div class="detail">
+            <div class="detail__label">Место</div>
+            <div class="detail__val">Москва + онлайн</div>
+          </div>
+          <div class="detail">
+            <div class="detail__label">Формат</div>
+            <div class="detail__val">6-месячное обучение</div>
+          </div>
+          <div class="detail">
+            <div class="detail__label">Для кого</div>
+            <div class="detail__val">Телесные специалисты</div>
+          </div>
+        </div>
+        <div class="seminar__note">
+          Это не быстрый инструмент. Это развитие навыка, который требует практики и включённости.
+        </div>
+        <div class="cta-block" style="margin-top:0">
+          <button class="cta gc-button" type="button" data-course="bio">Попасть в предзапись</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section><!-- /БИОДИНАМИКА -->
+
+
+<!-- ══════ РАЗДЕЛИТЕЛЬ ══════ -->
+<div class="course-divider">
+  <div class="wrap">
+    <div class="course-divider__line"></div>
+    <span class="course-divider__label">Второй курс</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     КУРС 2: ПСИХОСОМАТИКА
+══════════════════════════════════════════ -->
+<section class="course-section" id="psycho">
+
+  <!-- Шапка курса -->
+  <div class="course-hero">
+    <div class="wrap" style="text-align:center">
+      <div class="course-eyebrow">Психосоматика · 24–26 июля 2026 · Москва + онлайн</div>
+      <h2 class="course-title h-display">Психосоматика — <em>как читать тело</em> и работать с эмоциональными причинами симптомов</h2>
+      <p class="course-hint">Олег Агапэ отвечает на вопросы специалистов перед семинаром</p>
+
+      <div class="video-wrap">
+        <div class="video-toggle" role="tablist" aria-label="Выбор плеера психосоматика">
+          <button class="video-toggle__btn is-active" data-player="youtube" data-course="psycho" type="button">YouTube</button>
+          <button class="video-toggle__btn" data-player="vk" data-course="psycho" type="button">ВКонтакте</button>
+        </div>
+        <div class="video-player" id="playerPsycho">
+          <div class="video-player__placeholder">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="30" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <path d="M26 20 L48 32 L26 44 Z" fill="rgba(255,255,255,0.7)"/>
+            </svg>
+            <span>Вставьте ссылку на видео в коде</span>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ОФФЕР-БАННЕР -->
+  <section class="offer-banner">
+    <div class="wrap">
+      <div class="offer-banner__inner">
+        <h2 class="offer-banner__headline">Предзапись на семинар<br>«<em>Психосоматика</em>»</h2>
+        <p class="offer-banner__desc">
+          3-дневный практикум для телесных специалистов,
+          которые хотят точно распознавать психоэмоциональные блоки в теле и работать с первопричиной симптома.
+          24–26 июля 2026 · Москва + онлайн.
+        </p>
+        <button class="offer-banner__cta gc-button" type="button" data-course="psycho">Попасть в предзапись</button>
+        <div class="offer-banner__note">за 1 минуту · бесплатно · без обязательств</div>
+        <div class="offer-banner__result">
+          <div class="offer-banner__result-label">Главный результат программы</div>
+          <p class="offer-banner__result-text">
+            Находить <em>истинную причину симптома</em> и устранять её через тело —
+            давая клиенту устойчивый результат.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТАЙМКОДЫ ПСИХОСОМАТИКА -->
+  <section class="timecodes-section">
+    <div class="wrap">
+      <div class="timecodes" id="timecodesPsycho">
+        <div class="timecodes__label">Таймкоды</div>
+        <ul class="timecodes__list">
+          <li><button class="timecode-btn" onclick="seekPsycho(0)"><span class="timecode-btn__time">00:00</span><span class="timecode-btn__text">На что вы опираетесь в своём подходе?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(93)"><span class="timecode-btn__time">01:33</span><span class="timecode-btn__text">Где грань между реальной психосоматикой и "притягиванием смыслов"?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(153)"><span class="timecode-btn__time">02:33</span><span class="timecode-btn__text">Когда телесная работа даёт слабый или временный эффект?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(181)"><span class="timecode-btn__time">03:01</span><span class="timecode-btn__text">Как психоэмоциональное состояние клиента влияет на результат?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(220)"><span class="timecode-btn__time">03:40</span><span class="timecode-btn__text">Есть ли чёткие критерии психосоматики?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(254)"><span class="timecode-btn__time">04:14</span><span class="timecode-btn__text">С какими запросами чаще всего встречается психосоматика?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(296)"><span class="timecode-btn__time">04:56</span><span class="timecode-btn__text">Что меняется в работе специалиста?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(329)"><span class="timecode-btn__time">05:29</span><span class="timecode-btn__text">Как это влияет на результаты и доверие клиентов?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(381)"><span class="timecode-btn__time">06:21</span><span class="timecode-btn__text">Как работать через тело, не заходя в психотерапию?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(415)"><span class="timecode-btn__time">06:55</span><span class="timecode-btn__text">Какие инструменты для экологичной работы с эмоциями?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(445)"><span class="timecode-btn__time">07:25</span><span class="timecode-btn__text">Можно ли выстроить чёткий алгоритм?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(462)"><span class="timecode-btn__time">07:42</span><span class="timecode-btn__text">Как не додумывать за клиента?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(480)"><span class="timecode-btn__time">08:00</span><span class="timecode-btn__text">Что делать при сильных реакциях — слёзы, тревога, агрессия?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(510)"><span class="timecode-btn__time">08:30</span><span class="timecode-btn__text">Как оценить результат работы?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(530)"><span class="timecode-btn__time">08:50</span><span class="timecode-btn__text">Как встроить психосоматику, не ломая текущий подход?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(553)"><span class="timecode-btn__time">09:13</span><span class="timecode-btn__text">Как объяснять клиенту профессионально?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(573)"><span class="timecode-btn__time">09:33</span><span class="timecode-btn__text">Как проходит обучение — теория или практика?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(601)"><span class="timecode-btn__time">10:01</span><span class="timecode-btn__text">Как отрабатываются такие тонкие навыки?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(635)"><span class="timecode-btn__time">10:35</span><span class="timecode-btn__text">Где границы компетенции специалиста?</span></button></li>
+          <li><button class="timecode-btn" onclick="seekPsycho(683)"><span class="timecode-btn__time">11:23</span><span class="timecode-btn__text">Нет психологического образования — смогу ли применять?</span></button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- БОЛЬ -->
+  <section class="pain">
+    <div class="wrap">
+      <div class="pain__inner">
+        <h2 class="pain__title h-section">Симптом снимается — <em>и возвращается снова</em></h2>
+        <p class="pain__sub">Вы работаете с телом и получаете результаты. Но некоторые клиенты приходят снова и снова — потому что в основе симптома лежит не структура, а непрожитый эмоциональный конфликт.</p>
+
+        <div class="pain__quote">
+          <span class="pain__quote-mark">«»</span>
+          <p class="pain__quote-text">90% людей сталкиваются с психосоматическими нарушениями в той или иной форме. Чем сложнее устроена психика — тем выше вероятность, что эмоции не выражаются напрямую, а <strong>фиксируются в теле через мышцы, фасции, дыхание, работу органов.</strong> Хроническое напряжение, спазмы, боли, расстройства сна, скачки давления — часто это не патология органов, а функциональные изменения, вызванные психоэмоциональными конфликтами.</p>
+          <div class="pain__quote-author">Из описания семинара</div>
+        </div>
+
+        <div class="pain__conclusion">
+          Если не работать с причиной — <em>симптом возвращается.</em> Психосоматика даёт инструмент для работы на уровне первопричины
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О ЧЁМ ВИДЕО -->
+  <section class="about-webinar">
+    <div class="wrap">
+      <h2 class="about-webinar__title h-section">Этот семинар — для телесников, <em>которые хотят видеть глубже симптома</em></h2>
+      <div class="about-webinar__body">
+        <p>Вы уже умеете снимать напряжение, восстанавливать движение, улучшать функции. Но если в основе симптома — непрожитый эмоциональный конфликт, тело <strong>будет возвращаться к напряжению снова.</strong></p>
+        <p>Олег Агапэ отвечает на <strong>12 самых частых вопросов</strong> перед семинаром по психосоматике — честно про формат, границы, механику и что конкретно меняется в практике.</p>
+      </div>
+      <div class="about-webinar__result">
+        <span class="about-webinar__result-label">После просмотра</span>
+        <p class="about-webinar__result-text">Вы поймёте, <em>где проходит граница</em> между структурной работой и психосоматикой — и как объединить оба подхода в одну сессию</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- КЕЙСЫ ПСИХОСОМАТИКА -->
+  <section class="cases">
+    <div class="wrap">
+      <h2 class="cases__title">Что меняется у специалистов <em>после обучения</em></h2>
+      <div class="cases__grid">
+
+        <div class="case-card">
+          <div class="case-card__who">
+            <div class="case-card__avatar">И</div>
+            <div>
+              <div class="case-card__name">Ирина</div>
+              <div class="case-card__role">Остеопат</div>
+            </div>
+          </div>
+          <div class="case-card__before">
+            <div class="case-card__before-label">Было</div>
+            Симптомы у клиентов возвращались снова и снова. Не понимала, почему телесная работа не даёт устойчивого результата.
+          </div>
+          <div class="case-card__after">
+            Начала видеть психосоматический компонент. <strong>Симптомы уходят и не возвращаются</strong> — работает с причиной, а не следствием.
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-card__who">
+            <div class="case-card__avatar">Е</div>
+            <div>
+              <div class="case-card__name">Елена</div>
+              <div class="case-card__role">Косметолог-эстетист</div>
+            </div>
+          </div>
+          <div class="case-card__before">
+            <div class="case-card__before-label">Было</div>
+            Клиентки возвращались с теми же проблемами. Поняла, что напряжение в теле — это не структура, а эмоциональный зажим.
+          </div>
+          <div class="case-card__after">
+            Научилась диагностировать эмоциональный компонент. <strong>Результаты держатся вдвое дольше</strong>, чек вырос в 2 раза.
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-card__who">
+            <div class="case-card__avatar">Е</div>
+            <div>
+              <div class="case-card__name">Евгений</div>
+              <div class="case-card__role">Реабилитолог</div>
+            </div>
+          </div>
+          <div class="case-card__before">
+            <div class="case-card__before-label">Было</div>
+            Работал только на структурном уровне. Чувствовал, что за симптомами есть что-то глубже, но не знал, как подойти.
+          </div>
+          <div class="case-card__after">
+            Освоил работу с психоэмоциональным слоем через тело. <strong>Клиенты получают устойчивый результат</strong> — потому что снимается первопричина.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- СРОЧНОСТЬ ПСИХОСОМАТИКА -->
+  <section class="urgency">
+    <div class="wrap">
+      <div class="urgency__inner">
+        <h3 class="urgency__title">Почему стоит попасть <em>в предзапись сейчас</em></h3>
+        <ul class="urgency__list">
+          <li class="urgency__item">
+            <span class="urgency__icon">📅</span>
+            <span><strong>Семинар 24–26 июля 2026.</strong> Места ограничены: группа до 20 человек — это принципиальное ограничение формата, а не маркетинговый ход.</span>
+          </li>
+          <li class="urgency__item">
+            <span class="urgency__icon">🎁</span>
+            <span><strong>Участники предзаписи получают приоритетные условия</strong> — специальная стоимость и ранний доступ к подготовительным материалам.</span>
+          </li>
+          <li class="urgency__item">
+            <span class="urgency__icon">💬</span>
+            <span><strong>Предзапись — это просто анкета.</strong> Мы свяжемся, ответим на вопросы и расскажем детали. Никаких обязательств.</span>
+          </li>
+        </ul>
+        <button class="cta gc-button" type="button" data-course="psycho">Попасть в предзапись на Психосоматику</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОЧЕМУ СТОИТ ПРИЙТИ -->
+  <section class="why">
+    <div class="wrap">
+      <h2 class="why__title h-section">После семинара <em>вы сможете</em></h2>
+      <ul class="why__list">
+        <li class="why__item">
+          <div class="why__num">01</div>
+          <p class="why__text"><strong>Видеть причину, а не только симптом</strong> — диагностировать, где в теле зафиксирована эмоция и что за ней стоит</p>
+        </li>
+        <li class="why__item">
+          <div class="why__num">02</div>
+          <p class="why__text"><strong>Давать устойчивый результат</strong> — симптом уходит и не возвращается, потому что снята первопричина</p>
+        </li>
+        <li class="why__item">
+          <div class="why__num">03</div>
+          <p class="why__text"><strong>Работать с психоэмоциональными запросами</strong> через тело — без психотерапии, анализа и «копаний»</p>
+        </li>
+        <li class="why__item">
+          <div class="why__num">04</div>
+          <p class="why__text"><strong>Объединить телесную и эмоциональную работу</strong> в одну сессию — целостный подход, который выделяет вас среди коллег</p>
+        </li>
+        <li class="why__item is-wide">
+          <div class="why__num">05</div>
+          <p class="why__text">Получить <strong>систему диагностики и алгоритм коррекции</strong> — карту психосоматических зон, техники высвобождения, протоколы работы с тревогой, депрессией, аутоиммунными состояниями</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- СЕМИНАР -->
+  <section class="seminar">
+    <div class="wrap">
+      <div class="seminar__inner">
+        <span class="seminar__label">Семинар</span>
+        <h2 class="seminar__title h-section">Психосоматика</h2>
+        <div class="seminar__details">
+          <div class="detail">
+            <div class="detail__label">Даты</div>
+            <div class="detail__val">24–26 июля 2026</div>
+          </div>
+          <div class="detail">
+            <div class="detail__label">Место</div>
+            <div class="detail__val">Москва + онлайн</div>
+          </div>
+          <div class="detail">
+            <div class="detail__label">Длительность</div>
+            <div class="detail__val">3 дня практики</div>
+          </div>
+          <div class="detail">
+            <div class="detail__label">Формат</div>
+            <div class="detail__val">Очно / Онлайн</div>
+          </div>
+        </div>
+        <div class="seminar__note">
+          Группа до 20 человек. Практика на телесных моделях — очно и онлайн.
+        </div>
+        <div class="cta-block" style="margin-top:0">
+          <button class="cta gc-button" type="button" data-course="psycho">Попасть в предзапись</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section><!-- /ПСИХОСОМАТИКА -->
+
+
+<!-- ══════ АВТОР ══════ -->
+<section class="author">
+  <div class="wrap">
+    <div class="author__inner">
+      <div class="author__photo">
+        <img src="oleg.jpg" alt="Олег Агапэ"
+          onerror="this.style.display='none';document.querySelector('.author__photo-fallback').style.display='block'" />
+        <span class="author__photo-fallback" style="display:none">🧑‍⚕️</span>
+      </div>
+      <div class="author__text">
+        <div class="author__eyebrow">Автор и ведущий</div>
+        <h3 class="author__name h-section">Олег Агапэ</h3>
+        <div class="author__bio">
+          <p>Ведущий демонстрационных вскрытий (диссекций) в России, организовал <strong>более 20 анатомических разборов</strong> для специалистов.</p>
+          <p><strong>Эксперт по функциональной анатомии:</strong> обучил более 300 студентов прикладному и «живому» подходу к работе с телом.</p>
+          <p><strong>Более 14 лет медицинского опыта,</strong> объединяет академические знания с телесно-ориентированными практиками. Преподаватель Института Остеопатии и МИИН.</p>
+        </div>
+        <div class="author__stats">
+          <div class="stat"><strong>300+</strong><span>студентов</span></div>
+          <div class="stat"><strong>20+</strong><span>диссекций</span></div>
+          <div class="stat"><strong>14 лет</strong><span>опыта</span></div>
+          <div class="stat"><strong>3000+</strong><span>клиентов</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ НИЖНИЙ CTA ══════ -->
+<section class="footer-cta">
+  <div class="wrap">
+    <div class="footer-cta__caption">Посмотрите видео — и все вопросы отпадут</div>
+    <div class="footer-cta__btns">
+      <button class="cta gc-button" type="button" data-course="bio">Предзапись на Биодинамику</button>
+      <button class="cta gc-button footer-cta__btn--psycho" type="button" data-course="psycho">Предзапись на Психосоматику</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="page-foot">
+  <div class="wrap">
+    © 2025 · <a href="https://agape-course.com" target="_blank">agape-course.com</a> · ИП Петров Олег Вячеславович · ИНН 330510600108
+    <br style="margin-bottom:6px">
+    <a href="policy.html">Политика конфиденциальности</a> · <a href="soglasie.html">Согласие на обработку ПД</a>
+  </div>
+</footer>
+
+<!-- ══ МОДАЛ: БИОДИНАМИКА ══ -->
+<div id="gcModalBio" class="gc-modal" aria-modal="true" role="dialog" aria-label="Предзапись на Биодинамику">
+  <div class="gc-modal__overlay" data-close-modal="bio"></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-close-modal="bio" aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Предзапись на Биодинамику</div>
+    <div class="gc-modal__body">
+      <script id="7bcecc23b25b255beefda814cce4653957944791"
+              src="https://online.agape-course.ru/pl/lite/widget/script?id=1602255"
+              onload="typeof startWidget7bcecc23b25b255beefda814cce4653957944791==='function'&&startWidget7bcecc23b25b255beefda814cce4653957944791()"></script>
+    </div>
+  </div>
+</div>
+
+<!-- ══ МОДАЛ: ПСИХОСОМАТИКА ══ -->
+<div id="gcModalPsycho" class="gc-modal" aria-modal="true" role="dialog" aria-label="Предзапись на Психосоматику">
+  <div class="gc-modal__overlay" data-close-modal="psycho"></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" data-close-modal="psycho" aria-label="Закрыть">✕</button>
+    <div class="gc-modal__title">Предзапись на Психосоматику</div>
+    <div class="gc-modal__body">
+      <script id="d79f48cd65b40addef173a7993c0dc52a52022b4"
+              src="https://online.agape-course.ru/pl/lite/widget/script?id=1602253"
+              onload="typeof startWidgetd79f48cd65b40addef173a7993c0dc52a52022b4==='function'&&startWidgetd79f48cd65b40addef173a7993c0dc52a52022b4()"></script>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══ ВИДЕО: ПСИХОСОМАТИКА ══
+(function () {
+  var VIDEOS_PSYCHO = {
+    youtube: 'https://www.youtube.com/embed/lw5tFkivzKs?enablejsapi=1',
+    vk:      'https://vkvideo.ru/video_ext.php?oid=-211757880&id=456239428&hd=3&list=ln-oYFhDywJuRiFfqJzRK'
+  };
+  var player   = document.getElementById('playerPsycho');
+  var toggleBtns = document.querySelectorAll('[data-course="psycho"].video-toggle__btn');
+  var currentKind = 'youtube';
+
+  function loadVideo(kind) {
+    currentKind = kind;
+    var src = VIDEOS_PSYCHO[kind];
+    if (!src) {
+      player.innerHTML = `<div class="video-player__placeholder">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <path d="M26 20 L48 32 L26 44 Z" fill="rgba(255,255,255,0.7)"/>
+        </svg>
+        <span>Ссылка на видео появится скоро</span>
+      </div>`;
+      return;
+    }
+    var allow = kind === 'youtube'
+      ? 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+      : 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+    player.innerHTML = `<iframe id="iframePsycho" src="${src}" allow="${allow}" allowfullscreen></iframe>`;
+  }
+
+  toggleBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      toggleBtns.forEach(function(b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      loadVideo(btn.dataset.player);
+    });
+  });
+
+  loadVideo('youtube');
+
+  // Глобальная функция для таймкодов
+  window.seekPsycho = function(seconds) {
+    var iframe = document.getElementById('iframePsycho');
+    if (!iframe) return;
+    if (currentKind === 'youtube') {
+      iframe.contentWindow.postMessage(JSON.stringify({
+        event: 'command', func: 'seekTo', args: [seconds, true]
+      }), '*');
+    } else {
+      var base = VIDEOS_PSYCHO.vk;
+      iframe.src = base + '&t=' + seconds + 's';
+    }
+    // Прокрутить к плееру
+    document.getElementById('playerPsycho').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+})();
+
+// ══ ВИДЕО: БИОДИНАМИКА ══
+(function () {
+  var VIDEOS_BIO = {
+    youtube: 'https://www.youtube.com/embed/BH76sua6yoQ?enablejsapi=1',
+    vk:      'https://vkvideo.ru/video_ext.php?oid=-211757880&id=456239429&hd=3&list=ln-5aR7fXen9HzHZnvHCB'
+  };
+  var player     = document.getElementById('playerBio');
+  var toggleBtns = document.querySelectorAll('[data-course="bio"].video-toggle__btn');
+  var currentKind = 'youtube';
+
+  function loadVideo(kind) {
+    currentKind = kind;
+    var src = VIDEOS_BIO[kind];
+    if (!src) {
+      player.innerHTML = `<div class="video-player__placeholder">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <path d="M26 20 L48 32 L26 44 Z" fill="rgba(255,255,255,0.7)"/>
+        </svg>
+        <span>Ссылка на видео появится скоро</span>
+      </div>`;
+      return;
+    }
+    var allow = kind === 'youtube'
+      ? 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+      : 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+    player.innerHTML = `<iframe id="iframeBio" src="${src}" allow="${allow}" allowfullscreen></iframe>`;
+  }
+
+  toggleBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      toggleBtns.forEach(function(b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      loadVideo(btn.dataset.player);
+    });
+  });
+
+  loadVideo('youtube');
+
+  // Глобальная функция для таймкодов
+  window.seekBio = function(seconds) {
+    var iframe = document.getElementById('iframeBio');
+    if (!iframe) return;
+    if (currentKind === 'youtube') {
+      iframe.contentWindow.postMessage(JSON.stringify({
+        event: 'command', func: 'seekTo', args: [seconds, true]
+      }), '*');
+    } else {
+      var base = VIDEOS_BIO.vk;
+      iframe.src = base + '&t=' + seconds + 's';
+    }
+    document.getElementById('playerBio').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+})();
+
+// ══ МОДАЛКИ GETCOURSE ══
+(function () {
+  var modals = {
+    bio:    document.getElementById('gcModalBio'),
+    psycho: document.getElementById('gcModalPsycho')
+  };
+
+  function openModal(course) {
+    var m = modals[course];
+    if (!m) return;
+    m.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(course) {
+    var m = modals[course];
+    if (!m) return;
+    m.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  function closeAll() {
+    Object.keys(modals).forEach(function(k) { closeModal(k); });
+  }
+
+  // Кнопки открытия
+  document.querySelectorAll('.gc-button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      openModal(btn.dataset.course);
+    });
+  });
+
+  // Кнопки закрытия и оверлеи
+  document.querySelectorAll('[data-close-modal]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      closeModal(el.dataset.closeModal);
+    });
+  });
+
+  // Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeAll();
+  });
+})();
+
+
+// ══ НАВИГАЦИЯ: подсветка активного пункта при скролле ══
+(function () {
+  var links = document.querySelectorAll('.course-nav__link');
+  var sections = ['psycho', 'bio'].map(function(id) {
+    return document.getElementById(id);
+  });
+
+  function updateNav() {
+    var scrollY = window.scrollY + 100;
+    var active = null;
+    sections.forEach(function(s) {
+      if (s && s.offsetTop <= scrollY) active = s;
+    });
+    links.forEach(function(link) {
+      var isActive = active && link.getAttribute('href') === '#' + active.id;
+      link.classList.toggle('is-active', !!isActive);
+    });
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // Inject play icon into all timecode buttons
+  var playSVG = '<span class="timecode-btn__play"><svg viewBox="0 0 10 12" fill="currentColor"><path d="M0 0 L10 6 L0 12 Z"/></svg></span>';
+  document.querySelectorAll('.timecode-btn').forEach(function(btn) {
+    btn.insertAdjacentHTML('beforeend', playSVG);
+  });
+
+  // ══ СЛАЙДЕР ТАЙМКОДОВ ══
+  function initTcSlider(containerId) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    var items = Array.from(container.querySelectorAll('.timecodes__list li'));
+    if (!items.length) return;
+
+    var PER = 9;
+    var pages = [];
+    for (var i = 0; i < items.length; i += PER) {
+      pages.push(items.slice(i, i + PER));
+    }
+
+    // Build track
+    var overflow = document.createElement('div');
+    overflow.className = 'tc-slider__overflow';
+    var track = document.createElement('div');
+    track.className = 'tc-slider__track';
+
+    pages.forEach(function(pageItems) {
+      var slide = document.createElement('div');
+      slide.className = 'tc-slider__slide';
+      var ul = document.createElement('ul');
+      ul.className = 'timecodes__list';
+      pageItems.forEach(function(li) { ul.appendChild(li); });
+      slide.appendChild(ul);
+      track.appendChild(slide);
+    });
+    overflow.appendChild(track);
+
+    // Nav
+    var nav = document.createElement('div');
+    nav.className = 'tc-slider__nav';
+
+    var prevBtn = document.createElement('button');
+    prevBtn.className = 'tc-slider__arrow';
+    prevBtn.innerHTML = '&#8592;';
+    prevBtn.setAttribute('aria-label', 'Назад');
+
+    var dotsWrap = document.createElement('div');
+    dotsWrap.className = 'tc-slider__dots';
+
+    var nextBtn = document.createElement('button');
+    nextBtn.className = 'tc-slider__arrow';
+    nextBtn.innerHTML = '&#8594;';
+    nextBtn.setAttribute('aria-label', 'Вперёд');
+
+    var dots = pages.map(function(_, idx) {
+      var d = document.createElement('button');
+      d.className = 'tc-slider__dot';
+      d.setAttribute('aria-label', 'Слайд ' + (idx + 1));
+      d.addEventListener('click', function() { goTo(idx); });
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    nav.appendChild(prevBtn);
+    nav.appendChild(dotsWrap);
+    nav.appendChild(nextBtn);
+
+    // Assemble
+    var wrapper = document.createElement('div');
+    wrapper.className = 'tc-slider';
+    wrapper.appendChild(overflow);
+    wrapper.appendChild(nav);
+
+    var oldList = container.querySelector('.timecodes__list');
+    container.replaceChild(wrapper, oldList);
+
+    var cur = 0;
+    function goTo(idx) {
+      cur = Math.max(0, Math.min(idx, pages.length - 1));
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('is-active', i === cur); });
+      prevBtn.disabled = cur === 0;
+      nextBtn.disabled = cur === pages.length - 1;
+    }
+
+    prevBtn.addEventListener('click', function() { goTo(cur - 1); });
+    nextBtn.addEventListener('click', function() { goTo(cur + 1); });
+
+    // Touch swipe
+    var tx = 0;
+    track.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function(e) {
+      var dx = tx - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 40) goTo(cur + (dx > 0 ? 1 : -1));
+    });
+
+    goTo(0);
+  }
+
+  initTcSlider('timecodesBio');
+  initTcSlider('timecodesPsycho');
+})();
+</script>
+
+</body>
+</html>

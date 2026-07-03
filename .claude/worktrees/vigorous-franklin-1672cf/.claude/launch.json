@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "antiG-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "8080", "/Users/fartyginalidia/Documents/МИОТ/antiG"],
+      "port": 8080
+    }
+  ]
+}
