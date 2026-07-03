@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Психосоматика — запись вебинара · Олег Агапэ</title>
+  <title>Психосоматика — запись эфира · Олег Агапэ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
@@ -26,28 +26,107 @@
     .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
 
     /* ══ HERO ══ */
-    .hero { padding: 64px 0 48px; text-align: center; }
-    .hero__eyebrow {
-      display: inline-block;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--warm); background: var(--warm-soft);
-      border-radius: 20px; padding: 5px 16px; margin-bottom: 18px;
+    .hero { padding: 56px 0 40px; text-align: center; }
+    .hero__badge-available {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #e8f5e9; color: #2e7d32;
+      border: 1.5px solid #a5d6a7;
+      border-radius: 20px; padding: 6px 18px; margin-bottom: 20px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
     }
+    .hero__badge-available span { font-size: 16px; }
     .hero__title {
       font-family: 'Unbounded', sans-serif;
-      font-size: clamp(26px, 4.5vw, 48px);
+      font-size: clamp(20px, 3.5vw, 38px);
       font-weight: 800; color: var(--ink);
-      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 12px;
+      line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 14px;
+      max-width: 780px; margin-left: auto; margin-right: auto;
     }
     .hero__title em { font-style: normal; color: var(--warm); }
-    .hero__sub {
-      font-size: clamp(15px, 1.7vw, 17px); color: var(--ink-soft);
-      line-height: 1.6; max-width: 560px; margin: 0 auto;
+
+    /* ══ ТАЙМЕР ══ */
+    .timer-wrap {
+      margin: 0 auto 32px;
+      max-width: 440px;
+    }
+    .timer-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-mute); margin-bottom: 10px;
+    }
+    .timer {
+      display: flex; justify-content: center; gap: 10px;
+    }
+    .timer__cell {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1.5px solid var(--warm-line);
+      padding: 12px 16px;
+      min-width: 72px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(46,95,158,0.07);
+    }
+    .timer__num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 800; color: var(--warm);
+      line-height: 1;
+    }
+    .timer__unit {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-mute);
+      margin-top: 4px;
+    }
+    .timer__sep {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 28px; font-weight: 800;
+      color: var(--warm-line);
+      line-height: 1; padding-top: 10px;
+    }
+
+    /* ══ ТЕМЫ ЭФИРА ══ */
+    .topics-section { padding: 0 0 48px; }
+    .topics-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 36px 44px 40px;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.10);
+    }
+    @media (max-width: 600px) { .topics-card { padding: 28px 20px 32px; } }
+    .topics-card__label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--warm); margin-bottom: 20px;
+    }
+    .topics-card__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 700; color: var(--ink);
+      letter-spacing: -0.02em; margin-bottom: 24px;
+      line-height: 1.25;
+    }
+    .topics-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .topics-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; color: var(--ink-soft); line-height: 1.5;
+    }
+    .topics-list li::before {
+      content: '•';
+      color: var(--accent);
+      font-size: 20px; font-weight: 900;
+      flex-shrink: 0; margin-top: -1px;
     }
 
     /* ══ ВИДЕО ══ */
-    .video-section { padding: 0 0 48px; }
+    .video-section { padding: 0 0 40px; }
+    .video-section__label {
+      text-align: center;
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 700; color: var(--ink);
+      margin-bottom: 20px;
+    }
     .video-card {
       background: var(--card);
       border-radius: 24px;
@@ -56,137 +135,147 @@
       padding: 28px 32px 32px;
     }
     @media (max-width: 600px) { .video-card { padding: 20px 16px 24px; } }
+    .video-placeholder {
+      background: var(--bg);
+      border-radius: 16px;
+      border: 2px dashed var(--warm-line);
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 10px;
+      color: var(--ink-mute); font-size: 14px;
+    }
+    .video-placeholder__icon { font-size: 40px; }
 
-    /* ══ ГЛАВНЫЙ ОФФЕР ══ */
-    .main-offer { padding: 0 0 72px; }
-    .main-offer__inner {
-      background: var(--card);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 4px 32px rgba(46,95,158,0.10);
+    /* ══ CTA ══ */
+    .cta-center {
+      text-align: center; padding: 0 0 56px;
     }
-    .main-offer__top {
-      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
-      padding: 44px 52px 40px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
+    .cta-center__sub {
+      font-size: 17px; color: var(--ink-soft);
+      margin-bottom: 24px; font-weight: 500;
     }
-    .main-offer__top::before {
-      content: '✦';
-      position: absolute;
-      right: 40px; bottom: -10px;
-      font-size: 120px;
-      color: rgba(255,255,255,0.06);
-      line-height: 1; pointer-events: none;
-    }
-    .main-offer__badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 20px; padding: 5px 14px;
+
+    /* ══ СТРУКТУРА ОБУЧЕНИЯ ══ */
+    .program-section { padding: 0 0 64px; }
+    .program-section__eyebrow {
+      display: block; text-align: center;
       font-size: 11px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.9); margin-bottom: 16px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 10px;
     }
-    .main-offer__title {
+    .program-section__title {
       font-family: 'Unbounded', sans-serif;
-      font-size: clamp(20px, 3vw, 34px);
-      font-weight: 800; color: #fff;
-      line-height: 1.2; letter-spacing: -0.02em;
-      margin-bottom: 8px; max-width: 620px;
+      font-size: clamp(18px, 2.4vw, 28px);
+      font-weight: 700; color: var(--ink);
+      text-align: center; letter-spacing: -0.02em; margin-bottom: 6px;
     }
-    .main-offer__title em { font-style: normal; color: #F5D49A; }
-    .main-offer__tagline {
-      font-size: clamp(14px, 1.5vw, 16px);
-      color: rgba(255,255,255,0.75);
-      line-height: 1.55; max-width: 560px;
-    }
-    @media (max-width: 600px) { .main-offer__top { padding: 32px 24px 28px; } }
-
-    .main-offer__body { padding: 36px 52px 44px; }
-    @media (max-width: 600px) { .main-offer__body { padding: 28px 24px 32px; } }
-
-    .section-label {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--warm); margin-bottom: 16px;
-    }
-
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+    .program-section__dates {
+      text-align: center; color: var(--accent);
+      font-size: 15px; font-weight: 600;
       margin-bottom: 32px;
     }
-    @media (max-width: 640px) { .topics-grid { grid-template-columns: 1fr; } }
-    .topic-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      background: var(--bg);
-      border-radius: 12px;
-      padding: 14px 16px;
+    .program-days {
+      display: flex; flex-direction: column; gap: 16px;
     }
-    .topic-item__icon {
-      flex-shrink: 0;
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: var(--warm-soft);
+    .day-card {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 3px 20px rgba(46,95,158,0.08);
+      display: flex;
+    }
+    @media (max-width: 600px) { .day-card { flex-direction: column; } }
+    .day-card__num {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
+      color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 0.08em;
+      min-width: 110px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
+      flex-direction: column; gap: 4px;
+      padding: 24px 16px;
+      text-align: center;
     }
-    .topic-item__text {
-      font-size: 14px; color: var(--ink-soft);
-      line-height: 1.45; font-weight: 500;
+    @media (max-width: 600px) { .day-card__num { min-width: unset; flex-direction: row; padding: 14px 20px; gap: 10px; } }
+    .day-card__num-big {
+      font-size: 28px; line-height: 1;
     }
-    .topic-item__text strong { color: var(--ink); font-weight: 600; }
-
-    .insight {
-      background: var(--accent-soft);
-      border-left: 4px solid var(--accent);
-      border-radius: 0 12px 12px 0;
-      padding: 16px 20px;
-      font-size: 15px; color: var(--ink);
-      line-height: 1.55;
-      margin-bottom: 36px;
+    .day-card__body {
+      padding: 24px 28px;
+      flex: 1;
     }
-    .insight strong { color: var(--accent); }
+    @media (max-width: 600px) { .day-card__body { padding: 20px; } }
+    .day-card__heading {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 15px; font-weight: 700;
+      color: var(--ink); letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+    .day-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .day-list li {
+      display: flex; gap: 8px; align-items: flex-start;
+      font-size: 14px; color: var(--ink-soft); line-height: 1.45;
+    }
+    .day-list li::before {
+      content: '→';
+      color: var(--warm); font-weight: 700;
+      flex-shrink: 0;
+    }
 
     /* ══ ТАРИФЫ ══ */
-    .pricing-title {
-      font-family: 'Unbounded', sans-serif;
-      font-size: clamp(16px, 2vw, 20px);
-      font-weight: 700; color: var(--ink);
-      letter-spacing: -0.02em; margin-bottom: 20px;
+    .pricing-section { padding: 0 0 64px; }
+    .pricing-section__eyebrow {
+      display: block; text-align: center;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 10px;
     }
+    .pricing-section__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(18px, 2.4vw, 28px);
+      font-weight: 700; color: var(--ink);
+      text-align: center; letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .pricing-section__sub {
+      text-align: center; color: var(--ink-mute);
+      font-size: 15px; margin-bottom: 36px;
+    }
+    .pricing-section__sub span { font-size: 18px; }
+
     .plans {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
-    @media (max-width: 860px) { .plans { grid-template-columns: 1fr; max-width: 420px; } }
+    @media (max-width: 900px) { .plans { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; } }
 
     .plan {
       background: var(--bg);
       border: 2px solid var(--warm-line);
-      border-radius: 16px;
-      padding: 24px 20px;
+      border-radius: 20px;
+      padding: 28px 22px 24px;
       display: flex; flex-direction: column; gap: 14px;
       position: relative;
     }
     .plan--featured {
       background: var(--card);
       border-color: var(--accent);
-      box-shadow: 0 6px 28px -8px rgba(192,114,48,0.25);
+      box-shadow: 0 8px 36px -10px rgba(192,114,48,0.30);
     }
     .plan__best {
       position: absolute;
-      top: -13px; left: 50%;
+      top: -14px; left: 50%;
       transform: translateX(-50%);
       background: var(--accent);
       color: #fff;
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.06em; text-transform: uppercase;
-      border-radius: 20px; padding: 4px 14px;
+      border-radius: 20px; padding: 4px 16px;
       white-space: nowrap;
     }
     .plan__label {
@@ -194,28 +283,32 @@
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--warm);
     }
+    .plan__format {
+      font-size: 12px; color: var(--ink-mute);
+      font-weight: 500; margin-top: -8px;
+    }
     .plan__name {
       font-family: 'Unbounded', sans-serif;
-      font-size: clamp(14px, 1.5vw, 17px);
+      font-size: clamp(15px, 1.6vw, 18px);
       font-weight: 700; color: var(--ink);
       letter-spacing: -0.01em; line-height: 1.2;
     }
+    .plan__price-block { display: flex; flex-direction: column; gap: 2px; }
     .plan__price {
       font-family: 'Unbounded', sans-serif;
-      font-size: clamp(28px, 3.5vw, 38px);
+      font-size: clamp(26px, 3vw, 36px);
       font-weight: 800; color: var(--ink);
       letter-spacing: -0.03em; line-height: 1;
     }
-    .plan__price span { font-size: 0.52em; color: var(--ink-mute); }
+    .plan__price span { font-size: 0.55em; color: var(--ink-mute); font-weight: 500; }
     .plan__price-old {
       font-size: 14px; color: var(--ink-mute);
       text-decoration: line-through;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500; margin-top: 2px;
+      font-weight: 500;
     }
     .plan__list {
       list-style: none; padding: 0; margin: 0;
-      display: flex; flex-direction: column; gap: 8px;
+      display: flex; flex-direction: column; gap: 9px;
       font-size: 13px; color: var(--ink-soft); line-height: 1.4;
       flex: 1;
     }
@@ -226,38 +319,89 @@
       font-weight: 700;
       flex-shrink: 0;
     }
+    .plan__bonus {
+      background: #fffbf0;
+      border: 1.5px solid #f5d49a;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12.5px; color: #7a5010; line-height: 1.45;
+    }
+    .plan__bonus strong { color: #a85e20; }
+    .plan__buttons { display: flex; flex-direction: column; gap: 8px; }
 
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
       background: var(--accent); color: #fff;
       font-family: 'Unbounded', sans-serif;
-      font-size: 12px; font-weight: 700;
+      font-size: 11px; font-weight: 700;
       letter-spacing: 0.04em; text-transform: uppercase;
       border: none; border-radius: 10px;
-      padding: 14px 20px; cursor: pointer;
+      padding: 13px 16px; cursor: pointer;
       text-decoration: none; width: 100%;
       transition: background .18s, transform .15s, box-shadow .18s;
-      box-shadow: 0 8px 22px -6px rgba(192,114,48,0.45);
+      box-shadow: 0 6px 18px -6px rgba(192,114,48,0.45);
     }
     .btn-primary:hover {
       background: #a85e20; transform: translateY(-1px);
-      box-shadow: 0 12px 28px -8px rgba(192,114,48,0.55);
+      box-shadow: 0 10px 24px -8px rgba(192,114,48,0.55);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: var(--warm);
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border: 2px solid var(--warm-line); border-radius: 10px;
+      padding: 11px 16px; cursor: pointer;
+      text-decoration: none; width: 100%;
+      transition: background .18s, border-color .18s, transform .15s;
+    }
+    .btn-secondary:hover {
+      background: var(--warm-soft); border-color: var(--warm);
+      transform: translateY(-1px);
     }
     .btn-bundle {
       display: inline-flex; align-items: center; justify-content: center;
       background: var(--warm); color: #fff;
       font-family: 'Unbounded', sans-serif;
-      font-size: 12px; font-weight: 700;
+      font-size: 11px; font-weight: 700;
       letter-spacing: 0.04em; text-transform: uppercase;
       border: none; border-radius: 10px;
-      padding: 14px 20px; cursor: pointer;
+      padding: 13px 16px; cursor: pointer;
       text-decoration: none; width: 100%;
       transition: background .18s, transform .15s, box-shadow .18s;
-      box-shadow: 0 8px 22px -6px rgba(46,95,158,0.38);
+      box-shadow: 0 6px 18px -6px rgba(46,95,158,0.38);
     }
     .btn-bundle:hover {
       background: #1e4a84; transform: translateY(-1px);
-      box-shadow: 0 12px 28px -8px rgba(46,95,158,0.48);
+      box-shadow: 0 10px 24px -8px rgba(46,95,158,0.48);
+    }
+
+    /* ══ ДОПОЛНИТЕЛЬНО ══ */
+    .bonus-strip {
+      background: var(--card);
+      border-radius: 16px;
+      border: 1.5px solid var(--warm-line);
+      padding: 18px 24px;
+      margin-top: 20px;
+      font-size: 14px; color: var(--ink-soft); line-height: 1.5;
+      text-align: center;
+    }
+    .bonus-strip strong { color: var(--ink); }
+
+    /* ══ КЕЙСЫ ══ */
+    .cases-section { padding: 0 0 64px; }
+    .cases-section__eyebrow {
+      display: block; text-align: center;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 10px;
+    }
+    .cases-section__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(18px, 2.4vw, 28px);
+      font-weight: 700; color: var(--ink);
+      text-align: center; letter-spacing: -0.02em; margin-bottom: 32px;
     }
 
     /* ══ ОТЗЫВЫ ══ */
@@ -325,6 +469,39 @@
     }
     .reviews__dot.is-active { background: var(--warm); transform: scale(1.3); }
 
+    /* ══ НИЖНИЕ CTA ══ */
+    .bottom-cta { padding: 0 0 64px; text-align: center; }
+    .bottom-cta__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 700; color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .bottom-cta__buttons {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+    }
+    .btn-cta-large {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border-radius: 12px; padding: 16px 32px;
+      cursor: pointer; text-decoration: none;
+      transition: background .18s, transform .15s, box-shadow .18s;
+    }
+    .btn-cta-large--accent {
+      background: var(--accent); color: #fff;
+      border: none;
+      box-shadow: 0 8px 24px -8px rgba(192,114,48,0.50);
+    }
+    .btn-cta-large--accent:hover { background: #a85e20; transform: translateY(-1px); }
+    .btn-cta-large--outline {
+      background: var(--card); color: var(--warm);
+      border: 2px solid var(--warm-line);
+      box-shadow: 0 2px 12px rgba(46,95,158,0.08);
+    }
+    .btn-cta-large--outline:hover { border-color: var(--warm); background: var(--warm-soft); transform: translateY(-1px); }
+
     /* ══ ЛАЙТБОКС ══ */
     .lightbox {
       position: fixed; inset: 0; z-index: 9999;
@@ -355,133 +532,225 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero__eyebrow">Запись вебинара · Олег Агапэ</div>
-    <h1 class="hero__title">Психо-<em>соматика</em></h1>
-    <p class="hero__sub">Как тело говорит то, что замалчивает психика — и как это читать: для себя и в работе с клиентами</p>
+    <div class="hero__badge-available"><span>✅</span> Запись доступна</div>
+    <h1 class="hero__title">
+      Запись эфира «<em>ПСИХОСОМАТИКА:</em> как работать с хроническими болями и добиваться устойчивого результата»
+    </h1>
+
+    <!-- ТАЙМЕР 48 ЧАСОВ -->
+    <div class="timer-wrap">
+      <div class="timer-label">Запись доступна ещё</div>
+      <div class="timer" id="timer">
+        <div class="timer__cell">
+          <div class="timer__num" id="t-h">48</div>
+          <div class="timer__unit">часов</div>
+        </div>
+        <div class="timer__sep">:</div>
+        <div class="timer__cell">
+          <div class="timer__num" id="t-m">00</div>
+          <div class="timer__unit">минут</div>
+        </div>
+        <div class="timer__sep">:</div>
+        <div class="timer__cell">
+          <div class="timer__num" id="t-s">00</div>
+          <div class="timer__unit">секунд</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ТЕМЫ ЭФИРА ══ -->
+<section class="topics-section">
+  <div class="wrap">
+    <div class="topics-card">
+      <div class="topics-card__label">Содержание эфира</div>
+      <div class="topics-card__title">На эфире вы узнаете:</div>
+      <ul class="topics-list">
+        <li>Почему 95% специалистов работают со следствием, а не с причиной, и теряют эффективность</li>
+        <li>Как психосоматика превращается из «что-то эзотерическое» в конкретный физиологический процесс</li>
+        <li>Почему одна и та же боль может иметь 10 разных психоэмоциональных причин, и как их различать</li>
+        <li>Почему массаж и упражнения не дают стойкого эффекта без работы с нервной системой</li>
+        <li>Как устроен принцип «от тела к эмоции» — метод распаковки телесных блоков</li>
+        <li>Реальные кейсы из практики: как страх блокирует смену профессии, почему боль в руке держится 3 года после ссоры с мамой, как внутренний конфликт между свободой и стабильностью создаёт телесные зажимы</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- ══ ВИДЕО ══ -->
-<section class="video-section">
+<section class="video-section" id="video-section">
   <div class="wrap">
+    <div class="video-section__label">СМОТРЕТЬ ЗАПИСЬ ЭФИРА 👇</div>
     <div class="video-card">
       <script id="88513e14488fedb5091024a129b52f3bf5fc3083" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625683" onload="typeof startWidget88513e14488fedb5091024a129b52f3bf5fc3083==='function'&&startWidget88513e14488fedb5091024a129b52f3bf5fc3083()"></script>
     </div>
   </div>
 </section>
 
-<!-- ══ ГЛАВНЫЙ ОФФЕР ══ -->
-<section class="main-offer">
+<!-- ══ CTA ПОСЛЕ ВИДЕО ══ -->
+<section class="cta-center">
   <div class="wrap">
-    <div class="main-offer__inner">
+    <p class="cta-center__sub">Пройдите обучение на тарифе, который подходит именно вам 🤍</p>
+  </div>
+</section>
 
-      <div class="main-offer__top">
-        <div class="main-offer__badge">✦ Запись вебинара · Психосоматика</div>
-        <h2 class="main-offer__title">Психосоматика:<br><em>тело как карта</em></h2>
-        <p class="main-offer__tagline">
-          Разбираем связь симптомов и психологических процессов — механику, диагностику и работу с телесными сообщениями
-        </p>
-      </div>
+<!-- ══ СТРУКТУРА ОБУЧЕНИЯ ══ -->
+<section class="program-section">
+  <div class="wrap">
+    <span class="program-section__eyebrow">Программа</span>
+    <h2 class="program-section__title">Структура обучения</h2>
+    <div class="program-section__dates">3 дня · 24–26 июля 2026 года</div>
+    <div class="program-days">
 
-      <div class="main-offer__body">
-        <div class="section-label">Что разобрали на вебинаре</div>
-        <div class="topics-grid">
-          <div class="topic-item">
-            <div class="topic-item__icon">🧠</div>
-            <div class="topic-item__text">
-              <strong>Механизм психосоматики</strong> — как психологический конфликт становится телесным симптомом
-            </div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-item__icon">🫀</div>
-            <div class="topic-item__text">
-              <strong>Классические психосоматозы</strong> — семь болезней Александера и современная интерпретация
-            </div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-item__icon">🔍</div>
-            <div class="topic-item__text">
-              <strong>Диагностика по телу</strong> — как читать симптом как сообщение, зоны и их символическое значение
-            </div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-item__icon">💬</div>
-            <div class="topic-item__text">
-              <strong>Работа с клиентом</strong> — техники телесного осознавания и формулировки, которые помогают услышать себя
-            </div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-item__icon">🩺</div>
-            <div class="topic-item__text">
-              <strong>Граница компетенций</strong> — когда психосоматика точка входа, а когда направлять к врачу
-            </div>
-          </div>
-          <div class="topic-item">
-            <div class="topic-item__icon">🌿</div>
-            <div class="topic-item__text">
-              <strong>Практики интеграции</strong> — дыхание, заземление, работа с образом симптома
-            </div>
-          </div>
+      <div class="day-card">
+        <div class="day-card__num">
+          <div class="day-card__num-big">День</div>
+          <div style="font-size:36px;line-height:1">1</div>
         </div>
-
-        <div class="insight">
-          Тело не болеет просто так. За каждым хроническим симптомом стоит <strong>незавершённый психологический процесс</strong>. Научиться читать этот язык — значит получить доступ к тому, что психика не может выразить словами.
-        </div>
-
-        <!-- ТАРИФЫ -->
-        <div class="pricing-title">Выберите свой тариф</div>
-        <div class="plans">
-
-          <!-- ТАРИФ 1: ДЛЯ СЕБЯ -->
-          <div class="plan">
-            <div class="plan__label">Тариф 01</div>
-            <div class="plan__name">Для себя</div>
-            <div class="plan__price">ЦЕНА <span>₽</span></div>
-            <ul class="plan__list">
-              <li>Полная запись вебинара</li>
-              <li>Конспект и ключевые тезисы</li>
-              <li>Практики для личного применения</li>
-              <li>Доступ бессрочно</li>
-            </ul>
-            <button class="btn-primary" onclick="gcOpen('gcModalSelf')">Купить</button>
-          </div>
-
-          <!-- ТАРИФ 2: СПЕЦИАЛИСТ ОЧНО -->
-          <div class="plan plan--featured">
-            <div class="plan__best">Популярный</div>
-            <div class="plan__label">Тариф 02</div>
-            <div class="plan__name">Специалист очно</div>
-            <div class="plan__price">ЦЕНА <span>₽</span></div>
-            <ul class="plan__list">
-              <li>Всё из тарифа «Для себя»</li>
-              <li>Блок для специалиста: как говорить с клиентом о психосоматике на очной сессии</li>
-              <li>Готовые формулировки и вопросы для анамнеза</li>
-              <li>Разбор 3 клинических случаев</li>
-              <li>Чек-лист: когда направлять к смежному специалисту</li>
-              <li>Доступ бессрочно</li>
-            </ul>
-            <button class="btn-bundle" onclick="gcOpen('gcModalOffline')">Купить</button>
-          </div>
-
-          <!-- ТАРИФ 3: СПЕЦИАЛИСТ ОНЛАЙН -->
-          <div class="plan">
-            <div class="plan__label">Тариф 03</div>
-            <div class="plan__name">Специалист онлайн</div>
-            <div class="plan__price">ЦЕНА <span>₽</span></div>
-            <ul class="plan__list">
-              <li>Всё из тарифа «Специалист очно»</li>
-              <li>Адаптация для онлайн-работы: техники через экран</li>
-              <li>Протокол онлайн-сессии с телесным фокусом</li>
-              <li>Шаблон домашних практик для клиентов</li>
-              <li>Разбор вопросов в закрытом чате (30 дней)</li>
-              <li>Доступ бессрочно</li>
-            </ul>
-            <button class="btn-primary" onclick="gcOpen('gcModalOnline')">Купить</button>
-          </div>
-
+        <div class="day-card__body">
+          <div class="day-card__heading">Основы работы с запросом и травмами</div>
+          <ul class="day-list">
+            <li>Как из размытой жалобы вытащить рабочий запрос</li>
+            <li>Структура сессии: от входа до якорения результата</li>
+            <li>3 уровня травм: эмоции, убеждения, психотравма</li>
+            <li>Протоколы: «Резонансное состояние», «Музей убеждений», «5 шагов»</li>
+          </ul>
         </div>
       </div>
 
+      <div class="day-card">
+        <div class="day-card__num">
+          <div class="day-card__num-big">День</div>
+          <div style="font-size:36px;line-height:1">2</div>
+        </div>
+        <div class="day-card__body">
+          <div class="day-card__heading">Работа с симптомами и отношениями</div>
+          <ul class="day-list">
+            <li>Психосоматическая боль и методы её проработки</li>
+            <li>Работа с зависимостями, созависимостью, вредными привычками</li>
+            <li>Акупунктурные точки, перепрописывание реакции</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-card__num">
+          <div class="day-card__num-big">День</div>
+          <div style="font-size:36px;line-height:1">3</div>
+        </div>
+        <div class="day-card__body">
+          <div class="day-card__heading">Инструменты и техники</div>
+          <ul class="day-list">
+            <li>Точки акупунктуры для эмоций и органов</li>
+            <li>Мантры 5 стихий</li>
+            <li>Основы энерготерапии</li>
+            <li>Интеграция всех подходов + проверка результата (субъективная шкала, мышечный тест, триггерная точка)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bonus-strip" style="margin-top:20px;">
+      <strong>✅ Дополнительно</strong> — разборы кейсов, методичка, поддержка после семинара
+    </div>
+  </div>
+</section>
+
+<!-- ══ ТАРИФЫ ══ -->
+<section class="pricing-section">
+  <div class="wrap">
+    <span class="pricing-section__eyebrow">Тарифы</span>
+    <h2 class="pricing-section__title">Пройдите обучение</h2>
+    <p class="pricing-section__sub">Выберите формат, который подходит именно вам <span>🤍</span></p>
+
+    <div class="plans">
+
+      <!-- ТАРИФ 1: СПЕЦИАЛИСТ ОЧНО -->
+      <div class="plan plan--featured">
+        <div class="plan__best">Популярный</div>
+        <div class="plan__label">Тариф 01</div>
+        <div class="plan__name">«СПЕЦИАЛИСТ» — очное участие</div>
+        <div class="plan__format">📍 Москва · 24–26 июля</div>
+        <div class="plan__price-block">
+          <div class="plan__price-old">75 000 ₽</div>
+          <div class="plan__price">60 000 <span>₽</span></div>
+          <div style="font-size:12px;color:var(--accent);font-weight:600;">Эфирное предложение</div>
+        </div>
+        <ul class="plan__list">
+          <li>Полноценное погружение в методику за 3 дня</li>
+          <li>Постановка рук под контролем преподавателей</li>
+          <li>Отработка захватов, позиционирования и техники</li>
+          <li>Разбор индивидуальных ошибок</li>
+          <li>Сертификат + методические материалы + поддержка после семинара</li>
+          <li>Ведут: Олег Агапэ (остеопатия) и Артём Тен (восточная медицина)</li>
+        </ul>
+        <div class="plan__bonus">
+          🎁 <strong>Бонус:</strong> Интенсив «Психосоматика для себя» в подарок — 8 видеоуроков, практики самокоррекции (стоимость 8 000 ₽)
+        </div>
+        <div class="plan__buttons">
+          <a href="https://dr-agape.ru/психосоматика/psycho-short.html" class="btn-secondary" target="_blank">Смотреть наполнение</a>
+          <button class="btn-primary" onclick="gcOpen('gcModalOffline')">Внести предоплату / Оплатить</button>
+        </div>
+      </div>
+
+      <!-- ТАРИФ 2: СПЕЦИАЛИСТ ОНЛАЙН -->
+      <div class="plan">
+        <div class="plan__label">Тариф 02</div>
+        <div class="plan__name">«СПЕЦИАЛИСТ» — онлайн-участие</div>
+        <div class="plan__format">💻 Прямая трансляция</div>
+        <div class="plan__price-block">
+          <div class="plan__price">50 000 <span>₽</span></div>
+          <div style="font-size:12px;color:var(--accent);font-weight:600;">Эфирное предложение</div>
+        </div>
+        <ul class="plan__list">
+          <li>Прямая трансляция + чёткий ракурс камеры на руки преподавателя</li>
+          <li>Вопросы в чате + доступ к записи 3 месяца</li>
+          <li>Сертификат</li>
+          <li>Методические материалы</li>
+        </ul>
+        <div class="plan__buttons">
+          <a href="https://dr-agape.ru/психосоматика/psycho-short.html" class="btn-secondary" target="_blank">Смотреть наполнение</a>
+          <button class="btn-bundle" onclick="gcOpen('gcModalOnline')">Внести предоплату / Оплатить</button>
+        </div>
+      </div>
+
+      <!-- ТАРИФ 3: ДЛЯ СЕБЯ -->
+      <div class="plan">
+        <div class="plan__label">Тариф 03</div>
+        <div class="plan__name">«ДЛЯ СЕБЯ» — интенсив по психосоматике</div>
+        <div class="plan__format">🎥 Все материалы в записи · Доступ 1 месяц</div>
+        <div class="plan__price-block">
+          <div class="plan__price-old">22 000 ₽</div>
+          <div class="plan__price">8 000 <span>₽</span></div>
+          <div style="font-size:12px;color:var(--accent);font-weight:600;">Эфирное предложение</div>
+        </div>
+        <ul class="plan__list">
+          <li>8 видеоуроков с преподавателями МИОТ</li>
+          <li>1 Zoom-сессия с разбором от Олега Агапэ</li>
+          <li>Практики: дыхание, мягкое прикосновение, наблюдение, работа с вниманием</li>
+          <li>Сопровождение на платформе</li>
+          <li>Научитесь распознавать эмоции, зафиксированные в теле как хронические зажимы</li>
+          <li>Инструменты для самопомощи и осознанного восстановления</li>
+        </ul>
+        <div class="plan__buttons">
+          <button class="btn-primary" onclick="gcOpen('gcModalSelf')">Внести предоплату / Оплатить</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ КЕЙСЫ ══ -->
+<section class="cases-section">
+  <div class="wrap">
+    <span class="cases-section__eyebrow">Реальная практика</span>
+    <h2 class="cases-section__title">Кейсы</h2>
+    <div style="background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(46,95,158,0.08);padding:32px 36px;text-align:center;color:var(--ink-mute);">
+      <div style="font-size:40px;margin-bottom:12px;">📋</div>
+      <div style="font-size:15px;">Кейсы из практики будут добавлены сюда</div>
     </div>
   </div>
 </section>
@@ -496,11 +765,32 @@
       <div class="reviews__overflow">
         <div class="reviews__track" id="reviewsTrack">
 
-          <!-- Слайд 1 — добавьте скриншоты отзывов -->
           <div class="reviews__slide">
             <div class="review-img"><img src="reviews/IMG_6900.PNG" alt="Отзыв" loading="lazy"></div>
             <div class="review-img"><img src="reviews/IMG_6901.PNG" alt="Отзыв" loading="lazy"></div>
             <div class="review-img"><img src="reviews/IMG_6902.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6903.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6904.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6905.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6906.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6908.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6909.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6910.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6911.PNG" alt="Отзыв" loading="lazy"></div>
+            <div class="review-img"><img src="reviews/IMG_6912.PNG" alt="Отзыв" loading="lazy"></div>
+          </div>
+
+          <div class="reviews__slide">
+            <div class="review-img"><img src="reviews/IMG_6913.PNG" alt="Отзыв" loading="lazy"></div>
           </div>
 
         </div>
@@ -514,6 +804,16 @@
   </div>
 </section>
 
+<!-- ══ НИЖНИЕ CTA ══ -->
+<section class="bottom-cta">
+  <div class="wrap">
+    <div class="bottom-cta__buttons">
+      <a href="#video-section" class="btn-cta-large btn-cta-large--accent">▶ Смотреть запись эфира</a>
+      <a href="https://dr-agape.ru/психосоматика/psycho-short.html" class="btn-cta-large btn-cta-large--outline" target="_blank">Смотреть наполнение</a>
+    </div>
+  </div>
+</section>
+
 <!-- ══ ЛАЙТБОКС ══ -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox__close" id="lbClose">&#10005;</button>
@@ -521,7 +821,7 @@
 </div>
 
 <!-- ══ ЗАБОТА ══ -->
-<section style="padding: 0 0 64px; text-align: center;">
+<section style="padding: 0 0 48px; text-align: center;">
   <div class="wrap">
     <p style="font-size: 15px; color: var(--ink-mute); margin-bottom: 16px;">Остались вопросы по оплате или доступу?</p>
     <button onclick="gcOpen('gcModalSupport')"
@@ -535,7 +835,7 @@
               box-shadow: 0 2px 12px rgba(46,95,158,0.08);"
        onmouseover="this.style.borderColor='var(--warm)';this.style.transform='translateY(-1px)'"
        onmouseout="this.style.borderColor='var(--warm-line)';this.style.transform='translateY(0)'">
-      💬 Задать вопрос службе заботы
+      💬 Задать вопрос
     </button>
   </div>
 </section>
@@ -543,11 +843,44 @@
 <!-- ══ FOOTER ══ -->
 <footer class="page-foot">
   <div class="wrap">
-    <p>© 2026 Олег Агапэ · <a href="https://dr-agape.ru">dr-agape.ru</a></p>
+    <p>© 2026 Олег Агапэ · <a href="https://dr-agape.ru/психосоматика/psycho-short.html">dr-agape.ru</a></p>
   </div>
 </footer>
 
 <script>
+  // ══ ТАЙМЕР 48 ЧАСОВ ══
+  (function() {
+    var KEY = 'psycho_record_end';
+    var stored = localStorage.getItem(KEY);
+    var endTime;
+    if (stored) {
+      endTime = parseInt(stored, 10);
+    } else {
+      endTime = Date.now() + 48 * 60 * 60 * 1000;
+      localStorage.setItem(KEY, endTime);
+    }
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function tick() {
+      var diff = endTime - Date.now();
+      if (diff <= 0) {
+        document.getElementById('t-h').textContent = '00';
+        document.getElementById('t-m').textContent = '00';
+        document.getElementById('t-s').textContent = '00';
+        return;
+      }
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('t-h').textContent = pad(h);
+      document.getElementById('t-m').textContent = pad(m);
+      document.getElementById('t-s').textContent = pad(s);
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+
   // ══ КАРУСЕЛЬ ОТЗЫВОВ ══
   (function() {
     var track = document.getElementById('reviewsTrack');
@@ -611,14 +944,14 @@
   .gc-modal__body { min-height:80px; }
 </style>
 
-<!-- Тариф: Для себя -->
-<div id="gcModalSelf" class="gc-modal" role="dialog" aria-modal="true">
+<!-- Вопрос в ОП -->
+<div id="gcModalSupport" class="gc-modal" role="dialog" aria-modal="true">
   <div class="gc-modal__overlay" data-gc-close></div>
   <div class="gc-modal__box">
     <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
-    <div class="gc-modal__title">Психосоматика · Для себя</div>
+    <div class="gc-modal__title">Задать вопрос</div>
     <div class="gc-modal__body">
-      <!-- ВСТАВИТЬ виджет GetCourse для тарифа «Для себя» -->
+      <script id="7c7213cdd453a9f9af022c621df8018b503e4512" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625686" onload="typeof startWidget7c7213cdd453a9f9af022c621df8018b503e4512==='function'&&startWidget7c7213cdd453a9f9af022c621df8018b503e4512()"></script>
     </div>
   </div>
 </div>
@@ -628,9 +961,9 @@
   <div class="gc-modal__overlay" data-gc-close></div>
   <div class="gc-modal__box">
     <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
-    <div class="gc-modal__title">Психосоматика · Специалист очно</div>
+    <div class="gc-modal__title">Психосоматика · Специалист очно — 60 000 ₽</div>
     <div class="gc-modal__body">
-      <!-- ВСТАВИТЬ виджет GetCourse для тарифа «Специалист очно» -->
+      <script id="ff84d6c4b8391895afd362134dbd2c4be9efe859" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625689" onload="typeof startWidgetff84d6c4b8391895afd362134dbd2c4be9efe859==='function'&&startWidgetff84d6c4b8391895afd362134dbd2c4be9efe859()"></script>
     </div>
   </div>
 </div>
@@ -640,21 +973,21 @@
   <div class="gc-modal__overlay" data-gc-close></div>
   <div class="gc-modal__box">
     <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
-    <div class="gc-modal__title">Психосоматика · Специалист онлайн</div>
+    <div class="gc-modal__title">Психосоматика · Специалист онлайн — 50 000 ₽</div>
     <div class="gc-modal__body">
-      <!-- ВСТАВИТЬ виджет GetCourse для тарифа «Специалист онлайн» -->
+      <script id="62b94677586394ac10558ad1a501a439dafefc95" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625688" onload="typeof startWidget62b94677586394ac10558ad1a501a439dafefc95==='function'&&startWidget62b94677586394ac10558ad1a501a439dafefc95()"></script>
     </div>
   </div>
 </div>
 
-<!-- Служба заботы -->
-<div id="gcModalSupport" class="gc-modal" role="dialog" aria-modal="true">
+<!-- Тариф: Для себя -->
+<div id="gcModalSelf" class="gc-modal" role="dialog" aria-modal="true">
   <div class="gc-modal__overlay" data-gc-close></div>
   <div class="gc-modal__box">
     <button class="gc-modal__close" data-gc-close aria-label="Закрыть">✕</button>
-    <div class="gc-modal__title">Вопрос службе заботы</div>
+    <div class="gc-modal__title">Психосоматика · Для себя — 8 000 ₽</div>
     <div class="gc-modal__body">
-      <!-- ВСТАВИТЬ виджет GetCourse для поддержки -->
+      <script id="0707a957cbdbece493931a5ff33cc68ddaff980a" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625687" onload="typeof startWidget0707a957cbdbece493931a5ff33cc68ddaff980a==='function'&&startWidget0707a957cbdbece493931a5ff33cc68ddaff980a()"></script>
     </div>
   </div>
 </div>
