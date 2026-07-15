@@ -135,6 +135,13 @@
       padding: 28px 32px 32px;
     }
     @media (max-width: 600px) { .video-card { padding: 20px 16px 24px; } }
+    .video-card video {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(20,28,42,0.18);
+      display: block;
+      background: #0d1a30;
+    }
     .video-placeholder {
       background: var(--bg);
       border-radius: 16px;
@@ -583,7 +590,9 @@
   <div class="wrap">
     <div class="video-section__label">СМОТРЕТЬ ЗАПИСЬ ЭФИРА 👇</div>
     <div class="video-card">
-      <script id="88513e14488fedb5091024a129b52f3bf5fc3083" src="https://online.agape-course.ru/pl/lite/widget/script?id=1625683" onload="typeof startWidget88513e14488fedb5091024a129b52f3bf5fc3083==='function'&&startWidget88513e14488fedb5091024a129b52f3bf5fc3083()"></script>
+      <video controls controlsList="nodownload" preload="metadata">
+        <source src="https://fs.getcourse.ru/fileservice/file/download/a/202733/sc/26/h/67858037b2c98e901b92c6293d974c6b.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
