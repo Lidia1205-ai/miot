@@ -476,6 +476,63 @@
     }
     .reviews__dot.is-active { background: var(--warm); transform: scale(1.3); }
 
+    /* ══ ПЕРЕКЛЮЧАТЕЛЬ ЭФИРОВ ══ */
+    .efir-nav {
+      padding: 0 0 48px;
+    }
+    .efir-nav__inner {
+      display: flex;
+      gap: 14px;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 4px 20px rgba(46,95,158,0.10);
+    }
+    .efir-nav__btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 16px 12px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, box-shadow .2s, transform .15s;
+      background: transparent;
+    }
+    .efir-nav__btn:hover { background: var(--warm-soft); transform: translateY(-1px); }
+    .efir-nav__btn.is-active {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
+      box-shadow: 0 6px 20px -6px rgba(46,95,158,0.45);
+    }
+    .efir-nav__num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--warm);
+    }
+    .efir-nav__btn.is-active .efir-nav__num { color: rgba(255,255,255,0.65); }
+    .efir-nav__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(12px, 1.3vw, 14px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+    .efir-nav__btn.is-active .efir-nav__title { color: #fff; }
+    .efir-nav__hosts {
+      font-size: 12px; color: var(--ink-mute);
+      text-align: center;
+    }
+    .efir-nav__btn.is-active .efir-nav__hosts { color: rgba(255,255,255,0.6); }
+    @media (max-width: 600px) {
+      .efir-nav__inner { flex-direction: column; }
+    }
+
     /* ══ НИЖНИЕ CTA ══ */
     .bottom-cta { padding: 0 0 64px; text-align: center; }
     .bottom-cta__title {
@@ -570,6 +627,27 @@
   </div>
 </section>
 
+<!-- ══ ПЕРЕКЛЮЧАТЕЛЬ ЭФИРОВ ══ -->
+<section class="efir-nav">
+  <div class="wrap">
+    <div class="efir-nav__inner">
+      <a class="efir-nav__btn is-active" href="#efir1" id="navBtn1">
+        <span class="efir-nav__num">Эфир 1</span>
+        <span class="efir-nav__title">Психосоматика: как работать с хроническими болями</span>
+        <span class="efir-nav__hosts">Олег Агапэ</span>
+      </a>
+      <a class="efir-nav__btn" href="#efir2" id="navBtn2">
+        <span class="efir-nav__num">Эфир 2</span>
+        <span class="efir-nav__title">Почему проработка травм не всегда меняет жизнь</span>
+        <span class="efir-nav__hosts">Олег Агапэ и Артём Тен</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ЭФИР 1 ══ -->
+<div id="efir1"></div>
+
 <!-- ══ ТЕМЫ ЭФИРА ══ -->
 <section class="topics-section">
   <div class="wrap">
@@ -601,6 +679,7 @@
 </section>
 
 <!-- ══ ЭФИР 2 ══ -->
+<div id="efir2"></div>
 <section class="hero" style="padding: 56px 0 32px;">
   <div class="wrap">
     <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;background:linear-gradient(135deg,#1a3a6b,#2E5F9E);color:#fff;border-radius:16px;padding:8px 18px;">
@@ -934,6 +1013,28 @@
       setTimeout(tick, 1000);
     }
     tick();
+  })();
+
+  // ══ ПЕРЕКЛЮЧАТЕЛЬ ЭФИРОВ ══
+  (function() {
+    var btn1 = document.getElementById('navBtn1');
+    var btn2 = document.getElementById('navBtn2');
+    var sec1 = document.getElementById('efir1');
+    var sec2 = document.getElementById('efir2');
+
+    function setActive(n) {
+      btn1.classList.toggle('is-active', n === 1);
+      btn2.classList.toggle('is-active', n === 2);
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!sec2) return;
+      var top2 = sec2.getBoundingClientRect().top;
+      setActive(top2 <= 120 ? 2 : 1);
+    }, { passive: true });
+
+    btn1.addEventListener('click', function() { setActive(1); });
+    btn2.addEventListener('click', function() { setActive(2); });
   })();
 
   // ══ КАРУСЕЛЬ ОТЗЫВОВ ══
