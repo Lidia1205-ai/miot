@@ -364,7 +364,6 @@ const calendarEvents = [
     { start: '2026-04-24', end: '2026-04-26', title: '6 поток Биомеханические Остеопатические Технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Биомеханика' },
     { start: '2026-05-22', end: '2026-05-24', title: '6 поток Краниосакральные технологии', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Краниа' },
     { start: '2026-07-11', end: '2026-07-12', title: 'Экзамен 6 поток', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Экзамен', promo: false },
-    { start: '2026-10-10', end: '2026-10-11', title: 'Конференция «Секреты фасции»', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Конфа' },
     { start: '2025-10-30', end: '2025-11-01', title: 'Диссекция «Жир и фасции — скрытая механика боли и старения»', target: 'osteocorrection.html', program: 'Специалист Остеокоррекции', shortTitle: 'Диссекция' },
     // Семинар по психосоматике
     { start: '2026-07-24', end: '2026-07-26', title: 'Семинар по психосоматике', target: 'психосоматика/psycho-preview.html', program: 'Психосоматика', shortTitle: 'Психосоматика' },
