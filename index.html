@@ -554,6 +554,51 @@
             </div>
         </section>
 
+        <!-- Расписание -->
+        <section class="calendar-section bg-secondary" id="calendar">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <span class="badge">Расписание</span>
+                    <h2>График мероприятий</h2>
+                </div>
+                <div class="calendar-widget fade-in-up">
+                    <div class="calendar-header">
+                        <button class="calendar-nav-btn prev" id="prevMonth">&larr;</button>
+                        <h3 id="currentMonthYear">Июль 2026</h3>
+                        <button class="calendar-nav-btn next" id="nextMonth">&rarr;</button>
+                    </div>
+                    <div class="calendar-body">
+                        <div class="calendar-weekdays">
+                            <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays">
+                            <!-- Дни будут добавлены JS -->
+                        </div>
+                    </div>
+                    <div class="calendar-footer" id="calendarFooter">
+                        <div class="event-details" id="eventDetails">
+                            <p class="no-events">Выберите дату с отметкой, чтобы увидеть детали</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ближайшие мероприятия -->
+        <section class="events">
+            <div class="container">
+                <div class="section-header fade-in-up">
+                    <h2>Ближайшие мероприятия</h2>
+                </div>
+                <div class="events-grid">
+                    <div class="events-photo fade-in-up delay-1">
+                        <img src="photos/audience_oleg.png" alt="Аудитория на мероприятии Олега Агапэ" class="expert-photo">
+                    </div>
+                    <div class="events-list" id="upcomingEventsList"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Блок 6: Кейсы -->
         <section class="cases" id="cases">
             <div class="container">
