@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реестр выпускников | МИОТ</title>
+    <meta name="description" content="Реестр специалистов МИОТ — практикующие выпускники по всему миру.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+    <style>
+        * { box-sizing: border-box; }
+
+        .graduates-hero {
+            background: var(--color-bg-secondary, #F5F5F7);
+            padding: 2.5rem 0 1.8rem;
+            text-align: center;
+        }
+        .graduates-hero h1 { margin: 0.4rem 0 0.6rem; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+        .graduates-hero p { color: var(--color-text-secondary, #666); max-width: 580px; margin: 0 auto; font-size: 1rem; }
+
+        .stats-bar {
+            background: var(--color-dark, #1A1A2E);
+            color: #fff;
+            padding: 0.75rem 0;
+        }
+        .stats-inner {
+            display: flex; gap: 0; align-items: stretch;
+            justify-content: center; flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center; padding: 0.2rem 2rem;
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-num { font-size: 1.5rem; font-weight: 800; color: var(--color-highlight, #8B6F47); line-height: 1; }
+        .stat-label { font-size: 0.7rem; opacity: 0.65; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .graduates-controls {
+            padding: 0.9rem 0;
+            background: #fff;
+            border-bottom: 1px solid #E8E8E8;
+            position: sticky; top: 70px; z-index: 100;
+        }
+        .controls-inner { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+        .search-box {
+            flex: 1; min-width: 180px;
+            padding: 0.55rem 1rem;
+            border: 1.5px solid #E0E0E0; border-radius: 2rem;
+            font-family: var(--font-secondary, Inter, sans-serif); font-size: 0.88rem;
+            outline: none; transition: border-color 0.2s;
+            background: #fafafa;
+        }
+        .search-box:focus { border-color: var(--color-highlight, #8B6F47); background: #fff; }
+        .filter-select {
+            padding: 0.55rem 0.9rem;
+            border: 1.5px solid #E0E0E0; border-radius: 2rem;
+            font-family: var(--font-secondary, Inter, sans-serif); font-size: 0.88rem;
+            background: #fafafa; cursor: pointer; outline: none; transition: border-color 0.2s;
+        }
+        .filter-select:focus { border-color: var(--color-highlight, #8B6F47); }
+        .count-badge {
+            font-size: 0.82rem; color: var(--color-text-secondary, #888);
+            white-space: nowrap; padding: 0 0.5rem;
+        }
+
+        .graduates-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            height: calc(100vh - 230px);
+            min-height: 480px;
+        }
+        #map { width: 100%; height: 100%; z-index: 1; }
+
+        .list-panel {
+            display: flex; flex-direction: column;
+            border-left: 1px solid #E8E8E8;
+            background: #fff; overflow: hidden;
+        }
+        .list-panel-header {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #F0F0F0;
+            background: #FAFAFA;
+            font-size: 0.82rem; font-weight: 600;
+            color: var(--color-text-secondary, #888);
+            text-transform: uppercase; letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+        .graduates-list { overflow-y: auto; flex: 1; }
+
+        .grad-card {
+            display: flex; align-items: flex-start; gap: 0.7rem;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #F5F5F5;
+            cursor: pointer; transition: background 0.15s;
+        }
+        .grad-card:hover { background: #FBF8F5; }
+        .grad-card.highlighted { background: #F3EDE5; border-left: 3px solid var(--color-highlight, #8B6F47); }
+
+        .grad-avatar {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: var(--color-highlight, #8B6F47);
+            color: #fff; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.95rem; flex-shrink: 0;
+            font-family: var(--font-primary, Montserrat, sans-serif);
+        }
+        .grad-avatar.active-avatar { background: #4CAF50; }
+        .grad-avatar.no-map { background: #BDBDBD; }
+
+        .grad-info { flex: 1; min-width: 0; }
+        .grad-name {
+            font-weight: 600; font-size: 0.88rem;
+            color: var(--color-text-primary, #1A1A2E);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            margin-bottom: 0.15rem;
+        }
+        .grad-location {
+            font-size: 0.78rem; color: #888; margin-bottom: 0.15rem;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .grad-specialty {
+            font-size: 0.76rem; color: #AAA;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            margin-bottom: 0.25rem;
+        }
+        .grad-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+        .tag { font-size: 0.65rem; padding: 0.1rem 0.45rem; border-radius: 1rem; font-weight: 600; }
+        .tag-active { background: #E8F5E9; color: #388E3C; }
+        .tag-tg { background: #E3F2FD; color: #1565C0; text-decoration: none; }
+        .tag-no-map { background: #F5F5F5; color: #AAA; }
+
+        /* Leaflet popup override */
+        .leaflet-popup-content-wrapper { border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); font-family: Inter, sans-serif; }
+        .leaflet-popup-content { margin: 12px 14px; min-width: 170px; }
+        .popup-name { font-weight: 700; font-size: 0.92rem; color: #1A1A2E; margin-bottom: 4px; }
+        .popup-loc { font-size: 0.78rem; color: #777; margin-bottom: 3px; }
+        .popup-spec { font-size: 0.76rem; color: #999; margin-bottom: 6px; }
+        .popup-tg { font-size: 0.78rem; color: #1565C0; text-decoration: none; display: inline-block; }
+        .popup-tg:hover { text-decoration: underline; }
+
+        /* Cluster customization */
+        .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large {
+            background-color: rgba(139,111,71,0.2) !important;
+        }
+        .marker-cluster-small div, .marker-cluster-medium div, .marker-cluster-large div {
+            background-color: rgba(139,111,71,0.85) !important;
+            color: #fff !important; font-weight: 700;
+        }
+
+        .no-results {
+            text-align: center; padding: 2rem 1rem;
+            color: #AAA; font-size: 0.9rem;
+        }
+
+        @media (max-width: 800px) {
+            .graduates-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: 45vh auto;
+                height: auto;
+            }
+            .list-panel {
+                border-left: none;
+                border-top: 1px solid #E8E8E8;
+                max-height: 55vh;
+            }
+            .stat-item { padding: 0.2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header slide-down">
+    <div class="container header-inner">
+        <div class="logo" style="display:flex;align-items:center;gap:15px;">
+            <a href="index.html" style="display:flex;align-items:center;gap:15px;text-decoration:none;">
+                <img src="branding/logo.png" alt="МИОТ Логотип" class="logo-img">
+                <div class="logo-text">МЕЖДУНАРОДНЫЙ<br>ИНСТИТУТ<br>ОСТЕОПАТИЧЕСКИХ<br>ТЕХНОЛОГИЙ</div>
+            </a>
+        </div>
+        <nav class="nav">
+            <a href="programs.html">Программы обучения</a>
+            <a href="about.html#about">Об эксперте</a>
+            <a href="free-materials.html">Бесплатные материалы</a>
+            <a href="results.html">Результаты</a>
+            <a href="graduates.html" style="color:var(--color-highlight,#8B6F47);font-weight:600;">Реестр выпускников</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="https://t.me/TatyBondar" class="btn btn-primary btn-sm">Записаться на обучение</a>
+        </nav>
+        <div class="mobile-menu-btn"><span></span><span></span><span></span></div>
+    </div>
+</header>
+
+<section class="graduates-hero">
+    <div class="container">
+        <span class="badge">Наши выпускники</span>
+        <h1>Реестр специалистов МИОТ</h1>
+        <p>Выпускники института, практикующие по всему миру. Нажмите на точку на карте или выберите специалиста из списка.</p>
+    </div>
+</section>
+
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-num" id="statTotal">—</div>
+                <div class="stat-label">специалистов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num" id="statCountries">—</div>
+                <div class="stat-label">стран</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num" id="statCities">—</div>
+                <div class="stat-label">городов</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num" id="statActive">—</div>
+                <div class="stat-label">активно принимают</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="graduates-controls">
+    <div class="container">
+        <div class="controls-inner">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍  Поиск по имени, городу, специализации…">
+            <select id="countryFilter" class="filter-select">
+                <option value="">Все страны</option>
+            </select>
+            <span class="count-badge" id="countBadge"></span>
+        </div>
+    </div>
+</div>
+
+<div class="graduates-layout">
+    <div id="map"></div>
+    <div class="list-panel">
+        <div class="list-panel-header" id="listHeader">Список специалистов</div>
+        <div class="graduates-list" id="gradList"></div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="script.js"></script>
+<script>
+const ALL_GRADUATES = [
+  { name:"Рафаэль", city:"Альметьевск", country:"Россия", specialty:"Телесноориентирующий специалист по массажу, гирудотерапии, остеопатических техник", tg:"rzm14", lat:54.9025, lng:52.2988 },
+  { name:"Ольга", city:"Алушта", country:"Россия", specialty:"Телесный специалист. Остеокоррекция", tg:"molodost_v_tvoih_rukah", lat:44.6775, lng:34.4099 },
+  { name:"Оксана Замахина", city:"Южно-Сахалинск", country:"Россия", specialty:"Специалист по омоложению", tg:"oksanazamakhina_faceplastika", active:true, lat:46.9588, lng:142.7339 },
+  { name:"Agnė Šimėnaitė", city:"Вильнюс", country:"Литва", specialty:"Специалист по омоложению. Остеоэстетика, остеокоррекция", tg:"agnesim", active:true, lat:54.6872, lng:25.2797 },
+  { name:"Елена Андреева", city:"Ессентуки", country:"Россия", specialty:"Действующий телесник", tg:"elena_osteoface", active:true, lat:44.0438, lng:42.8642 },
+  { name:"Ирина Андреева", city:"Москва", country:"Россия", specialty:"Телесная терапия", tg:"IrinaAG_osteo", active:true, lat:55.7558, lng:37.6173 },
+  { name:"София Павлова", city:"Москва", country:"Россия", specialty:"Остеоэстетика, массаж лица, остеокоррекция", tg:"sofiapavlof", active:true, lat:55.7558, lng:37.6173 },
+  { name:"Светлана Солнцева", city:"Славянск-на-Кубани / Краснодар", country:"Россия", specialty:"Специалист ФП, БЭМ, остеопатии и массажа. Философ Синтеза", tg:"SolntcevaS67", active:true, lat:45.2558, lng:38.1282 },
+  { name:"Елизавета Калгина", city:"Москва", country:"Россия", specialty:"Действующий телесник", tg:"lizzoch", lat:55.7558, lng:37.6173 },
+  { name:"Сергей Бойко", city:"Москва", country:"Россия", specialty:"Специалист остеокоррекции", tg:"massages_day", lat:55.7558, lng:37.6173 },
+  { name:"Андрей Балакин", city:"Москва / Набережные Челны", country:"Россия", specialty:"Остеопат, специалист остеокоррекции", lat:55.7290, lng:52.4061 },
+  { name:"Альбина Киньябулатова", city:"Уфа", country:"Россия", specialty:"Массажист, мануальщик", tg:"albinelli2812", lat:54.7388, lng:55.9721 },
+  { name:"ALLA Шевелева", city:"Москва", country:"Россия", specialty:"Все направления", tg:"Allamoskwa22", lat:55.7558, lng:37.6173 },
+  { name:"Владислав Благадырёв", city:"Пенза", country:"Россия", specialty:"Остеопатия, мануальная терапия", tg:"blagadyrev", lat:53.2007, lng:45.0046 },
+  { name:"Эльвира Даутова", city:"Казань", country:"Россия", specialty:"Телесный практик / психолог", tg:"Elya037", lat:55.7887, lng:49.1221 },
+  { name:"Евгений Вишняков", city:"Электросталь", country:"Россия", specialty:"Специалист", tg:"Evgen_Vish", lat:55.7929, lng:38.4448 },
+  { name:"Галина Шашкова", city:"Лабинск", country:"Россия", specialty:"Остеопатические техники", tg:"galina_osteo_opora", lat:44.6399, lng:40.7323 },
+  { name:"Gleb Astashev", city:"Тбилиси", country:"Грузия", specialty:"Мануальный терапевт", tg:"glebastashev", lat:41.6938, lng:44.8015 },
+  { name:"Гульфина Ахмедьянова", city:"Набережные Челны", country:"Россия", specialty:"Специалист по омоложению", tg:"Gulfina_Akhmedyanova", lat:55.7290, lng:52.4061 },
+  { name:"Оксана Ахметова", city:"Нальчик", country:"Россия", specialty:"Телесно ориентированный специалист", lat:43.4847, lng:43.6067 },
+  { name:"Елена Андреева", city:"Москва", country:"Россия", specialty:"Мастер массажа, специалист остеокоррекции, спа специалист", lat:55.7558, lng:37.6173 },
+  { name:"Юлия Грицкевич", city:"Петропавловск-Камчатский", country:"Россия", specialty:"Специалист остеокоррекции", tg:"osteopractic", lat:53.0218, lng:158.6544 },
+  { name:"Алена Бережная", city:"Москва", country:"Россия", specialty:"Остеопрактика и эстетическая остеопатия", tg:"vitaMoscow", lat:55.7558, lng:37.6173 },
+  { name:"Inna Яценко", country:"Россия", specialty:"", tg:"inessa_leto" },
+  { name:"Ирина Грабина", city:"Петрозаводск", country:"Россия", specialty:"Омоложение и осанка", tg:"irina_grabina", active:true, lat:61.7849, lng:34.3469 },
+  { name:"Ирина Сырова", city:"Пятигорск", country:"Россия", specialty:"Специалист остеокоррекции", tg:"Irina_osteocorrection", lat:44.0397, lng:43.0608 },
+  { name:"Евгения Крутова", country:"Россия", specialty:"", tg:"Jn_Vik" },
+  { name:"Ксения Xe", country:"Россия", specialty:"", tg:"ksiunya30" },
+  { name:"Вадим Левашов", city:"Обнинск", country:"Россия", specialty:"Йога, телесные практики", tg:"levashovyoga", lat:55.1028, lng:36.6129 },
+  { name:"Marina Trofimova", country:"Россия", specialty:"Работа на клиентах и детях", tg:"Marinka_Trofimova" },
+  { name:"Наталья Ким", city:"Королев", country:"Россия", specialty:"Телесная терапия", tg:"nata_ozdorovlenie", lat:55.9166, lng:37.8152 },
+  { name:"Natalya К", city:"Дублин", country:"США", specialty:"Все направления", tg:"natalya_nkr", lat:37.7021, lng:-121.9358 },
+  { name:"Назарова Назарова", country:"Россия", specialty:"Остеокоррекция", tg:"nazarova_tv", active:true },
+  { name:"Nikolay Makhov", specialty:"Работа на детях", tg:"nikolay_i_m" },
+  { name:"Мария Шубина", city:"Нижний Тагил", country:"Россия", specialty:"Остеопрактика, акупунктура", tg:"NT_Maria", lat:57.9100, lng:59.9830 },
+  { name:"Ольга Федотова", city:"Видное", country:"Россия", specialty:"Действующий телесник", tg:"OF_BEAUTY_OLGA", lat:55.5449, lng:37.7098 },
+  { name:"Ольга Нестерова", city:"Екатеринбург", country:"Россия", specialty:"Телесный практик", tg:"OlgaINesterova", lat:56.8389, lng:60.6057 },
+  { name:"Olga Babayan", city:"Москва", country:"Россия", specialty:"Телесный практик, остеокоррекция", tg:"Olhen_Babayan", active:true, lat:55.7558, lng:37.6173 },
+  { name:"Владислав Белишко", city:"Челябинск", country:"Россия", specialty:"Массажист, мануальщик", tg:"OsteopatBelishkoVladislav", lat:55.1644, lng:61.4368 },
+  { name:"Рената Гайнутдинова", city:"Казань / Зеленодольск", country:"Россия", specialty:"Остеопатическая коррекция и самокоррекция", tg:"Renata_osteo", lat:55.7887, lng:49.1221 },
+  { name:"Римма Хайрулина", city:"Москва", country:"Россия", specialty:"Телесная терапия, естественное омоложение", tg:"rimma_faceplastic", active:true, lat:55.7558, lng:37.6173 },
+  { name:"Olga Sayunova", country:"Россия", specialty:"Тейпирование, массаж, остеоэстетика", tg:"sayunova_olga" },
+  { name:"Евгения Громова", city:"Москва", country:"Россия", specialty:"Действующий телесник", tg:"Shellisha", lat:55.7558, lng:37.6173 },
+  { name:"Анастасия", city:"Стамбул", country:"Турция", specialty:"Телесные практики", tg:"sinitsa_body", lat:41.0082, lng:28.9784 },
+  { name:"Natalya Smirnova", city:"Москва", country:"Россия", specialty:"Остеопатические техники", tg:"Smirnova_NE", lat:55.7558, lng:37.6173 },
+  { name:"Софья", country:"Россия", specialty:"", tg:"SofyaBrazhnik" },
+  { name:"Alexandra Livshits", city:"Москва", country:"Россия", specialty:"Остеопрактик и телесноориентированный психолог", lat:55.7558, lng:37.6173 },
+  { name:"Вячеслав Горшенёв", city:"Новокузнецк", country:"Россия", specialty:"Остеопатические техники", tg:"v_gorshenev", lat:53.7596, lng:87.1216 },
+  { name:"Виктория Пашура", city:"Минск", country:"Беларусь", specialty:"", tg:"vika_pashura", lat:53.9045, lng:27.5615 },
+  { name:"Виктория Герасимова", city:"Барнаул", country:"Россия", specialty:"Массажист, мануальщик", tg:"viktoriy_1992", lat:53.3606, lng:83.7636 },
+  { name:"Виктория Пархомчук", city:"Москва", country:"Россия", specialty:"Массажист", tg:"ViktoriyaParhomchuk", lat:55.7558, lng:37.6173 },
+  { name:"Юлия Черкасова", city:"Москва", country:"Россия", specialty:"Остеопатические техники", tg:"Yuliya_Cherkasova", active:true, lat:55.7558, lng:37.6173 },
+  { name:"Zarina Akhmedova", city:"Душанбе", country:"Таджикистан", specialty:"Специалист по омоложению", tg:"Zara_faceplastic", lat:38.5598, lng:68.7870 },
+  { name:"Маргарита Зубкова", city:"Москва", country:"Россия", specialty:"Остеопатические техники", tg:"zu_Margo", lat:55.7558, lng:37.6173 },
+  { name:"Tatjana Burau", city:"Neuhof", country:"Германия", specialty:"Телесноориентированный специалист по остеокоррекции", lat:50.4500, lng:9.6167 },
+  { name:"Ольга Гетьман", city:"Омск", country:"Россия", specialty:"Специалист фейспластики и остеокоррекции", lat:54.9884, lng:73.3242 },
+  { name:"Елена Костюченкова", city:"Смоленск", country:"Россия", specialty:"Специалист остеокоррекции лица и тела", lat:54.7826, lng:32.0453 },
+  { name:"Мария Гагарина", city:"Москва", country:"Россия", specialty:"Мастер Витапластики и остеокоррекции", lat:55.7558, lng:37.6173 },
+  { name:"Ольга Викторовна", city:"Москва / Новосибирск", country:"Россия", specialty:"", lat:55.7558, lng:37.6173 },
+  { name:"Татьяна Жужгинова", city:"Москва", country:"Франция", specialty:"Телесные практики", lat:48.8566, lng:2.3522 },
+  { name:"Svetlana Bormotenkova", city:"Кемерово", country:"Россия", specialty:"Остеопатические техники", lat:55.3544, lng:86.0688 },
+  { name:"Гульдар Ш.", country:"Россия", specialty:"Все направления", active:true },
+  { name:"Наталья Донских", city:"Москва", country:"Россия", specialty:"", lat:55.7558, lng:37.6173 },
+  { name:"Олег", country:"Латвия", specialty:"", lat:56.9460, lng:24.1059 },
+  { name:"Viktoria Labunina", city:"Прага", country:"Чехия", specialty:"Специалист", lat:50.0755, lng:14.4378 },
+  { name:"Elena Atimina", city:"Екатеринбург", country:"Россия", specialty:"Остеокоррекция", lat:56.8389, lng:60.6057 },
+  { name:"Юрий Вешняков", city:"Электросталь", country:"Россия", specialty:"Специалист остеокоррекции", lat:55.7929, lng:38.4448 },
+  { name:"Наталья Фризе", city:"Самара", country:"Россия", specialty:"Остеопрактик", lat:53.2001, lng:50.1500 },
+  { name:"Oxana Savochkina", city:"Miami", country:"США", specialty:"Специалист остеокоррекции и коуч терапевт", lat:25.7617, lng:-80.1918 },
+];
+
+// --- Map init ---
+const map = L.map('map', { zoomControl: true }).setView([54, 50], 4);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://carto.com/">CARTO</a> © <a href="https://www.openstreetmap.org/copyright">OSM</a>',
+    maxZoom: 18
+}).addTo(map);
+
+const clusterGroup = L.markerClusterGroup({
+    maxClusterRadius: 40,
+    chunkedLoading: true,
+    iconCreateFunction: function(cluster) {
+        const count = cluster.getChildCount();
+        return L.divIcon({
+            html: `<div style="width:34px;height:34px;border-radius:50%;background:rgba(139,111,71,0.85);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;box-shadow:0 2px 8px rgba(0,0,0,0.2);">${count}</div>`,
+            className: '',
+            iconSize: [34, 34],
+            iconAnchor: [17, 17]
+        });
+    }
+});
+map.addLayer(clusterGroup);
+
+function makeIcon(active) {
+    const color = active ? '#4CAF50' : '#8B6F47';
+    return L.divIcon({
+        html: `<div style="width:13px;height:13px;border-radius:50%;background:${color};border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3);"></div>`,
+        iconSize: [13, 13], iconAnchor: [6, 6], className: ''
+    });
+}
+
+// --- State ---
+let currentFiltered = [...ALL_GRADUATES];
+let markerMap = new Map(); // index → leaflet marker
+
+// --- Populate country filter ---
+const countries = [...new Set(ALL_GRADUATES.map(g => g.country).filter(Boolean))].sort((a,b) => {
+    if (a === 'Россия') return -1;
+    if (b === 'Россия') return 1;
+    return a.localeCompare(b, 'ru');
+});
+const sel = document.getElementById('countryFilter');
+countries.forEach(c => {
+    const o = document.createElement('option');
+    o.value = c; o.textContent = c;
+    sel.appendChild(o);
+});
+
+// --- Stats ---
+function updateStats() {
+    const all = ALL_GRADUATES;
+    document.getElementById('statTotal').textContent = all.length;
+    document.getElementById('statCountries').textContent = new Set(all.map(g=>g.country).filter(Boolean)).size;
+    document.getElementById('statCities').textContent = new Set(all.map(g=>g.city).filter(Boolean)).size;
+    document.getElementById('statActive').textContent = all.filter(g=>g.active).length;
+}
+
+// --- Render list ---
+function renderList(data) {
+    const list = document.getElementById('gradList');
+    document.getElementById('countBadge').textContent = `Показано: ${data.length}`;
+    document.getElementById('listHeader').textContent = `Специалистов: ${data.length}`;
+
+    if (data.length === 0) {
+        list.innerHTML = '<div class="no-results">Ничего не найдено</div>';
+        return;
+    }
+
+    list.innerHTML = data.map((g, i) => {
+        const realIdx = ALL_GRADUATES.indexOf(g);
+        const initial = (g.name || '?').charAt(0).toUpperCase();
+        const avatarClass = g.active ? 'active-avatar' : (!g.lat ? 'no-map' : '');
+        const locParts = [g.city, g.country !== 'Россия' ? g.country : null].filter(Boolean);
+        return `
+        <div class="grad-card" id="card-${realIdx}" onclick="focusGrad(${realIdx})">
+            <div class="grad-avatar ${avatarClass}">${initial}</div>
+            <div class="grad-info">
+                <div class="grad-name">${g.name}</div>
+                ${locParts.length ? `<div class="grad-location">📍 ${locParts.join(', ')}</div>` : ''}
+                ${g.specialty ? `<div class="grad-specialty">${g.specialty}</div>` : ''}
+                <div class="grad-tags">
+                    ${g.active ? '<span class="tag tag-active">✓ Активно принимает</span>' : ''}
+                    ${g.tg ? `<a href="https://t.me/${g.tg.replace('@','')}" target="_blank" class="tag tag-tg" onclick="event.stopPropagation()">Telegram</a>` : ''}
+                    ${!g.lat ? '<span class="tag tag-no-map">Нет на карте</span>' : ''}
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// --- Render markers ---
+function renderMarkers(data) {
+    clusterGroup.clearLayers();
+    markerMap.clear();
+    data.forEach(g => {
+        if (!g.lat) return;
+        const realIdx = ALL_GRADUATES.indexOf(g);
+        const marker = L.marker([g.lat, g.lng], { icon: makeIcon(g.active) });
+        const locStr = [g.city, g.country !== 'Россия' ? g.country : null].filter(Boolean).join(', ');
+        marker.bindPopup(`
+            <div class="popup-name">${g.name}</div>
+            ${locStr ? `<div class="popup-loc">📍 ${locStr}</div>` : ''}
+            ${g.specialty ? `<div class="popup-spec">${g.specialty.slice(0,80)}${g.specialty.length>80?'…':''}</div>` : ''}
+            ${g.tg ? `<a href="https://t.me/${g.tg.replace('@','')}" target="_blank" class="popup-tg">✈ @${g.tg.replace('@','')}</a>` : ''}
+        `, { maxWidth: 220 });
+        marker.on('click', () => highlightCard(realIdx));
+        markerMap.set(realIdx, marker);
+        clusterGroup.addLayer(marker);
+    });
+}
+
+// --- Focus functions ---
+function focusGrad(realIdx) {
+    const g = ALL_GRADUATES[realIdx];
+    highlightCard(realIdx);
+    if (g.lat) {
+        map.flyTo([g.lat, g.lng], 10, { duration: 0.8 });
+        const m = markerMap.get(realIdx);
+        if (m) setTimeout(() => m.openPopup(), 900);
+    }
+}
+
+function highlightCard(realIdx) {
+    document.querySelectorAll('.grad-card').forEach(c => c.classList.remove('highlighted'));
+    const card = document.getElementById('card-' + realIdx);
+    if (card) {
+        card.classList.add('highlighted');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
+
+// --- Filter & search ---
+function applyFilters() {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    const country = document.getElementById('countryFilter').value;
+    currentFiltered = ALL_GRADUATES.filter(g => {
+        if (country && g.country !== country) return false;
+        if (q) {
+            const hay = [g.name, g.city, g.country, g.specialty].join(' ').toLowerCase();
+            if (!hay.includes(q)) return false;
+        }
+        return true;
+    });
+    renderList(currentFiltered);
+    renderMarkers(currentFiltered);
+}
+
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+document.getElementById('countryFilter').addEventListener('change', applyFilters);
+
+// --- Init ---
+updateStats();
+renderList(ALL_GRADUATES);
+renderMarkers(ALL_GRADUATES);
+</script>
+</body>
+</html>
