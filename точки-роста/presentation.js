@@ -1,6 +1,14 @@
 /* Рендерер слайдов и навигация — Точки роста */
 
-function md(s, mode){
+var ACCENT_COLORS = ['blue','purple','orange'];
+var accentIdx = 0;
+function nextAccent(){
+  var c = ACCENT_COLORS[accentIdx % ACCENT_COLORS.length];
+  accentIdx++;
+  return c;
+}
+
+function md(s){
   if(!s) return '';
   var out = s.replace(/\{\{(.+?)\}\}/g, function(m, sym){
     var cls = 'mega-sym';
@@ -9,10 +17,15 @@ function md(s, mode){
     else cls += ' emoji';
     return '<span class="'+cls+'">'+sym+'</span>';
   });
-  // В заголовках **жирное** превращаем в маркерную обводку
-  if(mode === 'head'){
-    return out.replace(/\*\*(.+?)\*\*/g,'<span class="mark-ring">$1</span>');
-  }
+  // ~~слово~~ — обводка маркером (как будто обвели фломастером)
+  out = out.replace(/~~(.+?)~~/g, function(m, txt){
+    return '<span class="mark-ring mark-'+nextAccent()+'">'+txt+'</span>';
+  });
+  // ^^слово^^ — жирный текст с цветным акцентом
+  out = out.replace(/\^\^(.+?)\^\^/g, function(m, txt){
+    return '<strong class="accent-'+nextAccent()+'">'+txt+'</strong>';
+  });
+  // **слово** — обычное выделение жирным
   return out.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
 }
 
@@ -20,8 +33,8 @@ function renderBlock(b){
   switch(b.t){
     case 'badge':
       return '<div class="badge badge-'+(b.color||'dark')+'">'+md(b.v)+'</div>';
-    case 'h1': return '<h1>'+md(b.v,'head')+'</h1><div class="divider"></div>';
-    case 'h2': return '<h2>'+md(b.v,'head')+'</h2>';
+    case 'h1': return '<h1>'+md(b.v)+'</h1><div class="divider"></div>';
+    case 'h2': return '<h2>'+md(b.v)+'</h2>';
     case 'h3': return '<h3>'+md(b.v)+'</h3>';
     case 'p': return '<p>'+md(b.v)+'</p>';
     case 'boldline': return '<div class="boldline"><strong>'+md(b.v)+'</strong></div>';
@@ -103,7 +116,7 @@ function renderBlock(b){
     case 'photocols':
       var colRight = '';
       if (b.tag) colRight += '<div class="badge">'+md(b.tag)+'</div>';
-      if (b.h) colRight += '<h1 style="font-size:clamp(21px,2.5vw,36px)">'+md(b.h,'head')+'</h1>';
+      if (b.h) colRight += '<h1 style="font-size:clamp(21px,2.5vw,36px)">'+md(b.h)+'</h1>';
       if (b.p) colRight += '<p>'+md(b.p)+'</p>';
       if (b.list) colRight += '<ul class="items">'+b.list.map(function(item){
         return '<li>'+md(item)+'</li>';
