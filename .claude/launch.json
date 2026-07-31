@@ -2,16 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "antiG-site",
+      "name": "antig-static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8080", "--directory", "/Users/lidiafartygina/Library/Mobile Documents/com~apple~CloudDocs/Documents/МИОТ/antiG"],
-      "port": 8080
-    },
-    {
-      "name": "task-tracker",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["/Users/fartyginalidia/Documents/МИОТ/Таск-трекер/server.js"],
-      "port": 3000
+      "runtimeArgs": ["-m", "http.server", "8099"],
+      "port": 8099
     }
   ]
 }
