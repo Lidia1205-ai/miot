@@ -221,6 +221,24 @@ strong{color:var(--ink);font-weight:700}
 .num-text{font-size:clamp(14px,1.32vw,18.5px);line-height:1.42;color:var(--ink);flex:1;padding-top:3px}
 .num-text strong{color:var(--ink);font-weight:800}
 
+/* ── Путь: Новичок → Мастер → Сенсей ── */
+.path-row{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin:6px 0 18px}
+.path-step{
+  display:inline-flex;align-items:center;white-space:nowrap;border-radius:99px;
+  font-weight:800;background:var(--paper2);color:var(--ink2);border:1.5px solid var(--line);
+  padding:8px 18px;font-size:clamp(13.5px,1.25vw,17px);
+}
+.path-step.step-2{background:var(--purple);color:var(--ink);border-color:transparent;
+  padding:9.5px 21px;font-size:clamp(15px,1.4vw,19px)}
+.path-step.step-3{background:var(--ink);color:#fff;border-color:transparent;
+  padding:12px 26px;font-size:clamp(17px,1.65vw,23px);font-weight:900;
+  box-shadow:0 8px 20px rgba(20,16,45,.22)}
+.path-arrow{color:var(--ink3);font-weight:900;font-size:1.15em;opacity:.6}
+.slide.cta-slide .path-step{background:rgba(255,255,255,.14);color:rgba(255,255,255,.82);border-color:rgba(255,255,255,.28)}
+.slide.cta-slide .path-step.step-2{background:rgba(255,255,255,.28);color:#fff}
+.slide.cta-slide .path-step.step-3{background:#fff;color:var(--purple-deep);box-shadow:0 10px 26px rgba(0,0,0,.22)}
+.slide.cta-slide .path-arrow{color:rgba(255,255,255,.55)}
+
 /* ── Группы (ДО / ПОСЛЕ) ── */
 .groups-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0}
 .group-block{

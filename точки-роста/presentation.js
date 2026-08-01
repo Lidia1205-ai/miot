@@ -42,6 +42,12 @@ function renderBlock(b){
     case 'small': return '<p class="small">'+md(b.v)+'</p>';
     case 'divider': return '<div class="divider"></div>';
 
+    case 'path':
+      return '<div class="path-row">'+b.v.map(function(step,idx){
+        var chip = '<span class="path-step step-'+(idx+1)+'">'+md(step)+'</span>';
+        return idx < b.v.length-1 ? chip+'<span class="path-arrow">→</span>' : chip;
+      }).join('')+'</div>';
+
     case 'list':
       return '<ul class="items'+(b.bullet===false?' no-dot':'')+'">'
         +b.v.map(function(i){return '<li>'+md(i)+'</li>';}).join('')+'</ul>';
