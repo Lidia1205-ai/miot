@@ -122,7 +122,7 @@ function renderBlock(b){
     case 'photocols':
       var colRight = '';
       if (b.tag) colRight += '<div class="badge">'+md(b.tag)+'</div>';
-      if (b.h) colRight += '<h1 style="font-size:clamp(21px,2.5vw,36px)">'+md(b.h)+'</h1>';
+      if (b.h) colRight += '<h1 style="font-size:clamp(24px,2.9vw,42px)">'+md(b.h)+'</h1>';
       if (b.p) colRight += '<p>'+md(b.p)+'</p>';
       if (b.list) colRight += '<ul class="items">'+b.list.map(function(item){
         return '<li>'+md(item)+'</li>';
@@ -240,7 +240,7 @@ function fitContent(slide){
   sc.style.width = '';
   if(sc.scrollHeight > sc.clientHeight + 8){
     var ratio = sc.clientHeight / sc.scrollHeight;
-    var minScale = window.innerWidth <= 900 ? 0.45 : 0.48;
+    var minScale = window.innerWidth <= 900 ? 0.4 : 0.42;
     var scale = Math.max(ratio, minScale);
     sc.style.transform = 'scale('+scale.toFixed(3)+')';
     sc.style.width = (100/scale).toFixed(1)+'%';
