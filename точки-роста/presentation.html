@@ -112,14 +112,14 @@ body{display:flex;align-items:center;justify-content:center}
 
 /* ════ ТИПОГРАФИКА ════ */
 h1{
-  font-size:clamp(30px,4vw,58px);font-weight:800;line-height:1.08;
+  font-size:clamp(32px,4.4vw,64px);font-weight:800;line-height:1.08;
   letter-spacing:-1.1px;color:var(--ink);margin-bottom:14px;
 }
-h2{font-size:clamp(23px,2.75vw,37px);font-weight:600;line-height:1.28;color:var(--ink2);margin-bottom:12px;letter-spacing:-.3px}
-h3{font-size:clamp(19px,2.15vw,28px);font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-.2px}
-p{font-size:clamp(17px,1.65vw,23px);line-height:1.5;color:var(--ink2);margin-bottom:11px}
+h2{font-size:clamp(25px,3.1vw,41px);font-weight:600;line-height:1.28;color:var(--ink2);margin-bottom:12px;letter-spacing:-.3px}
+h3{font-size:clamp(21px,2.4vw,31px);font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-.2px}
+p{font-size:clamp(19px,2.2vw,27px);line-height:1.5;color:var(--ink2);margin-bottom:11px}
 p:last-child{margin-bottom:0}
-.small{font-size:clamp(14.5px,1.3vw,18.5px);line-height:1.5;color:var(--ink3);margin-bottom:0}
+.small{font-size:clamp(16px,1.6vw,21px);line-height:1.5;color:var(--ink3);margin-bottom:0}
 strong{color:var(--ink);font-weight:700}
 
 /* ── Обводка маркером (как будто обвели фломастером) ── */
@@ -174,7 +174,7 @@ strong{color:var(--ink);font-weight:700}
 .items:last-child{margin-bottom:0}
 .items li{
   position:relative;padding-left:20px;
-  font-size:clamp(16.5px,1.55vw,21.5px);line-height:1.45;color:var(--ink2);
+  font-size:clamp(18.5px,2vw,25px);line-height:1.45;color:var(--ink2);
 }
 .items li::before{
   content:'';position:absolute;left:0;top:.55em;
@@ -201,7 +201,7 @@ strong{color:var(--ink);font-weight:700}
 }
 .check-item:nth-child(3n+2) .check-ico{background:var(--purple);color:var(--purple-deep)}
 .check-item:nth-child(3n+3) .check-ico{background:var(--orange);color:var(--orange-deep)}
-.check-text{font-size:clamp(16px,1.5vw,21px);line-height:1.42;color:var(--ink2);flex:1}
+.check-text{font-size:clamp(18.5px,1.95vw,25px);line-height:1.42;color:var(--ink2);flex:1}
 
 /* ── Нумерованный список ── */
 .num-list{display:flex;flex-direction:column;gap:11px}
@@ -218,7 +218,7 @@ strong{color:var(--ink);font-weight:700}
   display:flex;align-items:center;justify-content:center;
   font-size:14px;font-weight:900;
 }
-.num-text{font-size:clamp(16px,1.5vw,21px);line-height:1.42;color:var(--ink);flex:1;padding-top:3px}
+.num-text{font-size:clamp(18.5px,1.95vw,25px);line-height:1.42;color:var(--ink);flex:1;padding-top:3px}
 .num-text strong{color:var(--ink);font-weight:800}
 
 /* ── Путь: Новичок → Мастер → Сенсей ── */
@@ -251,7 +251,7 @@ strong{color:var(--ink);font-weight:700}
   font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
   color:var(--ink);opacity:.62;margin-bottom:10px;
 }
-.group-block .items li{color:var(--ink);font-size:clamp(16px,1.45vw,20px)}
+.group-block .items li{color:var(--ink);font-size:clamp(18px,1.85vw,24px)}
 .group-block .items li::before{background:rgba(27,24,48,.42)!important}
 
 /* ── Цитата ── */
@@ -265,7 +265,7 @@ strong{color:var(--ink);font-weight:700}
   font-size:62px;line-height:1;color:rgba(255,255,255,.5);font-weight:800;font-family:Georgia,serif;
 }
 .quote-block p{
-  font-size:clamp(17.5px,1.75vw,23.5px);line-height:1.44;color:var(--ink);
+  font-size:clamp(19.5px,2.1vw,27px);line-height:1.44;color:var(--ink);
   font-weight:500;position:relative;z-index:1;margin-bottom:0;
 }
 .quote-block .by{margin-top:10px;font-size:12.5px;font-weight:700;color:rgba(27,24,48,.6)}
@@ -277,7 +277,7 @@ strong{color:var(--ink);font-weight:700}
   padding:20px 24px;margin:8px 0 0;
 }
 .result-block p{
-  font-size:clamp(18px,1.85vw,25.5px);line-height:1.36;color:rgba(255,255,255,.95);
+  font-size:clamp(20.5px,2.2vw,29px);line-height:1.36;color:rgba(255,255,255,.95);
   font-weight:600;margin-bottom:0;
 }
 .result-block strong{color:var(--orange);font-weight:800}
@@ -290,14 +290,14 @@ strong{color:var(--ink);font-weight:700}
   background:var(--orange);border-radius:var(--r-md) var(--r-md) var(--r-nub) var(--r-md);
   padding:16px 20px;margin-top:10px;
 }
-.boldline strong{font-size:clamp(17px,1.7vw,23px);line-height:1.34;color:var(--ink);font-weight:800}
+.boldline strong{font-size:clamp(19.5px,2.05vw,27px);line-height:1.34;color:var(--ink);font-weight:800}
 
 /* ── Опрос / чипы ── */
 .tag-row{display:flex;flex-wrap:wrap;gap:9px;margin:8px 0 12px;justify-content:inherit}
 .cta-slide .tag-row,.center-slide .tag-row{justify-content:center}
 .tag{
   background:var(--blue);border-radius:99px;padding:9px 20px;
-  font-size:clamp(15.5px,1.45vw,20px);font-weight:700;color:var(--ink);
+  font-size:clamp(17px,1.75vw,23px);font-weight:700;color:var(--ink);
 }
 .tag:nth-child(3n+2){background:var(--purple)}
 .tag:nth-child(3n+3){background:var(--orange)}
@@ -307,7 +307,7 @@ strong{color:var(--ink);font-weight:700}
   display:inline-flex;align-items:center;gap:11px;align-self:flex-start;
   background:var(--ink);color:#fff;font-weight:800;
   padding:15px 30px;border-radius:99px;margin-top:18px;
-  font-size:clamp(15px,1.5vw,20px);letter-spacing:.1px;
+  font-size:clamp(17px,1.8vw,23px);letter-spacing:.1px;
   box-shadow:0 12px 30px rgba(20,16,45,.26);
   animation:ctaPulse 2.6s ease-in-out infinite;
 }
@@ -327,23 +327,23 @@ strong{color:var(--ink);font-weight:700}
   display:flex;flex-direction:column;gap:12px;
 }
 .slide.surf-b .price-card,.slide.surf-c .price-card{background:#fff}
-.tier-name{font-size:clamp(19px,2.05vw,27px);font-weight:800;color:var(--ink);letter-spacing:-.3px}
+.tier-name{font-size:clamp(21px,2.35vw,30px);font-weight:800;color:var(--ink);letter-spacing:-.3px}
 .price-card .items{margin:0}
-.price-card .items li{font-size:clamp(14.5px,1.3vw,18px)}
+.price-card .items li{font-size:clamp(16.5px,1.6vw,21px)}
 .price-bottom{
   margin-top:auto;padding-top:14px;border-top:1.5px solid var(--line);
   display:flex;flex-direction:column;gap:6px;
 }
-.price-strike{font-size:clamp(14.5px,1.3vw,18px);color:var(--ink3);font-weight:600}
+.price-strike{font-size:clamp(16.5px,1.6vw,21px);color:var(--ink3);font-weight:600}
 .price-strike s{opacity:.8}
 .price-hero{
   display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
   background:var(--orange);border-radius:var(--r-md) var(--r-md) var(--r-nub) var(--r-md);
   padding:14px 20px;margin-top:6px;
 }
-.price-hero-label{font-size:clamp(13.5px,1.2vw,17.5px);font-weight:800;color:var(--ink);
+.price-hero-label{font-size:clamp(15px,1.4vw,19.5px);font-weight:800;color:var(--ink);
   letter-spacing:1px;text-transform:uppercase;opacity:.72}
-.price-hero-val{font-size:clamp(31px,3.7vw,52px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px}
+.price-hero-val{font-size:clamp(34px,4.1vw,57px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px}
 
 /* ── Карточка / статы ── */
 .card-generic{
@@ -373,7 +373,7 @@ strong{color:var(--ink);font-weight:700}
   padding:20px 24px;margin:8px 0;
 }
 .testimonial-card .star{font-size:11px;font-weight:800;letter-spacing:1.6px;color:var(--orange-deep);margin-bottom:6px}
-.testimonial-card .name{font-size:clamp(18px,1.9vw,24px);font-weight:800;color:var(--ink)}
+.testimonial-card .name{font-size:clamp(20px,2.2vw,27px);font-weight:800;color:var(--ink)}
 .testimonial-card .meta{font-size:13px;color:rgba(27,24,48,.55);margin-bottom:10px}
 .testimonial-card .quote-block{background:rgba(255,255,255,.55)}
 
@@ -439,7 +439,9 @@ strong{color:var(--ink);font-weight:700}
   .hd{margin-bottom:14px}
   .brand{display:none}
   .hd-chip{max-width:62%}
-  h1{font-size:clamp(24px,6.2vw,36px);letter-spacing:-.6px}
+  h1{font-size:clamp(26px,6.6vw,39px);letter-spacing:-.6px}
+  p{font-size:clamp(18px,3.6vw,22px)}
+  .items li{font-size:clamp(17px,3.4vw,21px)}
   .groups-row,.segment-two{grid-template-columns:1fr}
   .photocols{flex-direction:column}
   .photocols-img{width:100%;max-height:30vh}

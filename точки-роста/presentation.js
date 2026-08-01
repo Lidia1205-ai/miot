@@ -122,7 +122,7 @@ function renderBlock(b){
     case 'photocols':
       var colRight = '';
       if (b.tag) colRight += '<div class="badge">'+md(b.tag)+'</div>';
-      if (b.h) colRight += '<h1 style="font-size:clamp(24px,2.9vw,42px)">'+md(b.h)+'</h1>';
+      if (b.h) colRight += '<h1 style="font-size:clamp(26px,3.3vw,46px)">'+md(b.h)+'</h1>';
       if (b.p) colRight += '<p>'+md(b.p)+'</p>';
       if (b.list) colRight += '<ul class="items">'+b.list.map(function(item){
         return '<li>'+md(item)+'</li>';
@@ -238,17 +238,20 @@ function fitContent(slide){
   sc.style.transform = '';
   sc.style.transformOrigin = 'top left';
   sc.style.width = '';
-  var minScale = window.innerWidth <= 900 ? 0.4 : 0.42;
-  // Компенсирующая ширина при масштабировании меняет перенос строк текста,
-  // из-за чего scrollHeight после применения масштаба отличается от того,
-  // что использовался для расчёта — уточняем в несколько проходов.
+  var minScale = window.innerWidth <= 900 ? 0.34 : 0.36;
+  var clientHeight = sc.clientHeight;
+  var scale = 1;
+  // Расширение блока (компенсация масштаба) меняет перенос строк текста,
+  // из-за чего высота контента при разной ширине скачет между двумя
+  // состояниями. Чтобы не зациклиться на невыгодной фазе, на каждом
+  // проходе берём масштаб не больше предыдущего — гарантированно сходится.
   for(var i=0; i<4; i++){
-    if(sc.scrollHeight <= sc.clientHeight + 8) break;
-    var ratio = sc.clientHeight / sc.scrollHeight;
-    var scale = Math.max(ratio, minScale);
+    var scrollHeight = sc.scrollHeight;
+    if(scrollHeight <= clientHeight + 8) break;
+    var candidate = Math.max(clientHeight / scrollHeight, minScale);
+    scale = Math.min(scale, candidate);
     sc.style.transform = 'scale('+scale.toFixed(3)+')';
     sc.style.width = (100/scale).toFixed(1)+'%';
-    if(scale <= minScale) break;
   }
 }
 
