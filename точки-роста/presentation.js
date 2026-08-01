@@ -238,12 +238,17 @@ function fitContent(slide){
   sc.style.transform = '';
   sc.style.transformOrigin = 'top left';
   sc.style.width = '';
-  if(sc.scrollHeight > sc.clientHeight + 8){
+  var minScale = window.innerWidth <= 900 ? 0.4 : 0.42;
+  // Компенсирующая ширина при масштабировании меняет перенос строк текста,
+  // из-за чего scrollHeight после применения масштаба отличается от того,
+  // что использовался для расчёта — уточняем в несколько проходов.
+  for(var i=0; i<4; i++){
+    if(sc.scrollHeight <= sc.clientHeight + 8) break;
     var ratio = sc.clientHeight / sc.scrollHeight;
-    var minScale = window.innerWidth <= 900 ? 0.4 : 0.42;
     var scale = Math.max(ratio, minScale);
     sc.style.transform = 'scale('+scale.toFixed(3)+')';
     sc.style.width = (100/scale).toFixed(1)+'%';
+    if(scale <= minScale) break;
   }
 }
 
@@ -292,6 +297,17 @@ stage.addEventListener('touchend', function(e){
 
 slideEls.forEach(function(s){ fitContent(s); });
 goTo(1);
+
+// Пересчитываем масштаб после подгрузки картинок (иначе высота слайда
+// на момент первого fitContent ещё не учитывает реальные фото)
+stage.querySelectorAll('img').forEach(function(img){
+  function refit(){
+    var slide = img.closest('.slide');
+    if(slide) fitContent(slide);
+  }
+  if(img.complete) refit();
+  else { img.addEventListener('load', refit); img.addEventListener('error', refit); }
+});
 
 var resizeTimer;
 window.addEventListener('resize', function(){
