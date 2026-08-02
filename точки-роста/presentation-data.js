@@ -186,7 +186,7 @@ const SLIDES = [
 
 // Слайд 23
 {sec:'Реалии 2026', nav:'Население беднеет', center:true, blocks:[
-  {t:'illus', v:'illustrations/tax-rise.svg', size:'160px'},
+  {t:'illus', v:'photos/nalogi-news.png', size:'26vh'},
   {t:'list', v:[
     'Налоговые ставки растут',
     'Население беднеет и ищет быстрых решений, **не переплачивая**',
