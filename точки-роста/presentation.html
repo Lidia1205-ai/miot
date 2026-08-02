@@ -324,26 +324,40 @@ strong{color:var(--ink);font-weight:700}
 /* ── Карточка тарифа ── */
 .price-card{
   background:var(--paper2);border-radius:var(--r-md);padding:22px 26px;
-  display:flex;flex-direction:column;gap:12px;
+  display:flex;flex-direction:column;gap:14px;
 }
 .slide.surf-b .price-card,.slide.surf-c .price-card{background:#fff}
 .tier-name{font-size:clamp(21px,2.35vw,30px);font-weight:800;color:var(--ink);letter-spacing:-.3px}
 .price-card .items{margin:0}
 .price-card .items li{font-size:clamp(16.5px,1.6vw,21px)}
-.price-bottom{
-  margin-top:auto;padding-top:14px;border-top:1.5px solid var(--line);
-  display:flex;flex-direction:column;gap:6px;
+.price-bottom{margin-top:auto;padding-top:14px;border-top:1.5px solid var(--line)}
+
+/* ── Лесенка цен: очно / онлайн, каждая — без скидки → со скидкой → сегодня ── */
+.price-plans{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.price-plan{
+  background:#fff;border:1.5px solid var(--line);border-radius:var(--r-md);
+  padding:16px 16px 14px;display:flex;flex-direction:column;gap:7px;
 }
-.price-strike{font-size:clamp(16.5px,1.6vw,21px);color:var(--ink3);font-weight:600}
-.price-strike s{opacity:.8}
-.price-hero{
-  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
-  background:var(--orange);border-radius:var(--r-md) var(--r-md) var(--r-nub) var(--r-md);
-  padding:14px 20px;margin-top:6px;
+.slide.surf-b .price-plan,.slide.surf-c .price-plan{background:var(--paper2);border-color:transparent}
+.price-plan-label{
+  font-size:clamp(11.5px,1.05vw,14px);font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--purple-deep);margin-bottom:2px;
 }
-.price-hero-label{font-size:clamp(15px,1.4vw,19.5px);font-weight:800;color:var(--ink);
-  letter-spacing:1px;text-transform:uppercase;opacity:.72}
-.price-hero-val{font-size:clamp(34px,4.1vw,57px);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1.5px}
+.price-tier{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.price-tier .pt-label{font-size:clamp(11.5px,1.05vw,14.5px);color:var(--ink3);font-weight:600}
+.price-tier .pt-val{font-size:clamp(13.5px,1.3vw,17.5px);font-weight:700}
+.price-tier.full .pt-val{color:var(--ink3);text-decoration:line-through;text-decoration-color:rgba(27,24,48,.35)}
+.price-tier.special .pt-val{color:var(--orange-deep);text-decoration:line-through;text-decoration-color:rgba(217,127,51,.55)}
+.price-tier.today{
+  margin-top:5px;background:var(--orange);border-radius:var(--r-md);
+  padding:10px 14px 12px;flex-direction:column;align-items:flex-start;gap:1px;
+}
+.price-tier.today .pt-label{
+  color:var(--ink);font-weight:800;font-size:clamp(10.5px,.95vw,12.5px);
+  letter-spacing:.6px;text-transform:uppercase;opacity:.68;white-space:nowrap;
+}
+.price-tier.today .pt-val{color:var(--ink);font-weight:900;font-size:clamp(20px,2.3vw,30px);
+  letter-spacing:-.7px;text-decoration:none;white-space:nowrap}
 
 /* ── Карточка / статы ── */
 .card-generic{
@@ -442,7 +456,7 @@ strong{color:var(--ink);font-weight:700}
   h1{font-size:clamp(26px,6.6vw,39px);letter-spacing:-.6px}
   p{font-size:clamp(18px,3.6vw,22px)}
   .items li{font-size:clamp(17px,3.4vw,21px)}
-  .groups-row,.segment-two{grid-template-columns:1fr}
+  .groups-row,.segment-two,.price-plans{grid-template-columns:1fr}
   .photocols{flex-direction:column}
   .photocols-img{width:100%;max-height:30vh}
 }

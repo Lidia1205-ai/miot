@@ -95,17 +95,16 @@ function renderBlock(b){
       var feats = '<ul class="items">'+b.features.map(function(f){
         return '<li>'+md(f)+'</li>';
       }).join('')+'</ul>';
-      var strikeRows = b.rows.filter(function(r){return !r.final;});
-      var finalRow = b.rows.filter(function(r){return r.final;})[0];
-      var strikeHtml = strikeRows.map(function(r){
-        return '<div class="price-strike">'+md(r.label)+': <s>'+md(r.val)+'</s></div>';
-      }).join('');
-      var finalHtml = finalRow
-        ? '<div class="price-hero"><span class="price-hero-label">'+md(finalRow.label)+'</span>'
-          +'<span class="price-hero-val">'+md(finalRow.val)+'</span></div>'
-        : '';
+      var plansHtml = '<div class="price-plans">'+b.plans.map(function(p){
+        return '<div class="price-plan">'
+          +'<div class="price-plan-label">'+md(p.label)+'</div>'
+          +'<div class="price-tier full"><span class="pt-label">Без скидки</span><span class="pt-val">'+md(p.full)+'</span></div>'
+          +'<div class="price-tier special"><span class="pt-label">Со скидкой</span><span class="pt-val">'+md(p.special)+'</span></div>'
+          +'<div class="price-tier today"><span class="pt-label">Сегодня на эфире</span><span class="pt-val">'+md(p.today)+'</span></div>'
+        +'</div>';
+      }).join('')+'</div>';
       return '<div class="price-card"><div class="tier-name">'+md(b.name)+'</div>'
-        +feats+'<div class="price-bottom">'+strikeHtml+finalHtml+'</div></div>';
+        +feats+'<div class="price-bottom">'+plansHtml+'</div></div>';
 
     case 'illus':
       var illusStyle = b.size ? ' style="max-height:'+b.size+'"' : '';
