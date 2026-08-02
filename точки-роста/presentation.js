@@ -99,7 +99,6 @@ function renderBlock(b){
         return '<div class="price-plan">'
           +'<div class="price-plan-label">'+md(p.label)+'</div>'
           +'<div class="price-tier full"><span class="pt-label">Без скидки</span><span class="pt-val">'+md(p.full)+'</span></div>'
-          +'<div class="price-tier special"><span class="pt-label">Со скидкой</span><span class="pt-val">'+md(p.special)+'</span></div>'
           +'<div class="price-tier today"><span class="pt-label">Сегодня на эфире</span><span class="pt-val">'+md(p.today)+'</span></div>'
         +'</div>';
       }).join('')+'</div>';
