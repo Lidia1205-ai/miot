@@ -41,6 +41,7 @@ function renderBlock(b){
     case 'ctaButton': return '<div class="cta-pill">'+md(b.v)+'<span class="arrow">→</span></div>';
     case 'small': return '<p class="small">'+md(b.v)+'</p>';
     case 'divider': return '<div class="divider"></div>';
+    case 'bignum': return '<div class="bignum">'+md(b.v)+'</div>';
 
     case 'path':
       return '<div class="path-row">'+b.v.map(function(step,idx){

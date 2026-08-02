@@ -169,6 +169,14 @@ strong{color:var(--ink);font-weight:700}
 .badge-purple{background:var(--purple-deep)}
 .cta-slide .badge{background:rgba(255,255,255,.2);color:#fff;align-self:center}
 
+/* ── Крупное число (мест осталось и т.п.) ── */
+.bignum{
+  font-size:clamp(70px,10vw,148px);font-weight:900;line-height:.95;
+  letter-spacing:-3px;color:var(--orange-deep);text-align:center;margin:10px 0 6px;
+}
+.slide.cta-slide .bignum{color:#fff}
+.slide.center-slide .bignum{align-self:center}
+
 /* ════ СПИСКИ ════ */
 .items{list-style:none;display:flex;flex-direction:column;gap:9px;margin:4px 0 12px}
 .items:last-child{margin-bottom:0}
