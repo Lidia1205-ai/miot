@@ -1,4 +1,4 @@
-/* Рендерер слайдов и навигация — Точки роста */
+/* Рендерер слайдов и навигация — От хаоса к системе */
 
 var ACCENT_COLORS = ['blue','purple','orange'];
 var accentIdx = 0;
@@ -193,7 +193,7 @@ function renderSlide(s, idx){
   var head = '<div class="hd">'
     +'<div class="hd-num">'+(idx+1)+'</div>'
     +'<div class="hd-chip">'+s.sec+'</div>'
-    +'<div class="brand">Точки роста · МИОТ</div>'
+    +'<div class="brand">От хаоса к системе · МИОТ</div>'
   +'</div>';
 
   var body = '<div class="scroll-content'+(s.center?' center':'')+'">'
