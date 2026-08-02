@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278 266" fill="none">
+  <!-- simple avatar, head slightly bowed -->
+  <circle cx="132" cy="92" r="34" fill="#ffffff" stroke="#312B5E" stroke-width="5"/>
+  <path d="M114 98c5 8 15 12 23 8" stroke="#312B5E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M84 214c0-38 22-60 48-60s48 22 48 60z" fill="#A895EE" opacity="0.4" stroke="#312B5E" stroke-width="5" stroke-linejoin="round"/>
+
+  <!-- question mark doubt cloud -->
+  <path d="M188 60c0-11 9-18 19-18 11 0 19 7 19 17 0 8-5 12-11 16-4 3-6 6-6 11"
+        stroke="#D97F33" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <circle cx="209" cy="102" r="5" fill="#D97F33"/>
+</svg>

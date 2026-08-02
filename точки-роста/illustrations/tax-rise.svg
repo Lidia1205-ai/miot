@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278 266" fill="none">
+  <!-- receipt / invoice -->
+  <path d="M84 26h96l14 14v186l-13-9-13 9-13-9-13 9-13-9-13 9-13-9-13 9-13-9-13 9V54l14-14z"
+        fill="#ffffff" stroke="#312B5E" stroke-width="5" stroke-linejoin="round"/>
+  <line x1="102" y1="72" x2="164" y2="72" stroke="#A895EE" stroke-width="6" stroke-linecap="round"/>
+  <line x1="102" y1="94" x2="150" y2="94" stroke="#A895EE" stroke-width="6" stroke-linecap="round"/>
+  <line x1="102" y1="116" x2="158" y2="116" stroke="#A895EE" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- percent badge -->
+  <circle cx="150" cy="168" r="9" fill="#312B5E"/>
+  <circle cx="178" cy="196" r="9" fill="#312B5E"/>
+  <line x1="182" y1="160" x2="146" y2="204" stroke="#312B5E" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- rising arrow accent -->
+  <path d="M196 118 L228 84 L228 100 L246 100 L246 66 L212 66 L212 84"
+        fill="none" stroke="#D97F33" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M196 118 L216 98" stroke="#D97F33" stroke-width="7" stroke-linecap="round"/>
+</svg>
