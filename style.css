@@ -471,7 +471,7 @@ section {
 
 .hero-inner {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1.4fr;
     gap: 4rem;
     align-items: center;
 }
