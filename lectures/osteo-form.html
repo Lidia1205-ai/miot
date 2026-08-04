@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Специалист остеокоррекции — оформление заявки · Олег Агапэ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --warm:      #2E5F9E;
+      --warm-soft: #DDE8F5;
+      --accent:    #C07230;
+      --ink:       #141C2A;
+      --ink-mute:  #7A8FA8;
+      --bg:        #F0F3F9;
+      --card:      #fff;
+    }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 32px 16px;
+    }
+    .eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--warm); background: var(--warm-soft);
+      border-radius: 20px; padding: 5px 16px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.12);
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 560px;
+      text-align: center;
+    }
+    @media (max-width: 480px) { .card { padding: 28px 18px; } }
+    .card__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 3vw, 22px);
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .card__title em { font-style: normal; color: var(--warm); }
+    .card__sub {
+      font-size: 14px;
+      color: var(--ink-mute);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .timer-wrap { margin-bottom: 24px; }
+    .timer-label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-mute); margin-bottom: 10px;
+    }
+    .timer { display: flex; justify-content: center; gap: 8px; }
+    .timer__cell {
+      background: var(--bg); border-radius: 10px;
+      border: 1.5px solid rgba(46,95,158,0.18);
+      padding: 10px 14px; min-width: 62px; text-align: center;
+    }
+    .timer__num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(20px, 4vw, 28px);
+      font-weight: 800; color: var(--warm); line-height: 1;
+    }
+    .timer__unit { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-top: 3px; }
+    .timer__sep { font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 800; color: rgba(46,95,158,0.25); line-height: 1; padding-top: 8px; }
+    .form-wrap { text-align: left; }
+    .page-foot { margin-top: 24px; font-size: 12px; color: var(--ink-mute); text-align: center; }
+    .page-foot a { color: var(--ink-mute); text-decoration: none; }
+    .page-foot a:hover { color: var(--warm); }
+  </style>
+</head>
+<body>
+
+  <div class="eyebrow">Запись эфира · Специалист остеокоррекции</div>
+
+  <div class="card">
+    <div class="card__title">Почему одни телесники <em>растут,</em> а другие буксуют?</div>
+    <p class="card__sub">Оставьте заявку — мы свяжемся и подберём подходящий формат</p>
+
+    <div class="timer-wrap">
+      <div class="timer-label">Эфирное предложение действует ещё</div>
+      <div class="timer" id="timer">
+        <div class="timer__cell">
+          <div class="timer__num" id="t-h">48</div>
+          <div class="timer__unit">часов</div>
+        </div>
+        <div class="timer__sep">:</div>
+        <div class="timer__cell">
+          <div class="timer__num" id="t-m">00</div>
+          <div class="timer__unit">минут</div>
+        </div>
+        <div class="timer__sep">:</div>
+        <div class="timer__cell">
+          <div class="timer__num" id="t-s">00</div>
+          <div class="timer__unit">секунд</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <script id="58fcccd3114c84d487c906fd22ecb9878c0f4534" src="https://online.agape-course.ru/pl/lite/widget/script?id=1638193" onload="typeof startWidget58fcccd3114c84d487c906fd22ecb9878c0f4534==='function'&&startWidget58fcccd3114c84d487c906fd22ecb9878c0f4534()"></script>
+    </div>
+  </div>
+
+  <p class="page-foot">© 2026 Олег Агапэ · <a href="https://dr-agape.ru">dr-agape.ru</a></p>
+
+<script>
+  (function() {
+    var KEY = 'osteo_record_end';
+    var end = localStorage.getItem(KEY);
+    if (!end || Date.now() > +end) {
+      end = Date.now() + 48 * 3600 * 1000;
+      localStorage.setItem(KEY, end);
+    }
+    function tick() {
+      var left = Math.max(0, end - Date.now());
+      var h = Math.floor(left / 3600000);
+      var m = Math.floor((left % 3600000) / 60000);
+      var s = Math.floor((left % 60000) / 1000);
+      document.getElementById('t-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('t-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('t-s').textContent = String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
+
+</body>
+</html>
