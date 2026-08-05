@@ -131,6 +131,7 @@
         .tag { font-size: 0.65rem; padding: 0.1rem 0.45rem; border-radius: 1rem; font-weight: 600; }
         .tag-active { background: #E8F5E9; color: #388E3C; }
         .tag-tg { background: #E3F2FD; color: #1565C0; text-decoration: none; }
+        .tag-max { background: #FFF3E0; color: #E65100; text-decoration: none; }
         .tag-no-map { background: #F5F5F5; color: #AAA; }
 
         /* Leaflet popup override */
@@ -290,7 +291,7 @@ const ALL_GRADUATES = [
   { name:"Olga Babayan", city:"Москва", country:"Россия", specialty:"Телесный практик, остеокоррекция", tg:"Olhen_Babayan", active:true, lat:55.7558, lng:37.6173 },
   { name:"Владислав Белишко", city:"Челябинск", country:"Россия", specialty:"Массажист, мануальщик", tg:"OsteopatBelishkoVladislav", lat:55.1644, lng:61.4368 },
   { name:"Рената Гайнутдинова", city:"Казань / Зеленодольск", country:"Россия", specialty:"Остеопатическая коррекция и самокоррекция", tg:"Renata_osteo", lat:55.7887, lng:49.1221 },
-  { name:"Римма Хайрулина", city:"Москва", country:"Россия", specialty:"Телесная терапия, естественное омоложение", tg:"rimma_faceplastic", active:true, lat:55.7558, lng:37.6173 },
+  { name:"Римма Хайрулина", city:"Москва", country:"Россия", specialty:"Телесная терапия, естественное омоложение", tg:"rimma_faceplastic", max:"https://max.ru/u/f9LHodD0cOJysyJ9CpZdhYQhYLHnhGEZ5tZ13CGEn8z3XjUJEhfsRKu1ius", active:true, lat:55.7558, lng:37.6173 },
   { name:"Olga Sayunova", country:"Россия", specialty:"Тейпирование, массаж, остеоэстетика", tg:"sayunova_olga" },
   { name:"Евгения Громова", city:"Москва", country:"Россия", specialty:"Действующий телесник", tg:"Shellisha", lat:55.7558, lng:37.6173 },
   { name:"Анастасия", city:"Стамбул", country:"Турция", specialty:"Телесные практики", tg:"sinitsa_body", lat:41.0082, lng:28.9784 },
@@ -403,6 +404,7 @@ function renderList(data) {
                 <div class="grad-tags">
                     ${g.active ? '<span class="tag tag-active">✓ Активно принимает</span>' : ''}
                     ${g.tg ? `<a href="https://t.me/${g.tg.replace('@','')}" target="_blank" class="tag tag-tg" onclick="event.stopPropagation()">Telegram</a>` : ''}
+                    ${g.max ? `<a href="${g.max}" target="_blank" class="tag tag-max" onclick="event.stopPropagation()">MAX</a>` : ''}
                     ${!g.lat ? '<span class="tag tag-no-map">Нет на карте</span>' : ''}
                 </div>
             </div>
@@ -424,6 +426,7 @@ function renderMarkers(data) {
             ${locStr ? `<div class="popup-loc">📍 ${locStr}</div>` : ''}
             ${g.specialty ? `<div class="popup-spec">${g.specialty.slice(0,80)}${g.specialty.length>80?'…':''}</div>` : ''}
             ${g.tg ? `<a href="https://t.me/${g.tg.replace('@','')}" target="_blank" class="popup-tg">✈ @${g.tg.replace('@','')}</a>` : ''}
+            ${g.max ? `<a href="${g.max}" target="_blank" class="popup-tg" style="color:#E65100;">MAX</a>` : ''}
         `, { maxWidth: 220 });
         marker.on('click', () => highlightCard(realIdx));
         markerMap.set(realIdx, marker);
