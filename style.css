@@ -260,13 +260,13 @@ section {
 
 .nav {
     display: flex;
-    gap: 1rem;
+    gap: 0.3rem;
     align-items: center;
     flex-shrink: 0;
 }
 
 .nav a:not(.btn) {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 500;
     position: relative;
     color: var(--color-text-primary);
