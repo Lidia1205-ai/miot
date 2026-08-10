@@ -132,6 +132,7 @@
         .tag-active { background: #E8F5E9; color: #388E3C; }
         .tag-tg { background: #E3F2FD; color: #1565C0; text-decoration: none; }
         .tag-max { background: #FFF3E0; color: #E65100; text-decoration: none; }
+        .tag-phone { background: #E8F5E9; color: #2E7D32; text-decoration: none; }
         .tag-no-map { background: #F5F5F5; color: #AAA; }
 
         /* Leaflet popup override */
@@ -331,11 +332,11 @@ const ALL_GRADUATES = [
   { name:"Анна Верещагина", city:"Москва", country:"Россия", specialty:"Специалист остеокоррекции и телесно-ориентированный психотерапевт", lat:55.7558, lng:37.6173 },
   { name:"Daria М", city:"Москва", country:"Россия", specialty:"Остеопат", lat:55.7558, lng:37.6173 },
   { name:"Татьяна Фукина", city:"Москва", country:"Россия", specialty:"Массажист и специалист остеокоррекции", lat:55.7558, lng:37.6173 },
-  { name:"Елена Юрьева", city:"Мурманск", country:"Россия", specialty:"Специалист остеокоррекции", lat:68.9585, lng:33.0827 },
+  { name:"Елена Юрьева", city:"Мурманск", country:"Россия", specialty:"Специалист остеокоррекции", tg:"ulrikaice", lat:68.9585, lng:33.0827 },
   { name:"Людмила Болукова", city:"Арзамас", country:"Россия", specialty:"Остеопат", lat:55.3996, lng:43.8411 },
   { name:"Дмитрий Родионов", city:"Москва", country:"Россия", specialty:"Массажист", lat:55.7558, lng:37.6173 },
   { name:"Ekaterina Хрепкова", city:"Барселона", country:"Испания", specialty:"Остеопатия, краниосакральная терапия, массаж лица", tg:"katya_khr", lat:41.3851, lng:2.1734 },
-  { name:"Бурцева (Беликова) Мария", city:"Найроби / Кейптаун / Москва", country:"Кения / ЮАР / Россия", specialty:"Специалист по остеокоррекции, психосоматической коррекции и естественному омоложению, энергопрактик", lat:-1.2921, lng:36.8219 },
+  { name:"Бурцева (Беликова) Мария", city:"Найроби / Кейптаун / Москва", country:"Кения / ЮАР / Россия", specialty:"Специалист по остеокоррекции, психосоматической коррекции и естественному омоложению, энергопрактик", phone:"+79150547074", lat:-1.2921, lng:36.8219 },
 ];
 
 // --- Map init ---
@@ -421,6 +422,7 @@ function renderList(data) {
                     ${g.active ? '<span class="tag tag-active">✓ Активно принимает</span>' : ''}
                     ${g.tg ? `<a href="https://t.me/${g.tg.replace('@','')}" target="_blank" class="tag tag-tg" onclick="event.stopPropagation()">Telegram</a>` : ''}
                     ${g.max ? `<a href="${g.max}" target="_blank" class="tag tag-max" onclick="event.stopPropagation()">MAX</a>` : ''}
+                    ${g.phone ? `<a href="tel:${g.phone}" class="tag tag-phone" onclick="event.stopPropagation()">${g.phone}</a>` : ''}
                     ${!g.lat ? '<span class="tag tag-no-map">Нет на карте</span>' : ''}
                 </div>
             </div>
@@ -443,6 +445,7 @@ function renderMarkers(data) {
             ${g.specialty ? `<div class="popup-spec">${g.specialty.slice(0,80)}${g.specialty.length>80?'…':''}</div>` : ''}
             ${g.tg ? `<a href="https://t.me/${g.tg.replace('@','')}" target="_blank" class="popup-tg">✈ @${g.tg.replace('@','')}</a>` : ''}
             ${g.max ? `<a href="${g.max}" target="_blank" class="popup-tg" style="color:#E65100;">MAX</a>` : ''}
+            ${g.phone ? `<a href="tel:${g.phone}" class="popup-tg" style="color:#2E7D32;">📞 ${g.phone}</a>` : ''}
         `, { maxWidth: 220 });
         marker.on('click', () => highlightCard(realIdx));
         markerMap.set(realIdx, marker);
