@@ -376,7 +376,9 @@ const calendarEvents = [
     { start: '2026-09-11', end: '2026-09-13', title: 'Биодинамика опорно-двигательной системы', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика ОДС' },
     { start: '2026-10-16', end: '2026-10-18', title: 'Биодинамика висцеральной системы', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика висцеральной системы' },
     { start: '2026-11-13', end: '2026-11-15', title: 'Биодинамика систем регуляции', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика систем регуляции' },
-    { start: '2026-12-11', end: '2026-12-13', title: 'Биодинамика полевых процессов', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика полевых процессов' }
+    { start: '2026-12-11', end: '2026-12-13', title: 'Биодинамика полевых процессов', target: 'биодинамика/biodynamic.html', program: 'Биодинамика', shortTitle: 'Биодинамика полевых процессов' },
+    // Конференции
+    { start: '2026-11-07', end: '2026-11-08', title: 'Конференция «Код адаптации»', target: '#calendar', program: 'Конференция', shortTitle: 'Код адаптации', format: 'Онлайн', audience: 'Для всех специалистов' }
 ];
 
 function initCalendar() {
