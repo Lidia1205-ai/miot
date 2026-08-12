@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ошибки самолечения, ухудшающие здоровье · Олег Агапэ</title>
+  <meta name="description" content="Статья о самых частых ошибках при детоксе организма. Олег Агапэ — врач-остеопат">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --warm:      #2E5F9E;
+      --warm-soft: #DDE8F5;
+      --warm-line: rgba(46,95,158,0.18);
+      --accent:    #C07230;
+      --accent-soft: #FAEEDE;
+      --ink:       #141C2A;
+      --ink-soft:  #3A4758;
+      --ink-mute:  #7A8FA8;
+      --bg:        #F0F3F9;
+      --card:      #fff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.75; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ══ HEADER ══ */
+    .page-header {
+      background: linear-gradient(135deg, #0f2548 0%, #2E5F9E 100%);
+      padding: 40px 0 44px;
+    }
+    .page-header__eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .page-header__eyebrow a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .page-header__eyebrow a:hover { color: #fff; }
+    .page-header__series {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .page-header__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(20px, 3.5vw, 34px);
+      font-weight: 800; color: #fff;
+      line-height: 1.15; letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+    .page-header__title em { font-style: normal; color: #F5D49A; }
+    .page-header__meta {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      font-size: 13px; color: rgba(255,255,255,0.55);
+    }
+    .page-header__avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+      object-fit: cover; flex-shrink: 0;
+    }
+
+    /* ══ СТАТЬЯ ══ */
+    .article { background: var(--card); border-radius: 20px; padding: 52px 56px; margin: 36px 0 48px; box-shadow: 0 4px 32px rgba(46,95,158,0.09); }
+    @media (max-width: 640px) { .article { padding: 32px 22px; } }
+
+    .article p { margin-bottom: 20px; color: var(--ink-soft); }
+    .article p:last-child { margin-bottom: 0; }
+
+    .article h2 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 700; color: var(--ink);
+      letter-spacing: -0.02em; line-height: 1.25;
+      margin: 44px 0 16px;
+    }
+    .article h2:first-child { margin-top: 0; }
+
+    /* ══ CALLOUT — выделение ══ */
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 0 14px 14px 0;
+      padding: 18px 24px;
+      margin: 28px 0;
+      font-weight: 600; color: var(--ink);
+      line-height: 1.55;
+    }
+    .callout--warn {
+      border-color: #e53935;
+      background: #fff5f5;
+      color: #b71c1c;
+    }
+    .callout--blue {
+      border-color: var(--warm);
+      background: var(--warm-soft);
+      color: var(--ink);
+    }
+
+    /* ══ ИЗОБРАЖЕНИЕ ══ */
+    .article-img {
+      margin: 32px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(20,28,42,0.10);
+    }
+    .article-img img { width: 100%; height: auto; display: block; }
+    .article-img figcaption {
+      text-align: center;
+      font-size: 13px; color: var(--ink-mute);
+      padding: 10px 16px 4px;
+      font-style: italic;
+    }
+
+    /* ══ ТЗ НА ИЛЛЮСТРАЦИЮ ══ */
+    .img-placeholder {
+      margin: 32px 0;
+      border-radius: 16px;
+      border: 2px dashed var(--warm-line);
+      background: var(--bg);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .img-placeholder__icon { font-size: 32px; margin-bottom: 10px; }
+    .img-placeholder__label {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 8px;
+    }
+    .img-placeholder__desc { font-size: 14px; color: var(--ink-mute); line-height: 1.5; }
+
+    /* ══ ЦИТАТА ══ */
+    .speech-bubble {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin: 28px 0;
+      position: relative;
+      font-size: 15px; color: var(--ink-soft);
+      font-style: italic; line-height: 1.6;
+      border: 1.5px solid var(--warm-line);
+    }
+    .speech-bubble::before {
+      content: '💬';
+      display: block; font-style: normal;
+      font-size: 22px; margin-bottom: 8px;
+    }
+    .speech-bubble .speaker {
+      font-style: normal; font-size: 12px;
+      font-weight: 700; color: var(--warm);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-top: 10px; display: block;
+    }
+
+    /* ══ АВТОР-БЛОК ══ */
+    .author-block {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: var(--warm-soft);
+      border-radius: 16px; padding: 24px;
+      margin: 36px 0;
+    }
+    @media (max-width: 520px) { .author-block { flex-direction: column; align-items: center; text-align: center; } }
+    .author-block__photo {
+      width: 80px; height: 80px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 14px rgba(46,95,158,0.18);
+    }
+    .author-block__name {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 15px; font-weight: 700; color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .author-block__role { font-size: 13px; color: var(--warm); font-weight: 600; margin-bottom: 8px; }
+    .author-block__text { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+
+    /* ══ CTA ══ */
+    .article-cta {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
+      border-radius: 20px;
+      padding: 36px 40px;
+      text-align: center;
+      margin: 44px 0 0;
+    }
+    @media (max-width: 520px) { .article-cta { padding: 28px 20px; } }
+    .article-cta__label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      margin-bottom: 12px;
+    }
+    .article-cta__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 2.2vw, 22px);
+      font-weight: 700; color: #fff;
+      line-height: 1.25; letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .article-cta__title em { font-style: normal; color: #F5D49A; }
+    .article-cta__sub { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 24px; line-height: 1.5; }
+    .btn-cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #C07230; color: #fff;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      border: none; border-radius: 12px;
+      padding: 16px 32px; cursor: pointer;
+      text-decoration: none;
+      transition: background .18s, transform .15s;
+      box-shadow: 0 8px 24px -6px rgba(192,114,48,0.55);
+    }
+    .btn-cta:hover { background: #a85e20; transform: translateY(-1px); }
+
+    /* ══ FOOTER ══ */
+    .page-foot { background: var(--ink); padding: 28px 0; text-align: center; }
+    .page-foot p { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .page-foot a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .page-foot a:hover { color: #fff; }
+
+    /* ══ divider ══ */
+    .divider { border: none; border-top: 2px solid var(--warm-line); margin: 36px 0; }
+  </style>
+</head>
+<body>
+
+<!-- ══ ШАПКА ══ -->
+<header class="page-header">
+  <div class="wrap">
+    <div class="page-header__eyebrow">
+      <a href="https://dr-agape.ru">dr-agape.ru</a>
+      <span>›</span>
+      <span>Статьи</span>
+    </div>
+    <div class="page-header__series">Детокс · Статья 1 из 3</div>
+    <h1 class="page-header__title">
+      Ошибки самолечения, которые <em>ухудшают здоровье</em>
+    </h1>
+    <div class="page-header__meta">
+      <img src="../photos/oleg1566.jpg" alt="Олег Агапэ" class="page-header__avatar">
+      <span>Олег Агапэ · Врач-остеопат, 8 лет практики</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══ СТАТЬЯ ══ -->
+<main>
+  <div class="wrap">
+    <article class="article">
+
+      <p>В предыдущем видео вы уже определились с термином <strong>детокс</strong> и узнали, что в той или иной степени интоксикацией ежедневно страдают <strong>8 из 10 человек</strong>.</p>
+
+      <p>Тест показал, насколько лично ваш организм прямо сейчас перегружен выводом токсинов. Возможно, у вас возникла мысль пойти и начать применять уже известные вам способы очищения: голодание, клизма, противопаразитарная программа.</p>
+
+      <div class="callout callout--warn">
+        ⛔ НО ЭТО НЕ РЕШИТ ПРОБЛЕМУ. Не вредите себе — дочитайте эту статью до конца. Сейчас я расскажу о самых частых ошибках, которые допускают 95% моих пациентов.
+      </div>
+
+      <!-- ТЗ: иллюстрация-заголовок -->
+      <div class="img-placeholder">
+        <div class="img-placeholder__icon">🎨</div>
+        <div class="img-placeholder__label">ТЗ на иллюстрацию</div>
+        <div class="img-placeholder__desc">Карточка с заголовком «Ошибки, которые ни в коем случае нельзя допускать» — тёмно-синий фон, крупный белый текст, предупреждающий знак или иконки ошибок (перечёркнутые действия). Стиль: минималистичный, медицинский.</div>
+      </div>
+
+      <h2>Знакомьтесь — Елена</h2>
+
+      <!-- ТЗ: персонаж Елена -->
+      <div class="img-placeholder">
+        <div class="img-placeholder__icon">🎨</div>
+        <div class="img-placeholder__label">ТЗ на иллюстрацию</div>
+        <div class="img-placeholder__desc">Персонаж — молодая женщина 30–35 лет в деловой одежде, с портфелем или ноутбуком. Рядом стрелка и подпись «Это Елена». Стиль: плоская иллюстрация, тёплые пастельные тона, дружелюбная.</div>
+      </div>
+
+      <p>Елена работает бухгалтером. Дома — двое детей. В свободное время листает соцсети, на выходных гуляет с семьёй и встречается с друзьями.</p>
+
+      <p>Лена страдает от постоянных головных болей, ей тяжело работать — особенно в период отчётностей. Постоянный стресс, раздражительность на детей и мужа…</p>
+
+      <!-- ТЗ: сцена с Еленой -->
+      <div class="img-placeholder">
+        <div class="img-placeholder__icon">🎨</div>
+        <div class="img-placeholder__label">ТЗ на иллюстрацию</div>
+        <div class="img-placeholder__desc">Сцена: Елена держится за голову со словами «Боже, голова раскалывается». Вокруг кричащие дети и летающие листы с надписью «Бухгалтерская отчётность». Стиль: комиксовые пузыри речи, живой и немного юмористичный.</div>
+      </div>
+
+      <p>Она замечает отёчность по утрам, быстрее устаёт, чем раньше, и как-то незаметно постарела внешне.</p>
+
+      <h2>Совет подруги</h2>
+
+      <p>Лена начала изучать YouTube в поисках решения: кто-то советует клизму и голодание, кто-то — убрать мясо, молочку, сахар и жареное. Но однажды по дороге на работу она встречает подругу Веру — фитнес-тренера.</p>
+
+      <div class="speech-bubble">
+        «Лен, у меня тоже такое было. Пей только соки — и всё пройдёт. Мне помогло! Кстати, на соках открывается море энергии, ты не будешь знать, куда её девать!»
+        <span class="speaker">Вера, фитнес-тренер</span>
+      </div>
+
+      <!-- ТЗ: Елена и Вера -->
+      <div class="img-placeholder">
+        <div class="img-placeholder__icon">🎨</div>
+        <div class="img-placeholder__label">ТЗ на иллюстрацию</div>
+        <div class="img-placeholder__desc">Две подруги стоят рядом на улице. Вера выглядит энергично, спортивно. Елена слушает с интересом. Пузырь речи от Веры с советом про соки. Стиль: тёплая плоская иллюстрация.</div>
+      </div>
+
+      <p>Елена соглашается. Первый день соковой диеты тяжёлый, но на второй и третий становится легче — голова болит реже, появляется лёгкость и энергия.</p>
+
+      <h2>Что происходит после диеты</h2>
+
+      <p>Марафон жидкого питания заканчивается, и Лена возвращается к привычному: бутерброд на завтрак, быстрый перекус на работе, плотный семейный ужин дома.</p>
+
+      <!-- ТЗ: зажор -->
+      <div class="img-placeholder">
+        <div class="img-placeholder__icon">🎨</div>
+        <div class="img-placeholder__label">ТЗ на иллюстрацию</div>
+        <div class="img-placeholder__desc">Елена за столом с большим количеством еды, восклицает «Ну наконец-то можно!». Рядом весёлый персонаж с именем «Зажор» — толстый, радостный, олицетворяет срыв. Стиль: карикатурный, понятный.</div>
+      </div>
+
+      <p>Прошло пару дней — и Елена замечает, что ест всё больше и больше. Сладкое вместо 2–3 раз в неделю — теперь 5–7 раз, и отказаться кажется нереальным. Предыдущие симптомы не только возвращаются, но и усугубляются: головная боль, быстрая утомляемость, высыпания на лице. Ещё и живот начал болеть, режет, стул ухудшился.</p>
+
+      <hr class="divider">
+
+      <h2>Что Елена сделала неверно?</h2>
+
+      <!-- ТЗ: карточка-вопрос -->
+      <div class="img-placeholder">
+        <div class="img-placeholder__icon">🎨</div>
+        <div class="img-placeholder__label">ТЗ на иллюстрацию</div>
+        <div class="img-placeholder__desc">Карточка с вопросом «Что Лена сделала неверно? И как нужно было?» — крупный текст, знак вопроса, контрастный дизайн. Стиль аналогичен первой карточке с ошибками.</div>
+      </div>
+
+      <!-- Автор-блок: объяснение Олега -->
+      <div class="author-block">
+        <img src="../photos/oleg1566.jpg" alt="Олег Агапэ" class="author-block__photo">
+        <div>
+          <div class="author-block__name">Олег Агапэ</div>
+          <div class="author-block__role">Врач-остеопат · 8 лет практики</div>
+          <div class="author-block__text">По всем симптомам, у Елены была <strong>интоксикация</strong>. Раздражительность, головная боль, отёчность, высыпания на лице — это ежедневное отравление организма. Если упростить: будто вы каждый день принимаете микродозу яда.</div>
+        </div>
+      </div>
+
+      <p>Когда Лена перешла на соки — ей стало легче: она дала внутренним органам отдохнуть, разгрузила пищеварение. Функция пищеварения забирает у тела много энергии, и лёгкое питание — это своего рода выходной для организма.</p>
+
+      <p><strong>Но Лена не работала с функцией очищения организма.</strong> Когда она вернулась к прежнему питанию — организм так и не справлялся с выводом токсинов. Более того, она быстро заработала расстройство пищевого поведения, которое долго прорабатывают с психотерапевтом.</p>
+
+      <div class="callout callout--warn">
+        ⚠️ А могло быть и хуже: ещё сильнее болит голова, тошнота, горечь во рту, желчный и поджелудочная не справляются. Неудачный опыт навсегда отталкивает человека от любых попыток улучшить здоровье.
+      </div>
+
+      <hr class="divider">
+
+      <div class="callout callout--blue">
+        <strong>Никто не исключение.</strong> Интоксикация — частое явление среди пациентов. Когда токсины не выводятся, другие заболевания появляются как следствие. А решать нужно причину, а не следствие.
+      </div>
+
+      <h2>Как нужно было сделать правильно?</h2>
+
+      <!-- ТЗ: карточка-ответ -->
+      <div class="img-placeholder">
+        <div class="img-placeholder__icon">🎨</div>
+        <div class="img-placeholder__label">ТЗ на иллюстрацию</div>
+        <div class="img-placeholder__desc">Карточка «Но как нужно было сделать правильно?» — позитивный стиль, зелёный акцент или галочка. Контраст с предыдущими карточками об ошибках.</div>
+      </div>
+
+      <p>Елене нужно было не просто дать органам отдохнуть, а <strong>запустить функцию очищения — мягко и комфортно, работая со своим телом</strong>.</p>
+
+      <p>Правильную технологию очищения не сделают за вас никакие таблетки или медицинские препараты. Вы должны сами понять, что нужно делать — и делать это ежедневно. Минимум 7 дней, а затем при первых же симптомах — повторить.</p>
+
+      <div class="author-block">
+        <img src="../photos/oleg_teaching_close_up.png" alt="Олег Агапэ" class="author-block__photo">
+        <div>
+          <div class="author-block__name">Олег Агапэ</div>
+          <div class="author-block__role">Врач-остеопат</div>
+          <div class="author-block__text">Для того чтобы вы не совершали таких ошибок, как Лена, и провели детокс действительно эффективно — я создал интенсив <strong>«ОстеоДетокс»</strong>. За 7 дней с поддержкой опытных врачей вы очистите тело от токсинов и наладите естественные функции организма.</div>
+        </div>
+      </div>
+
+      <p>Для того чтобы заняться своим здоровьем, нужно любить себя и быть смелым. Но когда вы слепо следуете рекомендациям из интернета — смелость граничит с безумием. За 8 лет практики я видел много таких ситуаций. Именно поэтому и пишу эти статьи — чтобы показать, как делать детокс мягко и эффективно.</p>
+
+      <div class="article-cta">
+        <div class="article-cta__label">Интенсив «ОстеоДетокс»</div>
+        <div class="article-cta__title">7 дней — и организм <em>очищен правильно</em></div>
+        <div class="article-cta__sub">С поддержкой опытных врачей. Мягко, безопасно, с результатом.</div>
+        <a href="#" class="btn-cta">Стать участником ОстеоДетокса →</a>
+      </div>
+
+    </article>
+  </div>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-foot">
+  <div class="wrap">
+    <p>© 2026 Олег Агапэ · <a href="https://dr-agape.ru">dr-agape.ru</a> · <a href="/offer.html">Оферта</a> · <a href="/privacy.html">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
