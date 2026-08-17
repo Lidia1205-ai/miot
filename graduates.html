@@ -63,6 +63,19 @@
             background: #fafafa; cursor: pointer; outline: none; transition: border-color 0.2s;
         }
         .filter-select:focus { border-color: var(--color-highlight, #8B6F47); }
+        .filter-toggle {
+            display: flex; align-items: center; gap: 0.4rem;
+            padding: 0.55rem 0.9rem;
+            border: 1.5px solid #E0E0E0; border-radius: 2rem;
+            font-family: var(--font-secondary, Inter, sans-serif); font-size: 0.85rem;
+            background: #fafafa; cursor: pointer; user-select: none; white-space: nowrap;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+        }
+        .filter-toggle input { accent-color: var(--color-highlight, #8B6F47); cursor: pointer; }
+        .filter-toggle.active {
+            border-color: var(--color-highlight, #8B6F47);
+            background: var(--color-highlight, #8B6F47); color: #fff;
+        }
         .count-badge {
             font-size: 0.82rem; color: var(--color-text-secondary, #888);
             white-space: nowrap; padding: 0 0.5rem;
@@ -221,7 +234,7 @@
             </div>
             <div class="stat-item">
                 <div class="stat-num" id="statActive">—</div>
-                <div class="stat-label">активно принимают</div>
+                <div class="stat-label">свободные специалисты</div>
             </div>
         </div>
     </div>
@@ -234,6 +247,10 @@
             <select id="countryFilter" class="filter-select">
                 <option value="">Все страны</option>
             </select>
+            <label class="filter-toggle" id="activeFilterLabel">
+                <input type="checkbox" id="activeFilter">
+                Только свободные специалисты
+            </label>
             <span class="count-badge" id="countBadge"></span>
         </div>
     </div>
@@ -420,7 +437,7 @@ function renderList(data) {
                 ${locParts.length ? `<div class="grad-location">📍 ${locParts.join(', ')}</div>` : ''}
                 ${g.specialty ? `<div class="grad-specialty">${g.specialty}</div>` : ''}
                 <div class="grad-tags">
-                    ${g.active ? '<span class="tag tag-active">✓ Активно принимает</span>' : ''}
+                    ${g.active ? '<span class="tag tag-active">✓ Свободный специалист</span>' : ''}
                     ${g.tg ? `<a href="https://t.me/${g.tg.replace('@','')}" target="_blank" class="tag tag-tg" onclick="event.stopPropagation()">Telegram</a>` : ''}
                     ${g.max ? `<a href="${g.max}" target="_blank" class="tag tag-max" onclick="event.stopPropagation()">MAX</a>` : ''}
                     ${g.phone ? `<a href="tel:${g.phone}" class="tag tag-phone" onclick="event.stopPropagation()">${g.phone}</a>` : ''}
@@ -478,8 +495,11 @@ function highlightCard(realIdx) {
 function applyFilters() {
     const q = document.getElementById('searchInput').value.trim().toLowerCase();
     const country = document.getElementById('countryFilter').value;
+    const onlyActive = document.getElementById('activeFilter').checked;
+    document.getElementById('activeFilterLabel').classList.toggle('active', onlyActive);
     currentFiltered = ALL_GRADUATES.filter(g => {
         if (country && g.country !== country) return false;
+        if (onlyActive && !g.active) return false;
         if (q) {
             const hay = [g.name, g.city, g.country, g.specialty].join(' ').toLowerCase();
             if (!hay.includes(q)) return false;
@@ -492,6 +512,7 @@ function applyFilters() {
 
 document.getElementById('searchInput').addEventListener('input', applyFilters);
 document.getElementById('countryFilter').addEventListener('change', applyFilters);
+document.getElementById('activeFilter').addEventListener('change', applyFilters);
 
 // --- Init ---
 updateStats();
