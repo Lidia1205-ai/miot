@@ -317,6 +317,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Tea ceremony photo gallery
+    const teaGallery = document.getElementById('teaGallery');
+    if (teaGallery) {
+        const teaImages = teaGallery.getAttribute('data-images').split(',');
+        const teaDots = teaGallery.querySelectorAll('.gallery-dot');
+        let teaIndex = 0;
+
+        function showTeaImage(i) {
+            teaIndex = i;
+            teaGallery.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('${teaImages[teaIndex]}')`;
+            teaDots.forEach((dot, di) => dot.classList.toggle('active', di === teaIndex));
+        }
+
+        teaGallery.addEventListener('click', () => {
+            showTeaImage((teaIndex + 1) % teaImages.length);
+        });
+
+        setInterval(() => {
+            showTeaImage((teaIndex + 1) % teaImages.length);
+        }, 4000);
+    }
+
     // Community Video Modal Logic
     const communityVideoModal = document.getElementById('communityVideoModal');
     const communityVideo = document.getElementById('communityVideo');

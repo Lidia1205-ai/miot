@@ -1870,6 +1870,32 @@ section {
     padding: 0 1rem;
 }
 
+.gallery-dots {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.gallery-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.gallery-dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+.photo-gallery-mockup span {
+    margin-top: 1rem;
+}
+
 /* Video Modal */
 .video-modal {
     position: fixed;
