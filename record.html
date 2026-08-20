@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Олег Агапэ</title>
+  <title>Биодинамика: от техники к состоянию — запись эфира · Олег Агапэ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,12 +23,376 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
-    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+    /* ══ HERO ══ */
+    .hero { padding: 56px 0 40px; text-align: center; }
+    .hero__badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg,#1a3a6b,#2E5F9E);
+      color: #fff; border-radius: 16px; padding: 8px 18px;
+      margin-bottom: 20px;
+      font-family: 'Unbounded', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .hero__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(20px, 3.5vw, 38px);
+      font-weight: 800; color: var(--ink);
+      line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 14px;
+      max-width: 780px; margin-left: auto; margin-right: auto;
+    }
+    .hero__title em { font-style: normal; color: var(--warm); }
+
+    /* ══ ТАЙМЕР ══ */
+    .timer-wrap { margin: 0 auto 32px; max-width: 440px; }
+    .timer-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; }
+    .timer { display: flex; justify-content: center; gap: 10px; }
+    .timer__cell {
+      background: var(--card); border-radius: 12px;
+      border: 1.5px solid var(--warm-line); padding: 12px 16px;
+      min-width: 72px; text-align: center;
+      box-shadow: 0 2px 10px rgba(46,95,158,0.07);
+    }
+    .timer__num { font-family: 'Unbounded', sans-serif; font-size: clamp(22px, 3.5vw, 34px); font-weight: 800; color: var(--warm); line-height: 1; }
+    .timer__unit { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
+    .timer__sep { font-family: 'Unbounded', sans-serif; font-size: 28px; font-weight: 800; color: var(--warm-line); line-height: 1; padding-top: 10px; }
+
+    /* ══ ТЕМЫ ЭФИРА ══ */
+    .topics-section { padding: 0 0 48px; }
+    .topics-card {
+      background: var(--card); border-radius: 24px;
+      padding: 36px 44px 40px;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.10);
+    }
+    @media (max-width: 600px) { .topics-card { padding: 28px 20px 32px; } }
+    .topics-card__label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm); margin-bottom: 20px; }
+    .topics-card__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 2vw, 22px); font-weight: 700; color: var(--ink);
+      letter-spacing: -0.02em; margin-bottom: 24px; line-height: 1.25;
+    }
+    .topics-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+    .topics-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--ink-soft); line-height: 1.5; }
+    .topics-list li::before { content: '•'; color: var(--accent); font-size: 20px; font-weight: 900; flex-shrink: 0; margin-top: -1px; }
+    .topics-card__note {
+      margin-top: 24px;
+      background: var(--accent-soft);
+      border: 1.5px solid #f5d49a;
+      border-radius: 14px;
+      padding: 16px 20px;
+      font-size: 14.5px; color: #7a5010; line-height: 1.55;
+    }
+    .topics-card__note strong { color: #a85e20; }
+
+    /* ══ ВИДЕО ══ */
+    .video-section { padding: 0 0 40px; }
+    .video-section__label { text-align: center; font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 2vw, 22px); font-weight: 700; color: var(--ink); margin-bottom: 20px; }
+    .video-card {
+      background: var(--card); border-radius: 24px; overflow: hidden;
+      box-shadow: 0 4px 32px rgba(46,95,158,0.10); padding: 28px 32px 32px;
+    }
+    @media (max-width: 600px) { .video-card { padding: 20px 16px 24px; } }
+    .video-card video { width: 100%; border-radius: 14px; box-shadow: 0 8px 32px rgba(20,28,42,0.18); display: block; background: #0d1a30; }
+
+    /* ══ МИНИ-ОФФЕР ══ */
+    .video-cta { padding: 0 0 52px; }
+    .video-cta__inner {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
+      border-radius: 20px; padding: 28px 36px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .video-cta__text { flex: 1; min-width: 240px; }
+    .video-cta__label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+    .video-cta__title { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.8vw, 19px); font-weight: 700; color: #fff; line-height: 1.3; letter-spacing: -0.015em; }
+    .video-cta__title em { font-style: normal; color: #F5D49A; }
+    .video-cta__btns { display: flex; gap: 10px; flex-wrap: wrap; flex-shrink: 0; }
+    .btn-vcta-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #C07230; color: #fff; font-family: 'Unbounded', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      border: none; border-radius: 10px; padding: 14px 22px; cursor: pointer;
+      text-decoration: none; white-space: nowrap;
+      transition: background .18s, transform .15s;
+      box-shadow: 0 6px 18px -4px rgba(192,114,48,0.55);
+    }
+    .btn-vcta-primary:hover { background: #a85e20; transform: translateY(-1px); }
+    .btn-vcta-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.30);
+      color: #fff; font-family: 'Unbounded', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      border-radius: 10px; padding: 13px 22px; cursor: pointer;
+      text-decoration: none; white-space: nowrap; transition: background .18s, transform .15s;
+    }
+    .btn-vcta-outline:hover { background: rgba(255,255,255,0.22); transform: translateY(-1px); }
+    @media (max-width: 640px) {
+      .video-cta__inner { flex-direction: column; padding: 24px 20px; }
+      .video-cta__btns { width: 100%; }
+      .btn-vcta-primary, .btn-vcta-outline { flex: 1; text-align: center; }
+    }
+
+    /* ══ ПРОГРАММА ══ */
+    .program-section { padding: 0 0 64px; }
+    .program-section__eyebrow { display: block; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm); margin-bottom: 10px; }
+    .program-section__title { font-family: 'Unbounded', sans-serif; font-size: clamp(18px, 2.4vw, 28px); font-weight: 700; color: var(--ink); text-align: center; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .program-section__dates { text-align: center; color: var(--accent); font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .program-section__sub { text-align: center; color: var(--ink-mute); font-size: 15px; max-width: 640px; margin: 0 auto 12px; line-height: 1.6; }
+    .program-section__desc { text-align: center; color: var(--ink-soft); font-size: 15px; max-width: 640px; margin: 0 auto 36px; line-height: 1.6; }
+
+    .program-days { display: flex; flex-direction: column; gap: 16px; }
+    .day-card { background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 3px 20px rgba(46,95,158,0.08); display: flex; }
+    @media (max-width: 600px) { .day-card { flex-direction: column; } }
+    .day-card__num {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%); color: #fff;
+      font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 0.08em;
+      min-width: 120px; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 4px; padding: 24px 16px; text-align: center;
+    }
+    @media (max-width: 600px) { .day-card__num { min-width: unset; flex-direction: row; padding: 14px 20px; gap: 10px; } }
+    .day-card__num-big { font-size: 28px; line-height: 1; }
+    .day-card__body { padding: 24px 28px; flex: 1; }
+    @media (max-width: 600px) { .day-card__body { padding: 20px; } }
+    .day-card__heading { font-family: 'Unbounded', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 10px; }
+    .day-card__text { font-size: 14px; color: var(--ink-soft); line-height: 1.55; }
+
+    .bonus-strip { background: var(--card); border-radius: 16px; border: 1.5px solid var(--warm-line); padding: 18px 24px; margin-top: 20px; font-size: 14px; color: var(--ink-soft); line-height: 1.55; text-align: center; }
+    .bonus-strip strong { color: var(--ink); }
+
+    /* ══ НИЖНИЕ CTA ══ */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: #fff; font-family: 'Unbounded', sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      border: none; border-radius: 12px; padding: 16px 32px; cursor: pointer;
+      text-decoration: none; transition: background .18s, transform .15s, box-shadow .18s;
+      box-shadow: 0 8px 24px -8px rgba(192,114,48,0.50);
+    }
+    .btn-primary:hover { background: #a85e20; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--card); color: var(--warm); font-family: 'Unbounded', sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      border: 2px solid var(--warm-line); border-radius: 12px; padding: 14px 30px; cursor: pointer;
+      text-decoration: none; transition: background .18s, border-color .18s, transform .15s;
+    }
+    .btn-secondary:hover { background: var(--warm-soft); border-color: var(--warm); transform: translateY(-1px); }
+
+    .cta-block { padding: 0 0 56px; text-align: center; }
+    .cta-block__title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(16px, 2vw, 22px); font-weight: 700; color: var(--ink);
+      letter-spacing: -0.02em; max-width: 640px; margin: 0 auto 24px; line-height: 1.35;
+    }
+    .cta-block__title em { font-style: normal; color: var(--warm); }
+
+    .cta-block--dark {
+      background: linear-gradient(135deg, #1a3a6b 0%, #2E5F9E 100%);
+      border-radius: 24px; padding: 44px 36px;
+    }
+    .cta-block--dark .cta-block__eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+    .cta-block--dark .cta-block__title { color: #fff; }
+    .cta-block--dark .cta-block__title em { color: #F5D49A; }
+
+    /* ══ FOOTER ══ */
+    .page-foot { padding: 24px 0 36px; text-align: center; color: var(--ink-mute); font-size: 12px; border-top: 1px solid var(--warm-line); }
+    .page-foot a { color: var(--ink-mute); text-decoration: none; }
+    .page-foot a:hover { color: var(--warm); }
   </style>
 </head>
 <body>
 
-<!-- контент будет добавлен позже -->
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__badge">Запись эфира · Олег Агапэ</div>
+    <h1 class="hero__title">
+      «<em>БИОДИНАМИКА:</em> от техники к состоянию» ✅
+    </h1>
+
+    <!-- ТАЙМЕР 48 ЧАСОВ -->
+    <div class="timer-wrap">
+      <div class="timer-label">Запись доступна ещё</div>
+      <div class="timer" id="timer">
+        <div class="timer__cell">
+          <div class="timer__num" id="t-h">48</div>
+          <div class="timer__unit">часов</div>
+        </div>
+        <div class="timer__sep">:</div>
+        <div class="timer__cell">
+          <div class="timer__num" id="t-m">00</div>
+          <div class="timer__unit">минут</div>
+        </div>
+        <div class="timer__sep">:</div>
+        <div class="timer__cell">
+          <div class="timer__num" id="t-s">00</div>
+          <div class="timer__unit">секунд</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ТЕМЫ ЭФИРА ══ -->
+<section class="topics-section">
+  <div class="wrap">
+    <div class="topics-card">
+      <div class="topics-card__label">На эфире вы узнаете</div>
+      <ul class="topics-list">
+        <li>Что такое биодинамика простым языком и почему это не просто очередной набор техник</li>
+        <li>Чем отличается привычный подход «найти дисфункцию → исправить» от принципа «наблюдать → позволить системе изменяться»</li>
+        <li>Что такое нейтральность специалиста и почему состояние, внимание и качество наблюдения напрямую влияют на процесс взаимодействия с подопечным</li>
+        <li>Что именно можно наблюдать: напряжение тканей, движение, ритмы, внутренние органы, эмоции и другие процессы</li>
+        <li>Как связать биодинамический подход с конкретной терапевтической задачей и оценивать изменения после сеанса</li>
+        <li>Как развивать чувствительность и постепенно увеличивать объём информации, которую способен воспринимать специалист</li>
+      </ul>
+      <div class="topics-card__note">
+        🤍 <strong>А главное</strong> — прямо на эфире Олег дал первые практики, чтобы вы могли не просто услышать о биодинамике, а почувствовать принцип работы на себе.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ВИДЕО ══ -->
+<section class="video-section" id="video-section">
+  <div class="wrap">
+    <div class="video-section__label">Смотреть запись эфира 👇🏻</div>
+    <div class="video-card">
+      <video controls preload="none">
+        <source src="https://fs.getcourse.ru/fileservice/file/download/a/202733/sc/140/h/51af88817e4c3cb5a154812c0d0bb579.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ПОСЛЕ ВИДЕО ══ -->
+<section class="video-cta">
+  <div class="wrap">
+    <div class="video-cta__inner">
+      <div class="video-cta__text">
+        <div class="video-cta__label">Готовы пойти глубже?</div>
+        <div class="video-cta__title">Перейдите от отдельных ощущений к <em>системной работе</em> с телом на программе «Биодинамика»</div>
+      </div>
+      <div class="video-cta__btns">
+        <a href="#program" class="btn-vcta-primary">Программа обучения →</a>
+        <a href="https://bot.agape-course.com/87?utm_source=zapis" target="_blank" class="btn-vcta-outline">Эфир 31 августа</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ПРОГРАММА ══ -->
+<section class="program-section" id="program">
+  <div class="wrap">
+    <span class="program-section__eyebrow">Программа</span>
+    <h2 class="program-section__title">«Биодинамика: от техники к состоянию»</h2>
+    <p class="program-section__dates">🗓 Старт — 11 сентября · обучение продлится до февраля</p>
+    <p class="program-section__desc">
+      Это программа для тех, кто хочет перейти от отдельных ощущений и случайных «попаданий» к более системной работе с биодинамическим подходом. Вы будете постепенно развивать навык наблюдения и перцепции и сразу интегрировать его в практическую работу.
+    </p>
+
+    <div class="program-days">
+      <div class="day-card">
+        <div class="day-card__num">
+          <div>НАПРАВЛЕНИЕ</div>
+          <div class="day-card__num-big">1</div>
+        </div>
+        <div class="day-card__body">
+          <div class="day-card__heading">Опорно-двигательный контур</div>
+          <div class="day-card__text">Работа с костями, фасциями, сосудами, периферическими нервами, центральной осью, напряжением и сжатием.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-card__num">
+          <div>НАПРАВЛЕНИЕ</div>
+          <div class="day-card__num-big">2</div>
+        </div>
+        <div class="day-card__body">
+          <div class="day-card__heading">Висцеральный контур</div>
+          <div class="day-card__text">Внутренние органы, ЖКТ, дыхательная, сердечно-сосудистая и мочевыделительная системы, мотильность органов и связанные с ними процессы.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-card__num">
+          <div>НАПРАВЛЕНИЕ</div>
+          <div class="day-card__num-big">3</div>
+        </div>
+        <div class="day-card__body">
+          <div class="day-card__heading">Система гомеостаза</div>
+          <div class="day-card__text">Вегетативная и центральная нервная система, баланс симпатики и парасимпатики, эндокринные железы.</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-card__num">
+          <div>НАПРАВЛЕНИЕ</div>
+          <div class="day-card__num-big">4</div>
+        </div>
+        <div class="day-card__body">
+          <div class="day-card__heading">Внешний контур</div>
+          <div class="day-card__text">Работа с эмоциональными и информационными процессами, взаимодействием человека с другими людьми и внешней средой.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-strip">
+      ✅ Дополнительно в программе — 2 однодневных практических ретрита, отдельные вебинары по безопасности взаимодействия, развитию внимания и чувствительности.<br>
+      Каждый основной семинар — <strong>3 полноценных дня практики</strong> онлайн или офлайн.
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA: ЗАЯВКА НА ПРОГРАММУ ══ -->
+<section class="cta-block">
+  <div class="wrap">
+    <div class="cta-block--dark">
+      <div class="cta-block__eyebrow">Программа «Биодинамика»</div>
+      <div class="cta-block__title">Если чувствуете, что готовы перейти от <em>техники к состоянию</em> — оставляйте заявку на программу ✅</div>
+      <a href="https://online.agape-course.ru/biod_reg?utm_source=zapis" target="_blank" class="btn-primary">Оставить заявку →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA: ВТОРОЙ ЭФИР ══ -->
+<section class="cta-block">
+  <div class="wrap">
+    <div class="cta-block__title">И обязательно встречаемся <em>31 августа в 19:00 МСК</em> на второй бесплатной встрече</div>
+    <p style="font-size:15px;color:var(--ink-soft);max-width:600px;margin:0 auto 28px;line-height:1.6;">
+      Она будет ещё более практической — будем разбирать конкретные инструменты и пробовать биодинамический подход на себе 🤍
+    </p>
+    <a href="https://bot.agape-course.com/87?utm_source=zapis" target="_blank" class="btn-primary">Зарегистрироваться на эфир →</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="page-foot">
+  <div class="wrap">
+    <p>© 2026 Олег Агапэ · <a href="https://dr-agape.ru">dr-agape.ru</a></p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var KEY = 'biodynamics_record_end';
+    var end = localStorage.getItem(KEY);
+    if (!end || Date.now() > +end) {
+      end = Date.now() + 48 * 3600 * 1000;
+      localStorage.setItem(KEY, end);
+    }
+    function tick() {
+      var left = Math.max(0, end - Date.now());
+      var h = Math.floor(left / 3600000);
+      var m = Math.floor((left % 3600000) / 60000);
+      var s = Math.floor((left % 60000) / 1000);
+      document.getElementById('t-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('t-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('t-s').textContent = String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
 
 </body>
 </html>
