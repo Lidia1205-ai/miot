@@ -467,6 +467,7 @@ const SLIDES = [
 ]},
 
 {sec:'Программа', nav:'Модуль I · ОДА', blocks:[
+  {t:'illus', v:'illustrations/kit-biomech.png', size:'110px'},
   {t:'badge', v:'МОДУЛЬ I'},
   {t:'h1', v:'Опорно-двигательный аппарат'},
   {t:'small', v:'11–13 сентября'},
@@ -487,6 +488,7 @@ const SLIDES = [
 ]},
 
 {sec:'Программа', nav:'Модуль II · Висцеральные системы', blocks:[
+  {t:'illus', v:'illustrations/kit-visceral.png', size:'110px'},
   {t:'badge', v:'МОДУЛЬ II'},
   {t:'h1', v:'Висцеральные системы'},
   {t:'small', v:'16–18 октября'},
@@ -507,6 +509,7 @@ const SLIDES = [
 ]},
 
 {sec:'Программа', nav:'Модуль III · Нервная и эндокринная', blocks:[
+  {t:'illus', v:'illustrations/kit-cranio.png', size:'110px'},
   {t:'badge', v:'МОДУЛЬ III'},
   {t:'h1', v:'Нервная и эндокринная системы'},
   {t:'small', v:'13–15 ноября'},
@@ -528,6 +531,7 @@ const SLIDES = [
 ]},
 
 {sec:'Программа', nav:'Модуль IV · Поле и взаимодействие', blocks:[
+  {t:'illus', v:'illustrations/community-heart.png', size:'110px'},
   {t:'badge', v:'МОДУЛЬ IV'},
   {t:'h1', v:'Поле и расширенное взаимодействие'},
   {t:'small', v:'11–13 декабря'},
