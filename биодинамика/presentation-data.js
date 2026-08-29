@@ -64,7 +64,7 @@ const SLIDES = [
 ]},
 
 {sec:'Открытие', nav:'Как я пришёл к биодинамике', blocks:[
-  {t:'illus', v:'illustrations/sprout-growth.png', size:'110px'},
+  {t:'photos', v:['photos/10-college-1.png', 'photos/10-college-2.png', 'photos/10-college-3.png']},
   {t:'h1', v:'Как я пришёл к биодинамике'},
   {t:'list', v:[
     'Поступил в мед, но довольно быстро понял: классическая медицина отвечает не на все вопросы о теле',
@@ -76,6 +76,7 @@ const SLIDES = [
 ]},
 
 {sec:'Открытие', nav:'Сегодня', blocks:[
+  {t:'illus', v:'photos/09-expert-collage.png'},
   {t:'h1', v:'~~Сегодня~~'},
   {t:'list', v:[
     '^^7000+^^ пациентов принято лично',
