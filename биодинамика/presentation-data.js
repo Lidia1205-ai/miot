@@ -101,7 +101,7 @@ const SLIDES = [
 ]},
 
 {sec:'Клиническая проблема', nav:'1 · Хроническая и рецидивирующая боль', blocks:[
-  {t:'illus', v:'illustrations/headache-woman.png', size:'90px'},
+  {t:'illus', v:'illustrations/headache-woman.png', size:'150px'},
   {t:'badge', v:'ПРОБЛЕМА 1'},
   {t:'h1', v:'Хроническая и рецидивирующая боль'},
   {t:'p', v:'Головные боли, шея, поясница, таз, плечевой пояс, ВНЧС, мышечно-фасциальные синдромы'},
