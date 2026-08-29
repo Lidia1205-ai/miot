@@ -127,7 +127,7 @@ function renderBlock(b){
         return '<li>'+md(item)+'</li>';
       }).join('')+'</ul>';
       if (b.quote) colRight += '<div class="quote-block"><p>'+md(b.quote.v)+'</p>'
-        +'<div class="by">— '+b.quote.by+'</div></div>';
+        +(b.quote.by?'<div class="by">— '+md(b.quote.by)+'</div>':'')+'</div>';
       if (b.small) colRight += '<p class="small">'+md(b.small)+'</p>';
       var imgStyle = b.photoW ? ' style="width:'+b.photoW+'"' : '';
       var imgCls = 'photocols-img' + (b.imgContain ? ' img-contain' : '');
