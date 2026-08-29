@@ -128,7 +128,7 @@ const SLIDES = [
 ]},
 
 {sec:'Клиническая проблема', nav:'4 · После травм и операций', blocks:[
-  {t:'illus', v:'illustrations/kit-biomech.png', size:'110px'},
+  {t:'illus', v:'illustrations/kit-biomech.png', size:'170px'},
   {t:'badge', v:'ПРОБЛЕМА 4'},
   {t:'h1', v:'После травм, операций и длительной боли'},
   {t:'p', v:'Структура восстановилась, а защитное поведение осталось'},
