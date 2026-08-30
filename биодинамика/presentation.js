@@ -120,21 +120,21 @@ function renderBlock(b){
 
     case 'photocols':
       var colRight = '';
+      var textStyle = b.fontSize ? ' style="font-size:'+b.fontSize+'"' : '';
       if (b.tag) colRight += '<div class="badge">'+md(b.tag)+'</div>';
-      if (b.h) colRight += '<h1 style="font-size:clamp(26px,3.3vw,46px)">'+md(b.h)+'</h1>';
-      if (b.p) colRight += '<p>'+md(b.p)+'</p>';
+      if (b.h) colRight += '<h1 style="font-size:'+(b.fontSize ? 'clamp(30px,4vw,58px)' : 'clamp(26px,3.3vw,46px)')+'">'+md(b.h)+'</h1>';
+      if (b.p) colRight += '<p'+textStyle+'>'+md(b.p)+'</p>';
       if (b.list) colRight += '<ul class="items">'+b.list.map(function(item){
-        return '<li>'+md(item)+'</li>';
+        return '<li'+textStyle+'>'+md(item)+'</li>';
       }).join('')+'</ul>';
-      if (b.quote) colRight += '<div class="quote-block"><p>'+md(b.quote.v)+'</p>'
+      if (b.quote) colRight += '<div class="quote-block"><p'+textStyle+'>'+md(b.quote.v)+'</p>'
         +(b.quote.by?'<div class="by">— '+md(b.quote.by)+'</div>':'')+'</div>';
       if (b.small) colRight += '<p class="small">'+md(b.small)+'</p>';
       var imgStyle = b.photoW ? ' style="width:'+b.photoW+'"' : '';
       var imgCls = 'photocols-img' + (b.imgContain ? ' img-contain' : '');
       var photocolsCls = 'photocols' + (b.photoRight ? ' photo-right' : '');
-      var listStyle = b.fontSize ? ' style="font-size:'+b.fontSize+'"' : '';
       return '<div class="'+photocolsCls+'"><img class="'+imgCls+'"'+imgStyle+' src="'+b.photo+'" alt="">'
-        +'<div class="photocols-list"'+listStyle+'>'+colRight+'</div></div>';
+        +'<div class="photocols-list">'+colRight+'</div></div>';
 
     case 'testimonial':
       return '<div class="testimonial-card"><div class="star">'+md(b.tag)+'</div>'
