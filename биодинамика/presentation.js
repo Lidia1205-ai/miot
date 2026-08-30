@@ -62,11 +62,15 @@ function renderBlock(b){
       }).join('')+'</div>';
 
     case 'groups':
-      return '<div class="groups-row">'+b.v.map(function(g){
+      var groupsCls = 'groups-row' + (b.arrow ? ' with-arrow' : '');
+      var groupBlocks = b.v.map(function(g, gi){
         var sub = g.sub ? '<ul class="items" style="margin:0">'
           +g.sub.map(function(s){return '<li>'+md(s)+'</li>';}).join('')+'</ul>' : '';
-        return '<div class="group-block"><div class="group-lead">'+md(g.lead)+'</div>'+sub+'</div>';
-      }).join('')+'</div>';
+        return '<div class="group-block group-'+(gi===0?'before':'after')+'"><div class="group-lead">'+md(g.lead)+'</div>'+sub+'</div>';
+      });
+      if (b.arrow && groupBlocks.length === 2)
+        groupBlocks.splice(1, 0, '<div class="groups-arrow">→</div>');
+      return '<div class="'+groupsCls+'">'+groupBlocks.join('')+'</div>';
 
     case 'numbered':
       return '<div class="num-list">'+b.v.map(function(i,idx){
