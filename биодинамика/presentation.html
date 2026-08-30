@@ -375,6 +375,14 @@ strong{color:var(--ink);font-weight:700}
   color:rgba(27,24,48,.55);margin-bottom:8px}
 .card-generic p{color:var(--ink)}
 
+/* ── Крупный текст (по запросу для отдельных слайдов) ── */
+.slide.big-text p{font-size:clamp(21px,2.5vw,32px)}
+.slide.big-text .check-text{font-size:clamp(21px,2.4vw,31px)}
+.slide.big-text .card-generic .label{font-size:12.5px}
+.slide.big-text .card-generic h3{font-size:clamp(20px,2.3vw,28px)}
+.slide.big-text .result-block p{font-size:clamp(23px,2.6vw,34px)}
+.slide.big-text .small{font-size:clamp(18px,1.9vw,24px)}
+
 /* ── Фото ── */
 .photo-row{display:flex;gap:12px;justify-content:center;align-items:center;margin:10px 0}
 .slide-photo{width:100%;max-height:46vh;object-fit:cover;border-radius:var(--r-md);flex:1;min-width:0}
