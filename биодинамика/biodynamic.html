@@ -1477,6 +1477,7 @@
           <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">при раннем бронировании · экономия 10 000 ₽</div>
           <div class="plan-card__spots">Мест в группе: 22 · <strong>Осталось: 10</strong></div>
           <button onclick="gcOpen('gcModalOffline')" class="btn btn-primary" style="cursor:pointer;">Занять офлайн-место</button>
+          <button onclick="gcOpen('gcModalOfflineBooking')" class="btn" style="border:2px solid rgba(255,255,255,0.3); background:transparent; color:#fff; cursor:pointer; margin-top:0.6rem;">Забронировать</button>
         </div>
         <div class="plan-card">
           <div>
@@ -1498,6 +1499,7 @@
           <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">при раннем бронировании · экономия 10 000 ₽</div>
           <div class="plan-card__spots">Без ограничений по местам</div>
           <button onclick="gcOpen('gcModalOnline')" class="btn" style="border:2px solid rgba(255,255,255,0.3); background:transparent; color:#fff; cursor:pointer;">Участвовать онлайн</button>
+          <button onclick="gcOpen('gcModalOnlineBooking')" class="btn" style="border:2px solid rgba(255,255,255,0.3); background:transparent; color:#fff; cursor:pointer; margin-top:0.6rem;">Забронировать</button>
         </div>
       </div>
       <p class="cta-note">⚡ Часть мест уже занята. Если после первого модуля вы почувствуете, что это не ваше — мы найдём решение.</p>
@@ -1594,6 +1596,28 @@
     <div class="gc-modal__title">Онлайн формат</div>
     <div class="gc-modal__body">
       <script id="36231697d1d4f26b674b57843d14e7747d6ec3f0" src="https://online.agape-course.ru/pl/lite/widget/script?id=1611794" onload="typeof startWidget36231697d1d4f26b674b57843d14e7747d6ec3f0==='function'&&startWidget36231697d1d4f26b674b57843d14e7747d6ec3f0()"></script>
+    </div>
+  </div>
+</div>
+
+<div id="gcModalOfflineBooking" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" onclick="gcCloseAll()"></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" onclick="gcCloseAll()">✕</button>
+    <div class="gc-modal__title">Бронирование офлайн-места</div>
+    <div class="gc-modal__body">
+      <script id="00c896fb5713354d1da76d332806b2c8c883b829" src="https://online.agape-course.ru/pl/lite/widget/script?id=1650208" onload="typeof startWidget00c896fb5713354d1da76d332806b2c8c883b829==='function'&&startWidget00c896fb5713354d1da76d332806b2c8c883b829()"></script>
+    </div>
+  </div>
+</div>
+
+<div id="gcModalOnlineBooking" class="gc-modal" role="dialog" aria-modal="true">
+  <div class="gc-modal__overlay" onclick="gcCloseAll()"></div>
+  <div class="gc-modal__box">
+    <button class="gc-modal__close" onclick="gcCloseAll()">✕</button>
+    <div class="gc-modal__title">Бронирование онлайн-места</div>
+    <div class="gc-modal__body">
+      <script id="82be0f8c1e95abf171539e954372a76ec4af6624" src="https://online.agape-course.ru/pl/lite/widget/script?id=1650206" onload="typeof startWidget82be0f8c1e95abf171539e954372a76ec4af6624==='function'&&startWidget82be0f8c1e95abf171539e954372a76ec4af6624()"></script>
     </div>
   </div>
 </div>
